@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/07 16:24:43 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/07 17:20:16 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,16 @@ CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
 SRCS	=	ft_strlen.c		\
 			ft_strjoin.c	\
+			ft_strtrim.c	\
+			ft_strdup.c		\
+			ft_strsub.c		\
 							\
 			ft_putchar.c	\
 			ft_putchar_fd.c	\
 			ft_putstr.c		\
 			ft_putstr_fd.c	\
+			ft_putendl.c	\
+			ft_putendl_fd.c	\
 
 OBJ		:=	$(addsuffix .o,$(basename $(SRCS)))
 NAME	=	libft.a

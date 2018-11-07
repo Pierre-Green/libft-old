@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:42:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/07 17:15:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/07 17:45:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,11 @@ char		*ft_strtrim(char const *s)
 {
 	int		length;
 	int		trim_length;
-	char	*result;
-	int		current;
 	int		start;
 
 	length = ft_strlen(s);
 	start = ft_strtrim_start(s);
 	if ((trim_length = ft_strtrim_len(s, start)) == length)
 		return (ft_strdup(s));
-	if (!(result = (char *) malloc((1 + trim_length) * sizeof(char))))
-		return (NULL);
-	current = 0;
-	while (current < trim_length)
-	{
-		result[current] = s[start + current];
-		current++;
-	}
-	result[current] = '\0';
-	return (result);
+	return (ft_strsub(s, start, (size_t)trim_length));
 }

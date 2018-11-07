@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/07 16:23:07 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/07 17:11:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+
+# define IsWhiteSpace(c) (c == ' ' ? 1 : (c == '\n' ? 1 : (c == '\t' ? 1 : 0)))
 
 void	*ft_memalloc(size_t size);
 
@@ -40,6 +42,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 size_t	ft_strlen(const char *s);
+
+char	*ft_strdup(const char *s1);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
