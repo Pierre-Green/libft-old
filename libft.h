@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/07 18:41:18 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/07 19:36:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 
 # define IsWhiteSpace(c) (c == ' ' ? 1 : (c == '\n' ? 1 : (c == '\t' ? 1 : 0)))
+# define ABS(v) (v < 0 ? -v : v)
+
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 void	*ft_memalloc(size_t size);
 

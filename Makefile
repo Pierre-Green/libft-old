@@ -6,19 +6,21 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/07 17:47:04 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/07 19:40:48 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc
 CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
-SRCS	=	ft_strlen.c		\
+SRCS	=	ft_memmove.c	\
+			ft_strlen.c		\
 			ft_strjoin.c	\
 			ft_strtrim.c	\
 			ft_strdup.c		\
 			ft_strsub.c		\
 			ft_strsplit.c	\
+			ft_strnequ.c	\
 							\
 			ft_putchar.c	\
 			ft_putchar_fd.c	\
@@ -26,6 +28,8 @@ SRCS	=	ft_strlen.c		\
 			ft_putstr_fd.c	\
 			ft_putendl.c	\
 			ft_putendl_fd.c	\
+							\
+			ft_itoa.c		\
 
 OBJ		:=	$(addsuffix .o,$(basename $(SRCS)))
 NAME	=	libft.a
