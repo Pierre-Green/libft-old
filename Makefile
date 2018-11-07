@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/07 19:40:48 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/07 20:00:25 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SRCS	=	ft_memmove.c	\
 			ft_strdup.c		\
 			ft_strsub.c		\
 			ft_strsplit.c	\
+			ft_strequ.c		\
 			ft_strnequ.c	\
+			ft_strmap.c		\
+			ft_strmapi.c	\
 							\
 			ft_putchar.c	\
 			ft_putchar_fd.c	\
