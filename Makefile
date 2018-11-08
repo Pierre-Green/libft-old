@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/08 19:19:06 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/08 19:58:36 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ CC		=	gcc
 CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
 SRCS	=	ft_memset.c		\
+			ft_memcpy.c		\
+			ft_memccpy.c	\
 			ft_memdel.c		\
 			ft_bzero.c		\
 			ft_memalloc.c	\

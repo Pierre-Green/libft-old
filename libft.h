@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 19:15:33 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/08 19:56:55 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 
 void	*ft_memset(void *s, int c, size_t n);
+
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
 void 	ft_bzero(void *s, size_t n);
 
