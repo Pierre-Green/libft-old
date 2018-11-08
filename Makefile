@@ -6,16 +6,34 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/07 20:00:25 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/08 18:53:05 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc
 CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
-SRCS	=	ft_memmove.c	\
+SRCS	=	ft_memset.c		\
+			ft_memdel.c		\
+			ft_bzero.c		\
+			ft_memalloc.c	\
+			ft_memmove.c	\
+			ft_isalnum.c	\
+			ft_isalpha.c	\
+			ft_isascii.c	\
+			ft_isdigit.c	\
+			ft_isprint.c	\
+			ft_tolower.c	\
+			ft_toupper.c	\
+							\
 			ft_strlen.c		\
+			ft_strcat.c		\
+			ft_strnew.c		\
+			ft_strdel.c		\
+			ft_strncat.c	\
+			ft_strlcat.c	\
 			ft_strjoin.c	\
+			ft_strstr.c		\
 			ft_strtrim.c	\
 			ft_strdup.c		\
 			ft_strsub.c		\

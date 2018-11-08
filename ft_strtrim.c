@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:42:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/07 17:45:31 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/08 16:15:21 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static int	ft_strtrim_len(char const *s, int start)
 	length = -1;
 	while (s[start + current])
 	{
-		if (IsWhiteSpace(s[start + current]) && length == -1)
+		if (ISWHITESPACE(s[start + current]) && length == -1)
 			length = current;
-		if (!IsWhiteSpace(s[start + current]) && length != -1)
+		if (!ISWHITESPACE(s[start + current]) && length != -1)
 			length = -1;
 		current++;
 	}
@@ -35,7 +35,7 @@ static int	ft_strtrim_start(char const *s)
 	int		start;
 
 	start = 0;
-	while(IsWhiteSpace(s[start]))
+	while(ISWHITESPACE(s[start]))
 		start++;
 	return (start);
 }

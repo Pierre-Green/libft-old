@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:26:09 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 18:34:19 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/08 18:54:08 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	if (*as)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	ft_memdel((void *)as);
 }
