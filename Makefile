@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/08 19:09:26 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/08 19:19:06 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRCS	=	ft_memset.c		\
 			ft_strclr.c		\
 			ft_striter.c	\
 			ft_striteri.c	\
+			ft_strchr.c		\
+			ft_strrchr.c	\
 			ft_strncat.c	\
 			ft_strlcat.c	\
 			ft_strjoin.c	\

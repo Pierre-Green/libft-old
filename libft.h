@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 19:08:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/08 19:15:33 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
 
 void	ft_strclr(char	*s);
+
+char	*ft_strchr(const char *s, int c);
+
+char	*ft_strrchr(const char *s, int c);
 
 void	ft_striter(char *s, void (*f)(char *));
 
