@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/09 16:45:28 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/09 17:32:02 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS	=	ft_memset.c		\
 			ft_tolower.c	\
 			ft_toupper.c	\
 			ft_itoa.c		\
+			ft_atoi.c		\
 							\
 			ft_strlen.c		\
 			ft_strcat.c		\

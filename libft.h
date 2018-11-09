@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 19:56:55 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:31:48 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,11 @@ char	**ft_strsplit(char const *s, char c);
  ** Convert an int into a string
 */
 char	*ft_itoa(int n);
+
+/*
+ ** Convert a string into an int
+*/
+int		ft_atoi(const char *nptr);
 
 /*
  ** Put a char in the stdout
