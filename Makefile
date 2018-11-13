@@ -6,17 +6,19 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/09 18:55:40 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/13 14:37:55 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc
 CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
-SRCS	=	ft_memset.c		\
+SRCS	=	ft_memchr.c		\
+			ft_memset.c		\
 			ft_memcpy.c		\
 			ft_memccpy.c	\
 			ft_memdel.c		\
+			ft_memcmp.c		\
 			ft_bzero.c		\
 			ft_memalloc.c	\
 			ft_memmove.c	\
@@ -36,6 +38,8 @@ SRCS	=	ft_memset.c		\
 			ft_strncmp.c	\
 			ft_strnew.c		\
 			ft_strdel.c		\
+			ft_strcpy.c		\
+			ft_strncpy.c	\
 			ft_strclr.c		\
 			ft_striter.c	\
 			ft_striteri.c	\
@@ -45,6 +49,7 @@ SRCS	=	ft_memset.c		\
 			ft_strlcat.c	\
 			ft_strjoin.c	\
 			ft_strstr.c		\
+			ft_strnstr.c	\
 			ft_strtrim.c	\
 			ft_strdup.c		\
 			ft_strsub.c		\

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 15:25:21 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 14:44:36 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/11/07 15:24:30 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/11/13 14:10:11 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	int		length;
+	size_t			current;
+	unsigned char	*ptr_dest;
+	unsigned char 	*ptr_src;
 
-	length = 0;
-	while (s[length])
-		length++;
-	return (length);
+	current = -1;
+	ptr_dest = (unsigned char *)dest;
+	ptr_src = (unsigned char *)src;
+	while (++current < n)
+	{
+		ptr_dest[current] = ptr_src[current];
+		if (ptr_src[current] == (unsigned char)c)
+			return((void *)&ptr_dest[current + 1]); 
+	}
+	return (NULL);
 }
