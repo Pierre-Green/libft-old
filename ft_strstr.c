@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:37:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 16:19:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char				*ft_strstr(const char *haystack, const char *needle)
 	while (*ptr_haystack)
 	{
 		current = 0;
-		while (*(ptr_haystack + current) == *(needle + current))
+		while (*(ptr_haystack + current) == *(ptr_needle + current))
 		{
 			if (*(needle + current + 1) == '\0')
 				return ((char *)ptr_haystack);
