@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/13 14:37:55 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/13 19:04:42 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,12 @@ SRCS	=	ft_memchr.c		\
 			ft_putnbr_fd.c	\
 							\
 			ft_itoa.c		\
+							\
+			ft_lstnew.c		\
+			ft_lstdelone.c	\
+			ft_lstdel.c		\
+			ft_lstiter.c	\
+			ft_lstmap.c		\
 
 OBJ		:=	$(addsuffix .o,$(basename $(SRCS)))
 NAME	=	libft.a
