@@ -6,16 +6,16 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:42:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 16:15:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:36:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
 static int	ft_strtrim_len(char const *s, int start)
 {
 	int		current;
-	int 	length;
+	int		length;
 
 	current = 0;
 	length = -1;
@@ -35,7 +35,7 @@ static int	ft_strtrim_start(char const *s)
 	int		start;
 
 	start = 0;
-	while(ISWHITESPACE(s[start]))
+	while (ISWHITESPACE(s[start]))
 		start++;
 	return (start);
 }

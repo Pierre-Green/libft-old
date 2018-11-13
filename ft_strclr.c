@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:57:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 18:58:41 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:33:21 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void 		ft_strclr(char *s)
+void		ft_strclr(char *s)
 {
 	size_t	current;
 

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:18:38 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/07 16:28:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:41:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	while (*s2)
 		result[current++] = *s2++;
 	result[current] = '\0';
-	return result;
+	return (result);
 }

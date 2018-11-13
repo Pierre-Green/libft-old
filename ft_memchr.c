@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:24:56 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 14:02:03 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:30:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			*ft_memchr(const void *b, int c, size_t len)
+void				*ft_memchr(const void *b, int c, size_t len)
 {
 	size_t			current;
 	unsigned char	chr;

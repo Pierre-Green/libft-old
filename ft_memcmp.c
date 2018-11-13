@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:25:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 14:41:55 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:30:25 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			current;
 	unsigned char	*ptr_s1;

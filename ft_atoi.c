@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/09 18:47:52 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:27:00 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				ft_atoi(const char *nptr)
 	char		*ptr;
 	int			result;
 
-	if(!(ptr = ft_atoi_shift_ptr((char **)&nptr)))
+	if (!(ptr = ft_atoi_shift_ptr((char **)&nptr)))
 		return (0);
 	neg = 0;
 	if (*ptr == '-')

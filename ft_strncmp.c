@@ -6,13 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:38 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/09 18:55:30 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:38:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n)
 {

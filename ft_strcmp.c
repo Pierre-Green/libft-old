@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:30 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 14:36:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:33:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int					ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned char	*ptr_s1;
 	unsigned char	*ptr_s2;

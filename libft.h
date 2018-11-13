@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 14:36:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:34:00 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
-void 	ft_bzero(void *s, size_t n);
+void	ft_bzero(void *s, size_t n);
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 

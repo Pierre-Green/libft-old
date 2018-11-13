@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:24:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/08 19:55:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:30:37 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void				*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr_dest;
 	unsigned char	*ptr_src;
