@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:54:26 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:54:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static char		*ft_atoi_shift_ptr(char **ptr)
 {
 	while (**ptr != '\0' && !ft_isdigit(**ptr) && **ptr != '-')
 	{
-		if (**ptr == '\e' && *(*ptr + 1) == '0')
+		if ((**ptr == '\e' && *(*ptr + 1) == '0') || (!ISWHITESPACE(**ptr)
+			&& **ptr != '\v' && **ptr != '\r' && **ptr != '\f' && **ptr != '+'))
 			return (NULL);
 		(*ptr)++;
 	}
