@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:46:24 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 17:03:37 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 18:16:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char		**ft_strsplit(char const *s, char c)
 	int		ctmp;
 	int		partlen;
 
-	if (!(result = (char **)malloc((1 + ft_strsplitc(s, c)) * sizeof(char *)))
-		|| !s || !c)
+	if (!s
+	|| !(result = (char **)malloc((1 + ft_strsplitc(s, c)) * sizeof(char *))))
 		return (NULL);
 	current = -1;
 	part = 0;

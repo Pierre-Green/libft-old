@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:42:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 17:07:07 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 18:13:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,13 @@ char		*ft_strtrim(char const *s)
 	int		trim_length;
 	int		start;
 
-	length = ft_strlen(s);
-	start = ft_strtrim_start(s);
-	if ((trim_length = ft_strtrim_len(s, start)) == length)
-		return (ft_strdup(s));
-	return (ft_strsub(s, start, (size_t)trim_length));
+	if (s)
+	{
+		length = ft_strlen(s);
+		start = ft_strtrim_start(s);
+		if ((trim_length = ft_strtrim_len(s, start)) == length)
+			return (ft_strdup(s));
+		return (ft_strsub(s, start, (size_t)trim_length));
+	}
+	return (NULL);
 }

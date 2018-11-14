@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:43:39 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:40:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:55:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	ft_putnbr_length(int n)
 
 static char		ft_putnbr_neg(int n, int fd)
 {
-	if (n > 0)
+	if (n >= 0)
 	{
 		return (42);
 	}
