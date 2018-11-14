@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:27:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:33 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:27:55 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list			*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (content != NULL)
 	{
-		if(!(node->content = ft_memalloc(content_size)))
+		if (!(node->content = ft_memalloc(content_size)))
 			return (NULL);
 		ft_memcpy((node->content), content, content_size);
 		node->content_size = content_size;
