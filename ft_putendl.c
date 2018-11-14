@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:36:00 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:32:10 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:08:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putstr(ft_strjoin(s, "\n"));
+	ft_putstr(s);
+	ft_putchar('\n');
 }
