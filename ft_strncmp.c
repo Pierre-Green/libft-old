@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:38 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:38:18 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:42:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	ptr_s1 = (unsigned char *)s1;
 	ptr_s2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
 	while (*ptr_s1 == *ptr_s2 && --n)
 	{
 		if (*ptr_s1 == '\0')
