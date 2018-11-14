@@ -6,11 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:46:24 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 18:16:34 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:03:41 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_strsplitc(char const *s, char c)
 {
