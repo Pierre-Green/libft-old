@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 19:04:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:41:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:58:25 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_striter(char *s, void (*f)(char *))
 {
 	int	current;
 
-	current = 0;
-	while (s[current])
+	if (s && f)
 	{
-		f(&s[current]);
-		current++;
+		current = 0;
+		while (s[current])
+		{
+			f(&s[current]);
+			current++;
+		}
 	}
 }

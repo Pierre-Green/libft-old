@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:57:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/13 15:33:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:57:54 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void		ft_strclr(char *s)
 {
 	size_t	current;
 
-	current = -1;
-	while (s[++current])
-		s[current] = '\0';
+	if (s)
+	{
+		current = -1;
+		while (s[++current])
+			s[current] = '\0';
+	}
 }

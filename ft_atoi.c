@@ -6,11 +6,29 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 16:54:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/14 17:44:37 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int		ft_is_valid(char *ptr)
+{
+	int			current;
+	int			count;
+
+	count = 0;
+	current = 0;
+	while (ptr[current])
+	{
+		if (ptr[current] == '-' || ptr[current] == '+')
+			count++;
+		current++;
+	}
+	if (count > 1)
+		return (0);
+	return (42);
+}
 
 static char		*ft_atoi_shift_ptr(char **ptr)
 {
@@ -32,7 +50,8 @@ int				ft_atoi(const char *nptr)
 	char		*ptr;
 	int			result;
 
-	if (!(ptr = ft_atoi_shift_ptr((char **)&nptr)))
+	if (!(ft_is_valid((char *)nptr))
+		|| !(ptr = ft_atoi_shift_ptr((char **)&nptr)))
 		return (0);
 	neg = 0;
 	if (*ptr == '-')
