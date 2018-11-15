@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 17:44:37 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/15 15:13:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		ft_is_valid(char *ptr)
 
 	count = 0;
 	current = 0;
-	while (ptr[current])
+	while (ptr[current] && !ft_isdigit(ptr[current]))
 	{
 		if (ptr[current] == '-' || ptr[current] == '+')
 			count++;

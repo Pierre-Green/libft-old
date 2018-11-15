@@ -6,11 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:26:36 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 19:28:41 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/15 15:23:47 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -21,7 +23,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	length = d_length + ft_strlen(src);
 	if (size <= d_length)
 		return (ft_strlen(src) + size);
-	while (d_length < (size - 1))
+	while ((d_length < (size - 1)) && *src)
 	{
 		dst[d_length] = *src++;
 		d_length++;
