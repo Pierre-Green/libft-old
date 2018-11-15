@@ -6,12 +6,17 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/15 15:26:00 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/15 17:49:51 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc
-CCFLAGS	=	-Wall -Werror -Wextra -Iincludes
+CFLAGS	=	-Wall -Werror -Wextra -Iincludes
+
+RESET = \033[0m
+PURPLE = \033[1;35m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
 
 SRCS	=	ft_memchr.c		\
 			ft_memset.c		\
@@ -77,19 +82,28 @@ SRCS	=	ft_memchr.c		\
 			ft_lstiter.c	\
 			ft_lstmap.c		\
 
-OBJ		:=	$(addsuffix .o,$(basename $(SRCS)))
+OBJS	=	$(SRCS:.c=.o)
 NAME	=	libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CCFLAGS) -c $(SRCS)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
+	@ar rcs $(NAME) $(OBJS)
+	@echo "$(PURPLE)Library packed: $(YELLOW)$(NAME)"
+
+%.o: %.c
+	@echo "$(PURPLE)Compiling $(GREEN)$<$(PURPLE) → $(YELLOW)$@"
+	@$(CC) $(CCFLAGS) -c $<
 
 clean:
-	rm -f $(OBJ)
+	@echo "$(YELLOW)Cleaning object files..."
+	@rm -f $(OBJS)
+	@echo "$(YELLOW)Object files has been cleaned !\n"
 
 fclean: clean
-	rm -rf $(NAME)
+	@echo "Deleting $(NAME)"
+	@rm -rf $(NAME)
+	@echo "$(NAME) has been deleted !"
 
 re: fclean $(NAME)
