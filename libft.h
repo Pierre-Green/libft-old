@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:30:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/14 16:21:59 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/15 20:33:45 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,15 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+t_list				*ft_lstfold(t_list **lst, t_list *(*f)(t_list *elem));
+
+int					ft_lstsize(t_list *begin_list);
+
+t_list				*ft_lstlast(t_list *begin_list);
+
+t_list				*ft_lstat(t_list *begin_list, unsigned int nbr);
+
+void				ft_divmod(int *a, int *b);
 
 #endif

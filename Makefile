@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/15 17:49:51 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/15 20:33:33 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,12 @@ SRCS	=	ft_memchr.c		\
 			ft_lstadd.c		\
 			ft_lstiter.c	\
 			ft_lstmap.c		\
+			ft_lstfold.c	\
+			ft_lstsize.c	\
+			ft_lstlast.c	\
+			ft_lstat.c		\
+							\
+			ft_divmod.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 NAME	=	libft.a
