@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/14 16:22:09 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/15 15:26:00 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ NAME	=	libft.a
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) -c $(SRCS)
 	ar rcs $(NAME) $(OBJ)
 
