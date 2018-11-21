@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_divmod.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 20:31:51 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/16 14:25:12 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/11/16 19:01:40 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/11/20 19:49:43 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
+# include "libft/libft.h"
+# define BUFF_SIZE 32
+# define RET_OK 1
+# define RET_DONE 0
+# define RET_ERR -1
 
-void	ft_divmod(int *a, int *b)
-{
-	int	tmp;
+int		get_next_line(const int fd, char **line);
 
-	tmp = *a;
-	*a = tmp / *b;
-	*b = tmp % *b;
-}
+#endif
