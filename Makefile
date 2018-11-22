@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/11/21 12:56:48 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/11/22 15:43:16 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PURPLE = \033[1;35m
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
 
-SRCS = get_next_line.c	\
+SRCS =  get_next_line.c	\
 		tests/main.c	\
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:05:17 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/21 12:03:30 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:53:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ int			ft_test(const char *file, int number)
 	char	*line;
 	int		fd;
 	int		ret;
+	int		count_line;
 
 	printf("Test %d:\n\n", number);
 
 	if (!(fd = open(file, O_RDONLY)))
 		return (-42);
 
-	while ((ret = get_next_line(fd, &line)) != RET_ERR)
+	count_line = 0;
+	while ((ret = get_next_line(0, &line)) != RET_ERR)
 	{
-		printf("%s\n", line);
+		count_line++;
+		printf("%d: Ret: %d\n%s\n",count_line, ret, line);
 		if (ret == RET_DONE)
 			break;
 	}
