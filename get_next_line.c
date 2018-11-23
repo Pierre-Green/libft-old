@@ -5,115 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:03:05 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/11/22 17:47:59 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/11/23 18:51:21 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/11/23 20:07:51 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void			ft_overflow_add(t_list **buff, char *overflow, size_t overflow_len)
+static void ft_next_line(t_list **s_buff, char *overflow, size_t overflow_len)
 {
-	t_list			*line;
-	char			*tmp_ptr;
-	int				len;
-
-	line = *buff;
-	tmp_ptr = overflow;
-	while (*tmp_ptr != '\n' && *tmp_ptr)
-		tmp_ptr++;
-	if ((len = (tmp_ptr - overflow) * sizeof(char)) == 0)
-	{
-		if (*tmp_ptr == '\n')
-		{
-			line->next = ft_lstnew((const char *)"", 0);
-			ft_overflow_add(&line->next, overflow + 1 ,overflow_len - 1);
-		}
-		return ;
-	}
-	if (*tmp_ptr == '\n')
-		line->next = ft_lstnew(ft_strsub(overflow, 0, len + 1), len + 1);
-	else
-		line->next = ft_lstnew(ft_strsub(overflow, 0, len), BUFF_SIZE);
-	line = line->next;
-	line->content = ft_strjoin(line->content, "\0");
-	if (*tmp_ptr == '\n')
-	{
-		line->content_size = 0;
-		ft_overflow_add(&line, ft_strsub(overflow, len + 1, overflow_len - len), overflow_len - len);
-	}
+	/* On cherche si il y a un \n dans overflow si oui on prend sa position */
+	/* Si il n'y a pas eu de \n on copie overflow_len characteres de overflow dans s_buff->next */
+	/* Si il a trouve un \n on copie overflow du debut jusqu'au \n inclut dans s_buff->next
+	** puis on appelle recursivement:
+	** ft_next_line(s_buff->next, overflow a partir du premier \n + 1, et comme longueure overflow_len - la longeur de s_buff->next->content)  
+	*/
 }
 
-static int			ft_use_part(t_list **buff, char *part, int current, size_t part_len)
+static size_t	ft_next_part(t_list **s_buff, size_t buff_len, char *part, size_t part_len)
 {
-	char			tmp[(*buff)->content_size];
-	char			*newline_ptr;
-	int				toconcat;
-
-	ft_strcpy(tmp, (char *)(*buff)->content);
-	free((*buff)->content);
-	toconcat = part_len;
-	if ((newline_ptr = ft_strchr(part, '\n')) != NULL)
-		toconcat = (newline_ptr - part) * sizeof(char);
-	if (!((*buff)->content = malloc((current + toconcat + 1) * sizeof(char))))
-		return (-1);
-	ft_strcpy((*buff)->content, tmp);
-	ft_strcpy(((*buff)->content + current), ft_strsub(part, 0, toconcat));
-	ft_overflow_add(buff, ft_strsub(part, toconcat + 1, part_len - toconcat), part_len - toconcat);
-	(*buff)->content_size = current + toconcat + 1;
-	return (((size_t)toconcat != part_len ? 0 : (*buff)->content_size - 1));
-}
-
-static t_list		*ft_get_buff_pos(t_list **buf)
-{
-	t_list			*buff;
-
-	buff = *buf;
-	if (buff && buff->next)
-	{
-		buff = buff->next;
-		if (buff->content_size == 0)
-			buff->content_size = ft_strlen(buff->content);
-		free((*buf)->content);
-		free(*buf);
-		return (buff);
-	}
-	else
-		return (ft_lstnew(ft_strnew(BUFF_SIZE), BUFF_SIZE));
+	/* On cherche si il y a un \n dans part si oui on prend sa position */
+	/* On concat s_buff et part jusq'au \n */
+	/* Si il y a eu un \n on appelle la fonction recursive:
+	** ft_next_line(buffer_static, overflow (a partir du charactere apres le \n), overflow_len) 
+	*/
+	/* On free part */
+	/* Puis on retourne 0 si on a trouve un \n ou la taille du nouveau buffer_static */ 
 }
 
 int					get_next_line(const int fd, char **line)
 {
-	static t_list	*buff[(long)INT_MAX + 1];
-	char			t_buff[BUFF_SIZE + 1];
-	int				chr_count;
+	static t_list	*s_buff[(long) INT_MAX + 1];
+	t_list			*node;
+	char			buff[BUFF_SIZE];
 	int				read_res;
+	size_t			read_len;
 
-	if ((read(fd, t_buff, 0) == -1))
+	if (!(read(fd, buff,0)) || line == NULL)
 		return (RET_ERR);
-	buff[fd] = ft_get_buff_pos(&buff[fd]);
-	if (buff[fd]->content_size == BUFF_SIZE)
+	if (!(s_buff[fd]))
+		s_buff[fd] = ft_lstnew(ft_strnew(BUFF_SIZE), BUFF_SIZE);
+	read_res = 0;
+	if (ft_strchr(s_buff[fd]->content, '\n') != NULL)
 	{
-		chr_count = ft_strlen(buff[fd]->content);
-		while ((read_res = read(fd, t_buff, BUFF_SIZE)))
-		{
-			t_buff[read_res] = '\0';
-			chr_count = ft_use_part(&buff[fd], t_buff, chr_count, read_res);
-			if (chr_count == -1 || read_res == -1)
-				return (RET_ERR);
-			if (chr_count == 0)
-				break ;
-		}
+		s_buff[fd]->content = ft_strsub(s_buff[fd]->content, 0, s_buff[fd]->content_size - 1);
+		read_res = -1;
 	}
-	else
-		read_res = (chr_count = ft_use_part(&buff[fd], (char *)buff[fd]->content, 0, buff[fd]->content_size)) + 1;
-	if (read_res == 0 || chr_count == 0)
+	read_len = 0;
+	while ((read_res != -1) && ((read_res = read(fd, buff, BUFF_SIZE)) > 0))
+		if ((read_len = ft_next_part(s_buff, read_len, buff, read_res)) == 0)
+			break ;
+	if (read_len == RET_ERR || read_res == RET_ERR)
+		return (RET_ERR);
+	*line = (char *) malloc(sizeof(char) * s_buff[fd]->content_size + 1);
+	ft_strncpy(*line, s_buff[fd]->content, s_buff[fd]->content_size);
+	*line[s_buff[fd]->content_size] = '\0';
+	if ((node = s_buff[fd]->next))
 	{
-		if (!(*line = malloc(sizeof(char) * (buff[fd]->content_size))))
-			return (RET_ERR);
-		ft_strcpy(*line, buff[fd]->content);
-		if (read_res == 0 && chr_count == 0)
-			return (RET_DONE);
+		free(s_buff[fd]->content);
+		free(s_buff[fd]);
+		s_buff[fd] = node;
 	}
+	if (read_res == RET_DONE)
+		return (RET_DONE);
 	return (RET_OK);
 }
