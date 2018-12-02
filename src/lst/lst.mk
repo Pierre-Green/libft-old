@@ -1,0 +1,10 @@
+SRC += src/lst/ft_lstadd.c
+SRC += src/lst/ft_lstat.c
+SRC += src/lst/ft_lstdel.c
+SRC += src/lst/ft_lstdelone.c
+SRC += src/lst/ft_lstfold.c
+SRC += src/lst/ft_lstiter.c
+SRC += src/lst/ft_lstlast.c
+SRC += src/lst/ft_lstmap.c
+SRC += src/lst/ft_lstnew.c
+SRC += src/lst/ft_lstsize.c
