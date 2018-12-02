@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/12/02 20:52:09 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/12/02 20:53:58 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,3 +53,7 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean $(NAME)
+
+run: $(NAME)
+	@echo "\n$(PURPLE)Running: $(GREEN)$(NAME)\n$(RESET)"
+	@./$(NAME)
