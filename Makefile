@@ -6,47 +6,35 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/12/02 21:01:32 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/12/03 19:21:05 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# Compilator
-CC		=	clang
-
-# Compile flags
-CFLAGS	=	-Wall -Werror -Wextra -Iincludes
 
 # Output name
 NAME	=	libft.a
 
-# Srcs
-include src/io/io.mk
-include src/lst/lst.mk
-include src/mem/mem.mk
-include src/str/str.mk
-include src/utils/utils.mk
+# Root ODIR
+RODIR	= 	objs
 
-OBJS		:=	$(SRC:.c=.o)
+# Sub dir
+SUBPRO	=	str io lst mem utils
 
-# Colors
-RESET = \033[0m
-PURPLE = \033[1;35m
-GREEN = \033[1;32m
-YELLOW = \033[1;33m
+# Global variables
+include global.mk
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
-	ar rcs $(NAME) $(notdir $^)
+$(NAME): $(SUBPRO)
+	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
+	@ar rcs $(NAME) $(shell find $(RODIR) -name "*.o" | sed 's/\n/ /g')
 
-$(OBJS): %.o: %.c
-	echo "$(PURPLE)Compiling $(GREEN)$<$(PURPLE) → $(YELLOW)$@"
-	$(CC) $(CFLAGS) -c $<
+$(SUBPRO):
+	@mkdir -p $(RODIR)
+	$(MAKE) -C src/$@
 
 clean:
 	@echo "$(YELLOW)Cleaning object files..."
-	@rm -rf *.o
+	@rm -rf $(RODIR)
 
 fclean: clean
 	@echo "Deleting $(NAME)"

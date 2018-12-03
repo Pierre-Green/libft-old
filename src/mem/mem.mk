@@ -1,9 +1,0 @@
-SRC += src/mem/ft_bzero.c
-SRC += src/mem/ft_memalloc.c
-SRC += src/mem/ft_memccpy.c
-SRC += src/mem/ft_memchr.c
-SRC += src/mem/ft_memcmp.c
-SRC += src/mem/ft_memcpy.c
-SRC += src/mem/ft_memdel.c
-SRC += src/mem/ft_memmove.c
-SRC += src/mem/ft_memset.c
