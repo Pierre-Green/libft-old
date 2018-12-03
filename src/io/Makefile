@@ -12,11 +12,12 @@ SRC		=	ft_putchar.c	\
 			ft_putstr_fd.c	\
 
 OBJ	= $(SRC:.c=.o)
+vODIR = $(addsuffix /$(NAME), $(ODIR))
 
-all: prepare $(OBJ)
+all: prepare $(addprefix $(vODIR)/, $(OBJ))
 
 prepare:
-	@mkdir -p $(ODIR)/$(NAME)
+	@mkdir -p $(vODIR)
 
-$(OBJ): %.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $(ODIR)/$(NAME)/$@
+$(vODIR)/%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $(vODIR)/$@

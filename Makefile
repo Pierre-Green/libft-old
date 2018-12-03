@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/12/03 19:21:05 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/12/03 19:43:00 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,15 @@ include global.mk
 
 all: $(NAME)
 
+# Call sub project make then pack
 $(NAME): $(SUBPRO)
 	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
 	@ar rcs $(NAME) $(shell find $(RODIR) -name "*.o" | sed 's/\n/ /g')
 
+# Call each of sib project makefile
 $(SUBPRO):
 	@mkdir -p $(RODIR)
-	$(MAKE) -C src/$@
+	@$(MAKE) -C src/$@
 
 clean:
 	@echo "$(YELLOW)Cleaning object files..."
