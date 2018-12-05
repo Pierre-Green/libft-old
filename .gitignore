@@ -1,3 +1,4 @@
 objs/
 .vscode
 *.a
+.DS_Store
