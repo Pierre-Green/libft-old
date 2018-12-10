@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:22:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:24:19 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
-#include "mem.h"
+#include "ft_str.h"
+#include "ft_mem.h"
 
 char		*ft_strnew(size_t size)
 {

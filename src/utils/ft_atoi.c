@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:27:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:26:25 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_utils.h"
 
 static int		ft_is_valid(char *ptr)
 {

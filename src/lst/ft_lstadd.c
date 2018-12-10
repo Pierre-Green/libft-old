@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 16:20:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:08:37 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include "ft_lst.h"
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {

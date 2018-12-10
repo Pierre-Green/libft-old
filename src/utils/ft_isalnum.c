@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:16:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:26:47 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_utils.h"
 
 int		ft_isalnum(int c)
 {

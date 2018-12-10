@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 20:15:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:14:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include "ft_lst.h"
 
 t_list		*ft_lstfold(t_list **lst, t_list *(*f)(t_list *elem))
 {

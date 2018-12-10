@@ -1,4 +1,5 @@
 objs/
 .vscode
 *.a
+main.c
 .DS_Store

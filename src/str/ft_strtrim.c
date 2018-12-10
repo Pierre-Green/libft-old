@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:42:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/02 19:49:27 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
-#include "utils.h"
+#include "ft_str.h"
+#include "ft_utils.h"
 
 static int	ft_strtrim_len(char const *s, int start)
 {

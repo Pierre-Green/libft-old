@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:01:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/05 19:28:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <sys/types.h>
-# include "mem.h"
-# include "io.h"
+# include "ft_mem.h"
+# include "ft_io.h"
 # define BUFF_SIZE 32
 # define RET_OK 1
 # define RET_DONE 0
