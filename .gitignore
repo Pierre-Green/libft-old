@@ -1,5 +1,10 @@
-objs/
 .vscode
 *.a
 main.c
 .DS_Store
+*.o
+.idea/
+CMakeLists.txt
+sources.mk
+tests.c
+cmake-build-debug

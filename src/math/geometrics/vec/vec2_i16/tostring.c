@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   tostring.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 03:47:04 by pierre            #+#    #+#             */
-/*   Updated: 2018/12/23 09:57:07 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/12/26 16:14:40 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdlib.h>
+#include "ft_math/vec.h"
+#include "ft_str.h"
+#include "ft_utils.h"
 
-typedef struct  s_placeholder_instuction
+char            *ft_vec2_i16_tostring(t_vec2_i16 self)
 {
-    size_t      (*f)(void *, void *);
-    struct s_placeholder_instuction *next;
-}               t_ph_inst;
-
-int     ft_printf(const char *format, ...);
-
-#endif
+    char        *result;
+    
+    result = ft_strnew(17);
+    ft_strcpy(result, "(");
+    ft_strcat(result, ft_itoa(self.x));
+    ft_strcat(result, ", ");
+    ft_strcat(result, ft_itoa(self.y));
+    ft_strcat(result, ")");
+    return (result);
+}

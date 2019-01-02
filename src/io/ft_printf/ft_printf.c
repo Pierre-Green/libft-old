@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2018/12/22 11:59:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 int     ft_printf(const char *format, ...)
 {
-
+    (void)format;
+    return (0);
 }

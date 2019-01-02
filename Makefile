@@ -6,40 +6,43 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2018/12/03 19:43:00 by pguthaus         ###   ########.fr        #
+#    Updated: 2018/12/26 16:04:37 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Output name
 NAME	=	libft.a
 
+# Compilation
+CC = clang
+CFLAGS = -Wall -Werror -Wextra -I includes/
+
 # Root ODIR
-RODIR	= 	objs
+ODIR	= 	./objs/
 
-# Sub dir
-SUBPRO	=	str io lst mem utils
+include sources.mk
 
-# Global variables
-include global.mk
+OBJS := ${SRCS:c=o} 
+
+ROBJS = $(subst src/,$(ODIR),$(OBJS))
 
 all: $(NAME)
 
-# Call sub project make then pack
-$(NAME): $(SUBPRO)
+$(NAME): $(OBJS)
 	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
-	@ar rcs $(NAME) $(shell find $(RODIR) -name "*.o" | sed 's/\n/ /g')
-
-# Call each of sib project makefile
-$(SUBPRO):
-	@mkdir -p $(RODIR)
-	@$(MAKE) -C src/$@
+	ar rcs $(NAME) $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files..."
-	@rm -rf $(RODIR)
+	find . -type f -name '*.o' -delete
 
 fclean: clean
 	@echo "Deleting $(NAME)"
 	@rm -rf $(NAME)
+
+getSources:
+	@rm -rf sources.mk
+	@touch sources.mk
+	@find src/ -name "*.c" | sed  "s/src\//SRCS+=src\//g" >> sources.mk
 
 re: fclean $(NAME)

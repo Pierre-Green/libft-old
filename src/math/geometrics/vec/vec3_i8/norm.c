@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 03:47:04 by pierre            #+#    #+#             */
-/*   Updated: 2018/12/23 09:57:07 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/12/26 15:48:48 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdlib.h>
+#include "ft_math/vec.h"
 
-typedef struct  s_placeholder_instuction
+int8_t          ft_vec3_i8_norm(t_vec3_i8 self)
 {
-    size_t      (*f)(void *, void *);
-    struct s_placeholder_instuction *next;
-}               t_ph_inst;
-
-int     ft_printf(const char *format, ...);
-
-#endif
+    return (self.x * self.x + self.y * self.y + self.z * self.z);
+}

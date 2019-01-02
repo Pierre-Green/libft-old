@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   at.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 03:47:04 by pierre            #+#    #+#             */
-/*   Updated: 2018/12/23 09:57:07 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/12/26 16:06:19 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdlib.h>
+#include "ft_math/vec.h"
 
-typedef struct  s_placeholder_instuction
+int16_t          ft_vec3_i16_at(t_vec3_i16 self, uint8_t i)
 {
-    size_t      (*f)(void *, void *);
-    struct s_placeholder_instuction *next;
-}               t_ph_inst;
-
-int     ft_printf(const char *format, ...);
-
-#endif
+    if (i == 0)
+        return (self.x);
+    if (i == 1)
+        return (self.y);
+    if (i == 2)
+        return (self.z);
+    else
+        return (0);
+}

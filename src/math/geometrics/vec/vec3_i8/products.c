@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   products.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 03:47:04 by pierre            #+#    #+#             */
-/*   Updated: 2018/12/23 09:57:07 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/12/26 15:36:12 by pguthaus          #+#    #+#             */
+/*   Updated: 2018/12/27 16:47:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdlib.h>
+#include "ft_math/vec.h"
 
-typedef struct  s_placeholder_instuction
+t_vec3_i8       ft_vec3_i8_product1(t_vec3_i8 self, int8_t a)
 {
-    size_t      (*f)(void *, void *);
-    struct s_placeholder_instuction *next;
-}               t_ph_inst;
+    self.x *= a;
+    self.y *= a;
+    self.z *= a;
 
-int     ft_printf(const char *format, ...);
+    return (self);
+}
 
-#endif
+int8_t         ft_vec3_i8_product2(t_vec3_i8 self, t_vec3_i8 vec)
+{
+    return (self.x * vec.x + self.y * vec.y + self.z * vec.z);
+}
