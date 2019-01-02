@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:39:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 17:30:58 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/02 13:22:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@
 /*
 ** Types:
 **
+** Dynamic type vector 2D
+*/
+typedef struct			s_dvec2
+{
+	void				*x;
+	void				*y;
+	uint8_t				size;
+	struct s_vec2_i8    (*sum)(struct s_vec2_i8, struct s_vec2_i8);
+	struct s_vec2_i8    (*minus)(struct s_vec2_i8, struct s_vec2_i8);
+	struct s_vec2_i8    (*product1)(struct s_vec2_i8, int8_t);
+	int8_t              (*product2)(struct s_vec2_i8, struct s_vec2_i8);
+	int8_t              (*norm)(struct s_vec2_i8);
+	struct s_vec2_i8    (*normalize)(struct s_vec2_i8);
+	int8_t              (*length)(struct s_vec2_i8);
+	int8_t              (*at)(struct s_vec2_i8, uint8_t);
+	char                *(*tostring)(struct s_vec2_i8);
+}
+
+/*
 ** Integer 2D vector types
 */
 typedef struct	        s_vec2_i8
@@ -112,6 +131,27 @@ typedef struct	s_vec2_ld
 	long double         (*at)(struct s_vec2_ld, uint8_t);
 	char                *(*tostring)(struct s_vec2_ld);
 }						t_vec2_ld;
+
+/*
+** Dynamic type vector 2D
+*/
+typedef struct			s_dvec3
+{
+	void				*x;
+	void				*y;
+	void				*z;
+	uint8_t				size;
+	struct s_vec2_i8    (*sum)(struct s_vec2_i8, struct s_vec2_i8);
+	struct s_vec2_i8    (*minus)(struct s_vec2_i8, struct s_vec2_i8);
+	struct s_vec2_i8    (*product1)(struct s_vec2_i8, int8_t);
+	int8_t              (*product2)(struct s_vec2_i8, struct s_vec2_i8);
+	int8_t              (*norm)(struct s_vec2_i8);
+	struct s_vec2_i8    (*normalize)(struct s_vec2_i8);
+	int8_t              (*length)(struct s_vec2_i8);
+	int8_t              (*at)(struct s_vec2_i8, uint8_t);
+	char                *(*tostring)(struct s_vec2_i8);
+}
+
 
 /*
 ** Integer 3D vector types
