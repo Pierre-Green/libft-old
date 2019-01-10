@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:39:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/02 13:22:52 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/10 19:05:11 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct			s_dvec2
 	int8_t              (*length)(struct s_vec2_i8);
 	int8_t              (*at)(struct s_vec2_i8, uint8_t);
 	char                *(*tostring)(struct s_vec2_i8);
-}
+}						t_dvec2;
 
 /*
 ** Integer 2D vector types
@@ -150,7 +150,7 @@ typedef struct			s_dvec3
 	int8_t              (*length)(struct s_vec2_i8);
 	int8_t              (*at)(struct s_vec2_i8, uint8_t);
 	char                *(*tostring)(struct s_vec2_i8);
-}
+}						t_dvec3;
 
 
 /*
