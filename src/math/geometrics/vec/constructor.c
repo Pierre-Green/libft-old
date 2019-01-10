@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tostring.c                                         :+:      :+:    :+:   */
+/*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 16:14:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/01/10 19:14:55 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/01/10 19:21:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
-#include "ft_str.h"
-#include "ft_utils.h"
-#include <math.h>
+#include "ft_mem.h"
 
-char            *ft_vec2_f_tostring(t_vec2_f self)
+t_vec2			construct_vec2(t_vec_type type, void *x, void *y)
 {
-    char        *result;
+	t_vec2		vec;
 
-    result = ft_strnew(13);
-    ft_strcpy(result, "(");
-    ft_strcat(result, ft_itoa(self.x));
-    ft_strcat(result, ", ");
-    ft_strcat(result, ft_itoa(self.y));
-    ft_strcat(result, ")");
-    return (result);
+	vec.type = type;
+	vec.size = sizeof(*x);
+	if (!(vec.x = ft_memalloc(sizeof(vec.size))))
+		return (vec);
+	if (!(vec.y = ft_memalloc(sizeof(vec.size))))
+		return (vec);
+	vec.y = y;
+	vec.x = x;
+	return (vec);
 }

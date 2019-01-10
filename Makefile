@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/10 18:43:03 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/01/10 20:28:56 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files..."
@@ -43,6 +43,6 @@ fclean: clean
 getSources:
 	@rm -rf sources.mk
 	@touch sources.mk
-	@find src/ -name "*.c" | sed  "s/src\//SRCS+=src\//g" >> sources.mk
+	@find src/ -name "*.c" | sed  "s/src\//SRCS+=src/g" >> sources.mk
 
 re: fclean $(NAME)
