@@ -6,12 +6,13 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/10 18:43:03 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/01/14 20:47:17 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Output name
 NAME	=	libft.a
+TEST_NAME	= tests_bin
 
 # Compilation
 CC = clang
@@ -21,8 +22,10 @@ CFLAGS = -Wall -Werror -Wextra -I includes/
 ODIR	= 	./objs/
 
 include sources.mk
+include tests/sources.mk
 
 OBJS := ${SRCS:c=o} 
+TEST_OBJS := ${TEST_SRCS:c=o}
 
 ROBJS = $(subst src/,$(ODIR),$(OBJS))
 
@@ -38,11 +41,19 @@ clean:
 
 fclean: clean
 	@echo "Deleting $(NAME)"
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(TEST_NAME)
+
+test: $(NAME) $(TEST_OBJS)
+	$(CC) $(TEST_OBJS) $(NAME) -o $(TEST_NAME)
+	./$(TEST_NAME)
+
 
 getSources:
-	@rm -rf sources.mk
+	@rm -f sources.mk
+	@rm -f tests/sources.mk
 	@touch sources.mk
+	@touch tests/sources.mk 
 	@find src/ -name "*.c" | sed  "s/src\//SRCS+=src\//g" >> sources.mk
+	@find tests/ -name "*.c" | sed  "s/tests\//TEST_SRCS+=tests\//g" >> tests/sources.mk
 
 re: fclean $(NAME)
