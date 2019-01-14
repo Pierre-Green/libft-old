@@ -6,17 +6,16 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:32:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/14 19:45:53 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-t_vec3_i16       ft_vec3_i16_sum(t_vec3_i16 self, t_vec3_i16 vec)
+t_vec3_i16		ft_vec3_i16_sum(t_vec3_i16 self, t_vec3_i16 vec)
 {
-    self.x += vec.x;
-    self.y += vec.y;
-    self.z += vec.z;
-
-    return (self);
+	self.x += vec.x;
+	self.y += vec.y;
+	self.z += vec.z;
+	return (self);
 }

@@ -6,18 +6,18 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:06:19 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/14 19:17:01 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-int32_t          ft_vec2_i32_at(t_vec2_i32 self, uint8_t i)
+int32_t			ft_vec2_i32_at(t_vec2_i32 self, uint8_t i)
 {
-    if (i == 0)
-        return (self.x);
-    if (i == 1)
-        return (self.y);
-    else
-        return (0);
+	if (i == 0)
+		return (self.x);
+	if (i == 1)
+		return (self.y);
+	else
+		return (0);
 }

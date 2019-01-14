@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:39:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/10 19:05:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/14 20:02:32 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,70 +17,24 @@
 /*
 ** Types:
 **
-** Dynamic type vector 2D
-*/
-typedef struct			s_dvec2
-{
-	void				*x;
-	void				*y;
-	uint8_t				size;
-	struct s_vec2_i8    (*sum)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*minus)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*product1)(struct s_vec2_i8, int8_t);
-	int8_t              (*product2)(struct s_vec2_i8, struct s_vec2_i8);
-	int8_t              (*norm)(struct s_vec2_i8);
-	struct s_vec2_i8    (*normalize)(struct s_vec2_i8);
-	int8_t              (*length)(struct s_vec2_i8);
-	int8_t              (*at)(struct s_vec2_i8, uint8_t);
-	char                *(*tostring)(struct s_vec2_i8);
-}						t_dvec2;
-
-/*
 ** Integer 2D vector types
 */
 typedef struct	        s_vec2_i8
 {
 	int8_t              x;
 	int8_t              y;
-	struct s_vec2_i8    (*sum)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*minus)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*product1)(struct s_vec2_i8, int8_t);
-	int8_t              (*product2)(struct s_vec2_i8, struct s_vec2_i8);
-	int8_t              (*norm)(struct s_vec2_i8);
-	struct s_vec2_i8    (*normalize)(struct s_vec2_i8);
-	int8_t              (*length)(struct s_vec2_i8);
-	int8_t              (*at)(struct s_vec2_i8, uint8_t);
-	char                *(*tostring)(struct s_vec2_i8);
 }				        t_vec2_i8;
 
 typedef struct	        s_vec2_i16
 {
 	int16_t             x;
 	int16_t             y;
-	struct s_vec2_i16   (*sum)(struct s_vec2_i16, struct s_vec2_i16);
-	struct s_vec2_i16   (*minus)(struct s_vec2_i16, struct s_vec2_i16);
-	struct s_vec2_i16   (*product1)(struct s_vec2_i16, int16_t);
-	int16_t             (*product2)(struct s_vec2_i16, struct s_vec2_i16);
-	int16_t             (*norm)(struct s_vec2_i16);
-	struct s_vec2_i16   (*normalize)(struct s_vec2_i16);
-	int16_t             (*length)(struct s_vec2_i16);
-	int16_t             (*at)(struct s_vec2_i16, uint8_t);
-	char                *(*tostring)(struct s_vec2_i16);
 }				        t_vec2_i16;
 
 typedef struct	        s_vec2_i32
 {
 	int32_t             x;
 	int32_t             y;
-	struct s_vec2_i32   (*sum)(struct s_vec2_i32, struct s_vec2_i32);
-	struct s_vec2_i32   (*minus)(struct s_vec2_i32, struct s_vec2_i32);
-	struct s_vec2_i32   (*product1)(struct s_vec2_i32, int32_t);
-	int32_t             (*product2)(struct s_vec2_i32, struct s_vec2_i32);
-	int32_t             (*norm)(struct s_vec2_i32);
-	struct s_vec2_i32   (*normalize)(struct s_vec2_i32);
-	int32_t             (*length)(struct s_vec2_i32);
-	int32_t             (*at)(struct s_vec2_i32, uint8_t);
-	char                *(*tostring)(struct s_vec2_i32);
 }				        t_vec2_i32;
 
 /*
@@ -90,15 +44,6 @@ typedef struct	s_vec2_f
 {
 	float				x;
 	float				y;
-	struct s_vec2_f   	(*sum)(struct s_vec2_f, struct s_vec2_f);
-	struct s_vec2_f  	(*minus)(struct s_vec2_f, struct s_vec2_f);
-	struct s_vec2_f   	(*product1)(struct s_vec2_f, float);
-	float	            (*product2)(struct s_vec2_f, struct s_vec2_f);
-	float             	(*norm)(struct s_vec2_f);
-	struct s_vec2_f	    (*normalize)(struct s_vec2_f);
-	float 	            (*length)(struct s_vec2_f);
-	float               (*at)(struct s_vec2_f, uint8_t);
-	char                *(*tostring)(struct s_vec2_f);
 }						t_vec2_f;
 
 
@@ -106,52 +51,13 @@ typedef struct	s_vec2_d
 {
 	double				x;
 	double				y;
-	struct s_vec2_d   	(*sum)(struct s_vec2_d, struct s_vec2_d);
-	struct s_vec2_d  	(*minus)(struct s_vec2_d, struct s_vec2_d);
-	struct s_vec2_d   	(*product1)(struct s_vec2_d, double);
-	double	            (*product2)(struct s_vec2_d, struct s_vec2_d);
-	double              (*norm)(struct s_vec2_d);
-	struct s_vec2_d	    (*normalize)(struct s_vec2_d);
-	double 	            (*length)(struct s_vec2_d);
-	double              (*at)(struct s_vec2_d, uint8_t);
-	char                *(*tostring)(struct s_vec2_d);
 }						t_vec2_d;
 
 typedef struct	s_vec2_ld
 {
 	long double			x;
-	long double			y;
-	struct s_vec2_ld    (*sum)(struct s_vec2_ld, struct s_vec2_ld);
-	struct s_vec2_ld  	(*minus)(struct s_vec2_ld, struct s_vec2_ld);
-	struct s_vec2_ld   	(*product1)(struct s_vec2_ld, long double);
-	long double	        (*product2)(struct s_vec2_ld, struct s_vec2_ld);
-	long double         (*norm)(struct s_vec2_ld);
-	struct s_vec2_ld	(*normalize)(struct s_vec2_ld);
-	long double 	    (*length)(struct s_vec2_ld);
-	long double         (*at)(struct s_vec2_ld, uint8_t);
-	char                *(*tostring)(struct s_vec2_ld);
+	long double			y; 
 }						t_vec2_ld;
-
-/*
-** Dynamic type vector 2D
-*/
-typedef struct			s_dvec3
-{
-	void				*x;
-	void				*y;
-	void				*z;
-	uint8_t				size;
-	struct s_vec2_i8    (*sum)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*minus)(struct s_vec2_i8, struct s_vec2_i8);
-	struct s_vec2_i8    (*product1)(struct s_vec2_i8, int8_t);
-	int8_t              (*product2)(struct s_vec2_i8, struct s_vec2_i8);
-	int8_t              (*norm)(struct s_vec2_i8);
-	struct s_vec2_i8    (*normalize)(struct s_vec2_i8);
-	int8_t              (*length)(struct s_vec2_i8);
-	int8_t              (*at)(struct s_vec2_i8, uint8_t);
-	char                *(*tostring)(struct s_vec2_i8);
-}						t_dvec3;
-
 
 /*
 ** Integer 3D vector types
@@ -161,15 +67,6 @@ typedef struct	        s_vec3_i8
 	int8_t              x;
 	int8_t              y;
 	int8_t              z;
-	struct s_vec3_i8    (*sum)(struct s_vec3_i8, struct s_vec3_i8);
-	struct s_vec3_i8    (*minus)(struct s_vec3_i8, struct s_vec3_i8);
-	struct s_vec3_i8    (*product1)(struct s_vec3_i8, int8_t);
-	int8_t              (*product3)(struct s_vec3_i8, struct s_vec3_i8);
-	int8_t              (*norm)(struct s_vec3_i8);
-	struct s_vec3_i8    (*normalize)(struct s_vec3_i8);
-	int8_t              (*length)(struct s_vec3_i8);
-	int8_t              (*at)(struct s_vec3_i8, uint8_t);
-	char                *(*tostring)(struct s_vec3_i8);
 }				        t_vec3_i8;
 
 typedef struct      	s_vec3_i16
@@ -177,15 +74,6 @@ typedef struct      	s_vec3_i16
 	int16_t             x;
 	int16_t             y;
 	int16_t             z;
-	struct s_vec3_i16   (*sum)(struct s_vec3_i16, struct s_vec3_i16);
-	struct s_vec3_i16   (*minus)(struct s_vec3_i16, struct s_vec3_i16);
-	struct s_vec3_i16   (*product1)(struct s_vec3_i16, int16_t);
-	int16_t             (*product3)(struct s_vec3_i16, struct s_vec3_i16);
-	int16_t             (*norm)(struct s_vec3_i16);
-	struct s_vec3_i16   (*normalize)(struct s_vec3_i16);
-	int16_t             (*length)(struct s_vec3_i16);
-	int16_t             (*at)(struct s_vec3_i16, uint8_t);
-	char                *(*tostring)(struct s_vec3_i16);
 }			        	t_vec3_i16;
 
 typedef struct			s_vec3_i32
@@ -193,15 +81,6 @@ typedef struct			s_vec3_i32
 	int32_t				x;
 	int32_t				y;
 	int32_t				z;
-	struct s_vec3_i32   (*sum)(struct s_vec3_i32, struct s_vec3_i32);
-	struct s_vec3_i32   (*minus)(struct s_vec3_i32, struct s_vec3_i32);
-	struct s_vec3_i32   (*product1)(struct s_vec3_i32, int32_t);
-	int32_t             (*product3)(struct s_vec3_i32, struct s_vec3_i32);
-	int32_t             (*norm)(struct s_vec3_i32);
-	struct s_vec3_i32   (*normalize)(struct s_vec3_i32);
-	int32_t             (*length)(struct s_vec3_i32);
-	int32_t             (*at)(struct s_vec3_i32, uint8_t);
-	char                *(*tostring)(struct s_vec3_i32);
 }						t_vec3_i32;
 
 /*
@@ -212,15 +91,6 @@ typedef struct	s_vec3_f
 	float				x;
 	float				y;
 	float				z;
-	struct s_vec3_f     (*sum)(struct s_vec3_f, struct s_vec3_f);
-	struct s_vec3_f     (*minus)(struct s_vec3_f, struct s_vec3_f);
-	struct s_vec3_f   	(*product1)(struct s_vec3_f, float);
-	float               (*product3)(struct s_vec3_f, struct s_vec3_f);
-	float               (*norm)(struct s_vec3_f);
-	struct s_vec3_f     (*normalize)(struct s_vec3_f);
-	float               (*length)(struct s_vec3_f);
-	float               (*at)(struct s_vec3_f, uint8_t);
-	char                *(*tostring)(struct s_vec3_f);
 }						t_vec3_f;
 
 typedef struct	s_vec3_d
@@ -228,15 +98,6 @@ typedef struct	s_vec3_d
 	double				x;
 	double				y;
 	double				z;
-	struct s_vec3_d     (*sum)(struct s_vec3_d, struct s_vec3_d);
-	struct s_vec3_d     (*minus)(struct s_vec3_d, struct s_vec3_d);
-	struct s_vec3_d   	(*product1)(struct s_vec3_d, double);
-	double              (*product3)(struct s_vec3_d, struct s_vec3_d);
-	double              (*norm)(struct s_vec3_d);
-	struct s_vec3_d     (*normalize)(struct s_vec3_d);
-	double              (*length)(struct s_vec3_d);
-	double              (*at)(struct s_vec3_d, uint8_t);
-	char                *(*tostring)(struct s_vec3_d);
 }						t_vec3_d;
 
 typedef struct	s_vec3_ld
@@ -244,15 +105,6 @@ typedef struct	s_vec3_ld
 	long double			x;
 	long double			y;
 	long double			z;
-	struct s_vec3_ld    (*sum)(struct s_vec3_ld, struct s_vec3_ld);
-	struct s_vec3_ld    (*minus)(struct s_vec3_ld, struct s_vec3_ld);
-	struct s_vec3_ld   	(*product1)(struct s_vec3_ld, long double);
-	long double         (*product3)(struct s_vec3_ld, struct s_vec3_ld);
-	long double         (*norm)(struct s_vec3_ld);
-	struct s_vec3_ld    (*normalize)(struct s_vec3_ld);
-	long double         (*length)(struct s_vec3_ld);
-	long double         (*at)(struct s_vec3_ld, uint8_t);
-	char                (*tostring)(struct s_vec3_ld);
 }						t_vec3_ld;
 
 /*
@@ -260,7 +112,7 @@ typedef struct	s_vec3_ld
 **
 ** vec2_i8
 */
-t_vec2_i8               ft_init0_vec2_i8();
+t_vec2_i8               ft_init0_vec2_i8(void);
 
 t_vec2_i8               ft_init1_vec2_i8(int8_t a);
 
@@ -289,7 +141,7 @@ t_vec2_i8               ft_vec2_i8_normalize(t_vec2_i8 self);
 /*
 ** vec2_i16
 */
-t_vec2_i16              ft_init0_vec2_i16();
+t_vec2_i16              ft_init0_vec2_i16(void);
 
 t_vec2_i16              ft_init1_vec2_i16(int16_t a);
 
@@ -318,7 +170,7 @@ t_vec2_i16              ft_vec2_i16_normalize(t_vec2_i16 self);
 /*
 ** vec2_i32
 */
-t_vec2_i32              ft_init0_vec2_i32();
+t_vec2_i32              ft_init0_vec2_i32(void);
 
 t_vec2_i32              ft_init1_vec2_i32(int32_t a);
 
@@ -347,7 +199,7 @@ t_vec2_i32              ft_vec2_i32_normalize(t_vec2_i32 self);
 /*
 ** vec2_f
 */
-t_vec2_f              	ft_init0_vec2_f();
+t_vec2_f              	ft_init0_vec2_f(void);
 
 t_vec2_f              	ft_init1_vec2_f(float a);
 
@@ -376,7 +228,7 @@ t_vec2_f              	ft_vec2_f_normalize(t_vec2_f self);
 /*
 ** vec2_d
 */
-t_vec2_d              	ft_init0_vec2_d();
+t_vec2_d              	ft_init0_vec2_d(void);
 
 t_vec2_d              	ft_init1_vec2_d(double a);
 
@@ -386,7 +238,7 @@ t_vec2_d              	ft_vec2_d_sum(t_vec2_d self, t_vec2_d vec);
 
 t_vec2_d              	ft_vec2_d_minus(t_vec2_d self, t_vec2_d vec);
 
-t_vec2_d              	ft_vec2_d_product1(t_vec2_d self, float a);
+t_vec2_d              	ft_vec2_d_product1(t_vec2_d self, double a);
 
 double                	ft_vec2_d_product2(t_vec2_d self, t_vec2_d vec);
 
@@ -405,7 +257,7 @@ t_vec2_d              	ft_vec2_d_normalize(t_vec2_d self);
 /*
 ** vec2_ld
 */
-t_vec2_ld              	ft_init0_vec2_ld();
+t_vec2_ld              	ft_init0_vec2_ld(void);
 
 t_vec2_ld              	ft_init1_vec2_ld(long double a);
 
@@ -415,7 +267,7 @@ t_vec2_ld              	ft_vec2_ld_sum(t_vec2_ld self, t_vec2_ld vec);
 
 t_vec2_ld              	ft_vec2_ld_minus(t_vec2_ld self, t_vec2_ld vec);
 
-t_vec2_ld              	ft_vec2_ld_product1(t_vec2_ld self, float a);
+t_vec2_ld              	ft_vec2_ld_product1(t_vec2_ld self, long double a);
 
 long double             ft_vec2_ld_product2(t_vec2_ld self, t_vec2_ld vec);
 
@@ -434,7 +286,7 @@ t_vec2_ld              	ft_vec2_ld_normalize(t_vec2_ld self);
 /*
 ** vec3_i8
 */
-t_vec3_i8               ft_init0_vec3_i8();
+t_vec3_i8               ft_init0_vec3_i8(void);
 
 t_vec3_i8               ft_init1_vec3_i8(int8_t a);
 
@@ -463,7 +315,7 @@ t_vec3_i8               ft_vec3_i8_normalize(t_vec3_i8 self);
 /*
 ** vec3_i16
 */
-t_vec3_i16				ft_init0_vec3_i16();
+t_vec3_i16				ft_init0_vec3_i16(void);
 
 t_vec3_i16				ft_init1_vec3_i16(int16_t a);
 
@@ -492,7 +344,7 @@ t_vec3_i16              ft_vec3_i16_normalize(t_vec3_i16 self);
 /*
 ** vec3_i32
 */
-t_vec3_i32       		ft_init0_vec3_i32();
+t_vec3_i32       		ft_init0_vec3_i32(void);
 
 t_vec3_i32       		ft_init1_vec3_i32(int32_t a);
 
@@ -521,11 +373,11 @@ t_vec3_i32              ft_vec3_i32_normalize(t_vec3_i32 self);
 /*
 ** vec3_f
 */
-t_vec3_f              	ft_init0_vec3_f();
+t_vec3_f              	ft_init0_vec3_f(void);
 
 t_vec3_f              	ft_init1_vec3_f(float a);
 
-t_vec3_f             	 ft_init3_vec3_f(float x, float y);
+t_vec3_f             	 ft_init3_vec3_f(float x, float y, float z);
 
 t_vec3_f              	ft_vec3_f_sum(t_vec3_f self, t_vec3_f vec);
 
@@ -550,17 +402,17 @@ t_vec3_f              	ft_vec3_f_normalize(t_vec3_f self);
 /*
 ** vec3_d
 */
-t_vec3_d              	ft_init0_vec3_d();
+t_vec3_d              	ft_init0_vec3_d(void);
 
 t_vec3_d              	ft_init1_vec3_d(double a);
 
-t_vec3_d             	ft_init3_vec3_d(double x, double y);
+t_vec3_d             	ft_init3_vec3_d(double x, double y, double z);
 
 t_vec3_d              	ft_vec3_d_sum(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d              	ft_vec3_d_minus(t_vec3_d self, t_vec3_d vec);
 
-t_vec3_d              	ft_vec3_d_product1(t_vec3_d self, float a);
+t_vec3_d              	ft_vec3_d_product1(t_vec3_d self, double a);
 
 double                	ft_vec3_d_product3(t_vec3_d self, t_vec3_d vec);
 
@@ -579,17 +431,17 @@ t_vec3_d              	ft_vec3_d_normalize(t_vec3_d self);
 /*
 ** vec3_ld
 */
-t_vec3_ld              	ft_init0_vec3_ld();
+t_vec3_ld              	ft_init0_vec3_ld(void);
 
 t_vec3_ld              	ft_init1_vec3_ld(long double a);
 
-t_vec3_ld             	ft_init3_vec3_ld(long double x, long double y);
+t_vec3_ld             	ft_init3_vec3_ld(long double x, long double y, long double z);
 
 t_vec3_ld              	ft_vec3_ld_sum(t_vec3_ld self, t_vec3_ld vec);
 
 t_vec3_ld              	ft_vec3_ld_minus(t_vec3_ld self, t_vec3_ld vec);
 
-t_vec3_ld              	ft_vec3_ld_product1(t_vec3_ld self, float a);
+t_vec3_ld              	ft_vec3_ld_product1(t_vec3_ld self, long double a);
 
 long double             ft_vec3_ld_product3(t_vec3_ld self, t_vec3_ld vec);
 

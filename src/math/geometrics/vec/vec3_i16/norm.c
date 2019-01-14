@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:48:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/14 19:45:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-int16_t          ft_vec3_i16_norm(t_vec3_i16 self)
+int16_t		ft_vec3_i16_norm(t_vec3_i16 self)
 {
-    return (self.x * self.x + self.y * self.y + self.z * self.z);
+	return (self.x * self.x + self.y * self.y + self.z * self.z);
 }

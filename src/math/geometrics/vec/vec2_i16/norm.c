@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 15:416:416 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/26 16:34:53 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/01/14 20:05:26 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/01/14 20:05:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-int16_t          ft_vec2_i16_norm(t_vec2_i16 self)
+int16_t		ft_vec2_i16_norm(t_vec2_i16 self)
 {
-    return (self.x * self.x + self.y * self.y);
+	return (self.x * self.x + self.y * self.y);
 }
