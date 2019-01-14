@@ -5,6 +5,4 @@ main.c
 *.o
 .idea/
 CMakeLists.txt
-sources.mk
-tests.c
 cmake-build-debug
