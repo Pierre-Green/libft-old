@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 20:38:34 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 15:06:22 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/15 18:05:58 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 ** Minus checker
 */
-t_bool			test1()
+static t_bool			test1()
 {
 	t_vec3_d	vec3_d1;
 	t_vec3_d	vec3_d2;
@@ -33,7 +33,7 @@ t_bool			test1()
 /*
 ** Normalize checker
 */
-t_bool			test2()
+static t_bool			test2()
 {
 	t_vec3_ld	vec;
 

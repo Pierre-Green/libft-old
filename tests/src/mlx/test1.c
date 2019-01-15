@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 20:37:55 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 19:00:21 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/01/15 18:35:01 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/01/15 18:59:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
-# include "ft_bool.h"
-# include <stdint.h>
-#include <stdio.h>
+#include "tests.h"
+#include <mlx.h>
 
-typedef struct		s_mlx_state
+void				ft_mlx_test1(t_mlx_state *state)
 {
-	void			*mlx;
-	void			*win;
-	void			*cwin;
-	void			(*curr_test)(struct s_mlx_state *);
-}					t_mlx_state;
+	uint8_t			curr;
 
-void	mlx_tests();
-
-void	ft_mlx_test1(t_mlx_state *p_state);
-
-void	ft_vec_tests();
-
-#endif
+	curr = 10;
+	while (curr < 100)
+	{
+		mlx_pixel_put(state->mlx, state->win, curr, 10, 0xFF0000);
+		curr++;
+	}
+}

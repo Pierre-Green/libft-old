@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/15 14:19:40 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/01/15 18:14:01 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,10 @@ SRCDIR		=		./src/
 INCDIR		=		./includes/
 OUTDIR		=		./objs/
 
+# MLX
+MLX_INC		=		/usr/local/include
+MLX_ARGS	=		-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+
 # Test paths
 TEST_DIR	=		./tests/
 TEST_SRCDIR	=		$(addprefix $(TEST_DIR), src/)
@@ -41,6 +45,9 @@ all: $(NAME)
 
 re: fclean $(NAME)
 
+dev: CFLAGS += -g
+dev: re
+
 $(NAME): $(OBJS)
 	@echo "$(PURPLE)Packing library$(GREEN).$(PURPLE).$(GREEN).$(RESET)"
 	@ar rcs $(NAME) $(OBJS)
@@ -49,13 +56,13 @@ $(NAME): $(OBJS)
 $(OUTDIR)%.o: $(SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
 	@echo "Making $<"
-	@$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
 
 # Test rules
 test: $(NAME) $(TEST_OBJS)
 	@echo "Compiling tests"
 	@echo "$(TEST_OBJS)"
-	@$(CC) $(TEST_OBJS) $(NAME) -o $(TEST_NAME)
+	@$(CC) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME)
 	@echo "Running tests"
 	@./$(TEST_NAME)
 

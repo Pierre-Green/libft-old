@@ -4,3 +4,4 @@
 # Includes
 -Iincludes
 -Itests/includes
+-I/usr/local/include
