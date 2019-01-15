@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:56:43 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 18:00:22 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/15 19:27:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/container.h"
+#include "ft_mlx/drawables.h"
 #include "ft_mem.h"
 
 t_container		*ft_init_container(int16_t x, int16_t y, uint16_t width, uint16_t height)
