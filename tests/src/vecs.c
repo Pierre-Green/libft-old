@@ -6,14 +6,17 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 20:38:34 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 13:29:37 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:06:22 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 #include "ft_math/vec.h"
 
-t_bool	test1()
+/*
+** Minus checker
+*/
+t_bool			test1()
 {
 	t_vec3_d	vec3_d1;
 	t_vec3_d	vec3_d2;
@@ -27,8 +30,16 @@ t_bool	test1()
 	return (FALSE);
 }
 
-t_bool	test2()
+/*
+** Normalize checker
+*/
+t_bool			test2()
 {
+	t_vec3_ld	vec;
+
+	vec = ft_init3_vec3_ld(34, 21, -54);
+	vec = ft_vec3_ld_normalize(vec);
+	printf("%Lf %Lf %Lf\n", vec.x, vec.y, vec.z);
 	return (TRUE);
 }
 

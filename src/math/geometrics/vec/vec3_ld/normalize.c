@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructors.c                                     :+:      :+:    :+:   */
+/*   normalize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 14:55:42 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 15:08:27 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/01/15 14:46:33 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/01/15 14:59:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-t_vec3_ld		ft_init0_vec3_ld(void)
+t_vec3_ld		ft_vec3_ld_normalize(t_vec3_ld self)
 {
-	t_vec3_ld	vec;
+	long double	len;
+	long double	inv_len;
 
-	vec.x = 0;
-	vec.y = 0;
-	vec.z = 0;
-	return (vec);
-}
-
-t_vec3_ld		ft_init1_vec3_ld(long double a)
-{
-	t_vec3_ld	vec;
-
-	vec.x = a;
-	vec.y = a;
-	vec.z = a;
-	return (vec);
-}
-
-t_vec3_ld		ft_init3_vec3_ld(long double x, long double y, long double z)
-{
-	t_vec3_ld	vec;
-
-	vec.x = x;
-	vec.y = y;
-	vec.z = z;
-	return (vec);
+	len = ft_vec3_ld_length(self);
+	if (len > 0)
+	{
+		inv_len = 1 / len;
+		self.x *= inv_len;
+		self.y *= inv_len;
+		self.z *= inv_len;
+	}
+	return (self);
 }
