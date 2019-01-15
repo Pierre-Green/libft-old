@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:36:58 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/15 19:30:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static t_buff		*i_buf(void)
 
 int					get_next_line(const int fd, char **line)
 {
-	static t_buff	*s_bf[30];
+	static t_buff	*s_bf[(unsigned long)INT_MAX + 1];
 	t_buff			*node;
 	char			buff[BUFF_SIZE];
 	ssize_t			res[2];
