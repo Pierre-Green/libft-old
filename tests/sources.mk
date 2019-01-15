@@ -1,2 +1,2 @@
-TEST_SRCS+=tests//tests.c
-TEST_SRCS+=tests//vecs.c
+TEST_SRCS+=main.c
+TEST_SRCS+=vecs.c

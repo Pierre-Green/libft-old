@@ -6,3 +6,5 @@ main.c
 .idea/
 CMakeLists.txt
 cmake-build-debug
+tests_bin
+tests/objs
