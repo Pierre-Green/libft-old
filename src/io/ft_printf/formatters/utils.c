@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 20:22:53 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/21 21:00:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/21 21:38:12 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_formatter		*ft_init_formatters(t_printf *state)
 	return (state->formatters);
 }
 
-void			ft_add_formatter(char *(*f)(char *), t_printf *state)
+void			ft_add_formatter(char *(*f)(char *, t_printf *), t_printf *state)
 {
 	if (state->formatters->f == NULL) {
 		state->formatters->f = f;
@@ -37,14 +37,19 @@ void			ft_add_formatter(char *(*f)(char *), t_printf *state)
 	state->last_formatter->next = NULL;
 }
 
-static int16_t	(*ft_formatters_rooter())(t_printf *)
+static char				*(*ft_formatters_rooter(t_printf *state))(char *, t_printf *)
 {
-	
+	if (ft_is_flags(state))
+		return (ft_formatter_flags);
+	return (NULL);
 }
 
 int16_t					ft_configure_formatters(t_printf *state)
 {
+	char				*(*f)(char *, t_printf *);
+
 	state->pos++;
-	if (state->pos)
+	while ((f = ft_formatters_rooter(state)))
+		ft_add_formatter(f, state);
 	return (0);
 }

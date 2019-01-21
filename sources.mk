@@ -1,3 +1,5 @@
+SRCS+=io/ft_printf/formatters/flags/flags.c
+SRCS+=io/ft_printf/formatters/utils.c
 SRCS+=io/ft_printf/ft_printf.c
 SRCS+=io/ft_putchar.c
 SRCS+=io/ft_putchar_fd.c

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/21 20:46:01 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/21 21:40:53 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include "ft_bool.h"
 
 # define MALLOC_ERROR -42
 # define FORMAT_BEGIN_ERROR -1
@@ -29,7 +30,7 @@ typedef enum			e_types
 
 typedef struct			s_formatter
 {
-	char				*(*f)(char *);
+	char				*(*f)(char *, struct s_printf *);
 	struct s_formatter	*next;
 }						t_formatter;
 
@@ -49,6 +50,10 @@ t_formatter				*ft_init_formatters(t_printf *state);
 
 int16_t					ft_configure_formatters(t_printf *state);
 
-void					ft_add_formatter(char *(*f)(char *), t_printf *state);
+void					ft_add_formatter(char *(*f)(char *, t_printf *), t_printf *state);
+
+t_bool					ft_is_flags(t_printf *state);
+
+char					*ft_formatter_flags(char *value, t_printf *state);
 
 #endif
