@@ -139,7 +139,6 @@ SRCS+=mem/ft_memmove.c
 SRCS+=mem/ft_memset.c
 SRCS+=mlx/drawables/container/constructor.c
 SRCS+=mlx/drawables/render_router.c
-SRCS+=mlx/drawables/vecs/2d/i16/render.c
 SRCS+=str/ft_strcat.c
 SRCS+=str/ft_strchr.c
 SRCS+=str/ft_strclr.c

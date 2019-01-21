@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 20:37:55 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 19:00:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/21 18:02:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ void	mlx_tests();
 void	ft_mlx_test1(t_mlx_state *p_state);
 
 void	ft_vec_tests();
+
+void	ft_printf_test();
 
 #endif
