@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/21 18:05:15 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/01/24 22:02:13 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ TEST_NAME	= tests_bin
 
 # Compilation
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -flto -O3
+CFLAGS = -Wall -Werror -Wextra
 
 # Paths
 SRCDIR		=		./src/
@@ -56,13 +56,15 @@ $(NAME): $(OBJS)
 $(OUTDIR)%.o: $(SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
 	@echo "Making $<"
-	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
+
+devTest: CFLAGS += -g
+devTest: re test
 
 # Test rules
 test: $(NAME) $(TEST_OBJS)
 	@echo "Compiling tests"
-	@echo "$(TEST_OBJS)"
-	@$(CC) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME)
+	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME)
 	@echo "Running tests"
 	@./$(TEST_NAME)
 

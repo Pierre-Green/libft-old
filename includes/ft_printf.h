@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/21 21:40:53 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/25 00:19:04 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,72 @@
 # include <unistd.h>
 # include "ft_bool.h"
 
-# define MALLOC_ERROR -42
-# define FORMAT_BEGIN_ERROR -1
+# define INIT_ERROR -1
+# define PH_ERROR -2
 
 # define FORMAT_BEGIN '%'
 
-typedef enum			e_types
-{
-	DEFAULT,
-	INT
-}						t_types;
-
 typedef struct			s_formatter
 {
-	char				*(*f)(char *, struct s_printf *);
+	char				*(*f)(char *, void *);
 	struct s_formatter	*next;
 }						t_formatter;
 
-typedef struct			s_printf
+typedef struct			s_part
 {
-	const char			*format;
-	va_list				*values;
-	char				*pos;
+	uint16_t			nu;
 	t_formatter			*formatters;
 	t_formatter			*last_formatter;
-	t_types				type;
+}						t_part;
+
+typedef struct			s_printf
+{
+	int					fd;
+	char				*format;
+	va_list				params;
+	uint32_t			length;
+	t_part				part;
+
 }						t_printf;
 
 int						ft_printf(const char *format, ...);
 
-t_formatter				*ft_init_formatters(t_printf *state);
+/*
+** Placeholder functions
+*/
+t_bool					ft_is_parameter(t_printf *state);
 
-int16_t					ft_configure_formatters(t_printf *state);
-
-void					ft_add_formatter(char *(*f)(char *, t_printf *), t_printf *state);
+void					ft_apply_parameter(t_printf *state);
 
 t_bool					ft_is_flags(t_printf *state);
 
-char					*ft_formatter_flags(char *value, t_printf *state);
+void					ft_apply_flags(t_printf *state);
+
+t_bool					ft_is_width(t_printf *state);
+
+void					ft_apply_width(t_printf *state);
+
+t_bool					ft_is_precision(t_printf *state);
+
+void					ft_apply_precision(t_printf *state);
+
+t_bool					ft_is_length(t_printf *state);
+
+void					ft_apply_length(t_printf *state);
+
+t_bool					ft_is_type(t_printf *state);
+
+void					ft_apply_type(t_printf *state);
+
+/*
+** Utils
+*/
+void					ft_print_noph(t_printf *state);
+
+t_bool					ft_print_ph(t_printf *state);
+
+t_bool					ft_validate_ph(t_printf *state);
+
+t_bool					ft_compute_and_print_ph(t_printf *state);
 
 #endif

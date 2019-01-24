@@ -6,57 +6,53 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/01/21 20:46:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/25 00:15:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_mem.h"
 
-static t_printf		*get_state(const char *format, va_list *values)
+static t_printf		*init(int fd, char *format, va_list params)
 {
 	t_printf		*state;
 
 	if (!(state = ft_memalloc(sizeof(t_printf))))
 		return (NULL);
 	state->format = format;
-	state->values = values;
-	state->pos = (char *)format;
-	state->formatters = NULL;
-	state->last_formatter = NULL;
-	state->type = DEFAULT;
+	state->part.formatters = NULL;
+	state->part.last_formatter = NULL;
+	state->length = 0;
+	state->fd = fd;
+	state->part.nu = 0;
+	va_copy(state->params, params);
 	return (state);
 }
 
-
-static int16_t		ft_next_part(t_printf *state)
+static int			cprintf(int fd, char *format, va_list params)
 {
-	uint8_t			formatters_count;
+	t_printf		*state;
 
-	if (*state->pos != FORMAT_BEGIN)
-		return (*state->pos == '\0' ? 0 : FORMAT_BEGIN_ERROR);
-	ft_init_formatters(state);
-	if ((formatters_count = ft_configure_formatters(state)) <= 0)
-		return (formatters_count);
-	return (0);
+	if (!(state = init(fd, format, params)))
+		return (INIT_ERROR);
+	while (*state->format)
+	{
+		if (*state->format != FORMAT_BEGIN)
+			ft_print_noph(state);
+		if (*state->format == FORMAT_BEGIN)
+			if(!ft_print_ph(state))
+				return (PH_ERROR);
+	}
+	return (state->length);
 }
 
 int					ft_printf(const char *format, ...)
 {
-    t_printf		*state;
 	va_list			values;
-	int16_t			curr_res;
+	int				result;
 
 	va_start(values, format);
-	if (!(state = get_state(format, &values)))
-		return (MALLOC_ERROR);
-	while ((curr_res = ft_next_part(state)) > 0)
-	{
-		while (*state->pos != '\0' || *state->pos != FORMAT_BEGIN)
-		{
-			write(1, state->pos, 1);
-			state->pos++;
-		}
-	}
-	return (curr_res);
+	result = cprintf(1, (char *)format, values);
+	va_end(values);
+	return (result);
 }
