@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:30:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/24 23:32:56 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/25 12:21:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 t_bool					ft_is_parameter(t_printf *state)
 {
+	if ()
 	return (true);
 }
