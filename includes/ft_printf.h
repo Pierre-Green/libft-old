@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:41:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:10:07 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,9 @@
 # define INPUT_DOUBLE "fFeEgGaA"
 # define INPUT_ALPHA "csb"
 
-typedef struct			s_formatter
-{
-	char				*(*f)(char *, void *);
-	struct s_formatter	*next;
-}						t_formatter;
-
 typedef struct			s_part
 {
 	uint16_t			nu;
-	t_formatter			*formatters;
-	t_formatter			*last_formatter;
 }						t_part;
 
 typedef struct			s_printf

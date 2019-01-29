@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/01/29 16:39:46 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:10:14 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static t_printf		*init(int fd, char *format, va_list params)
 	if (!(state = ft_memalloc(sizeof(t_printf))))
 		return (NULL);
 	state->format = format;
-	state->part.formatters = NULL;
-	state->part.last_formatter = NULL;
 	state->length = 0;
 	state->fd = fd;
 	state->part.nu = 0;
