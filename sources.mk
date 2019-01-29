@@ -10,7 +10,6 @@ SRCS+=io/ft_printf/placeholder/ph.c
 SRCS+=io/ft_printf/placeholder/precision/apply.c
 SRCS+=io/ft_printf/placeholder/precision/checker.c
 SRCS+=io/ft_printf/placeholder/type/apply.c
-SRCS+=io/ft_printf/placeholder/type/checker.c
 SRCS+=io/ft_printf/placeholder/validate.c
 SRCS+=io/ft_printf/placeholder/width/apply.c
 SRCS+=io/ft_printf/placeholder/width/checker.c

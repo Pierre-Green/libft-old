@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/25 00:19:19 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/29 12:20:09 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 t_bool					ft_compute_and_print_ph(t_printf *state)
 {
+	(void)state;
 	return (true);
 }

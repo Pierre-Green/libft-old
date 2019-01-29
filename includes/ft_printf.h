@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/25 00:19:04 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/29 16:41:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,38 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "ft_bool.h"
+# include "ft_io.h"
 
 # define INIT_ERROR -1
 # define PH_ERROR -2
 
 # define FORMAT_BEGIN '%'
+
+# define PARAMETER_END '$'
+
+# define FLAGS_LEFT_JUSTIFY '-'
+# define FLAGS_FILL_WITH_0 '0'
+# define FLAGS_SIGN_OUTPUT '+'
+# define FLAGS_POSITIVE_BLANK ' '
+# define FLAGS_ALTERNATE_PRINT '#'
+
+# define FIELD_WIDTH_PARAM_VALUE '*'
+
+# define PRECISION_BEGIN '.'
+# define PRECISION_PARAM_VALUE '*'
+
+# define LENGTH_CHAR "hh"
+# define LENGTH_SHORT 'h'
+# define LENGTH_LONG_LONG_INT "ll"
+# define LENGTH_LONG_INT 'l'
+# define LENGTH_LONG_DOUBLE 'L'
+# define LENGTH_SIZET 'z'
+# define LENGTH_INTMAX 'j'
+# define LENGTH_PTRDIF 't'
+
+# define INPUT_INT "diouXx"
+# define INPUT_DOUBLE "fFeEgGaA"
+# define INPUT_ALPHA "csb"
 
 typedef struct			s_formatter
 {

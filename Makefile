@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/24 22:02:13 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/01/29 12:20:34 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ TEST_NAME	= tests_bin
 
 # Compilation
 CC = clang
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = 
 
 # Paths
 SRCDIR		=		./src/

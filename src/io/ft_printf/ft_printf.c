@@ -6,12 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/01/25 00:15:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/01/29 16:39:46 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_mem.h"
+#include "ft_io.h"
 
 static t_printf		*init(int fd, char *format, va_list params)
 {
