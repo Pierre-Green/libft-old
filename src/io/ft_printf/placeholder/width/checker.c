@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:30:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 15:17:22 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:11:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ t_bool					ft_is_width(t_printf *state)
 {
 	char				*pos;
 
+	pos = state->format;
 	if (*pos == FIELD_WIDTH_PARAM_VALUE)
 		return (true);
-	while (ft_isdigit(*pos))
-		pos++;
-	return (*pos == '\0');
+	return (ft_isdigit(*pos));
 }

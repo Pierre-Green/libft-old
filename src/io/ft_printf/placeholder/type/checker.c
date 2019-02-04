@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 23:39:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/04 15:32:22 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/04 16:13:31 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/04 16:23:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "ft_utils.h"
+#include "ft_str.h"
 
-void					ft_apply_precision(t_printf *state)
+t_bool					ft_is_type(t_printf *state)
 {
-	state->format++;
-	if (*state->format == '*')
-	{
-		state->part.precision_p = true;
-		state->format++;
-	}
-	else
-		state->part.precision = ft_atoi_consume(&state->format);
+	return ((ft_strchr(MODIFIERS, *state->format) != NULL));
 }

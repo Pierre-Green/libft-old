@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 12:10:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:31:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:07:32 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_bool				ft_parameter_test(t_printf *pf)
 t_bool				ft_flags_test(t_printf *pf)
 {
 	pf->format = ft_strnew(10);
-	ft_strcpy(pf->format, "-");
+	ft_strcpy(pf->format, "0-");
 	if (!(ft_is_flags(pf)))
 		return (false);
 	ft_strcpy(pf->format, "#");

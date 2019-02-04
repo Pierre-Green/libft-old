@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:30:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:34:24 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:49:47 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@
 
 t_bool					ft_is_length(t_printf *state)
 {
-	char				*pos;
+	char				c;
 
-	pos = state->format;
-	return ((*pos == LENGTH_SHORT && *(pos + 1) == LENGTH_SHORT) 
-		|| (*pos == LENGTH_LONG_INT && *(pos + 1) == LENGTH_LONG_INT)
-		|| *pos == LENGTH_SHORT
-		|| *pos == LENGTH_LONG_INT
-		|| *pos == LENGTH_LONG_DOUBLE
-		|| *pos == LENGTH_SIZET
-		|| *pos == LENGTH_INTMAX
-		|| *pos == LENGTH_PTRDIF);
+	c = *state->format;
+	return (c == LENGTH_SHORT_INT || c == LENGTH_LONG_INT
+			|| c == LENGTH_MAX_INT || c == LENGTH_PTRDIF
+			|| c == LENGTH_SIZE_T || c == LENGTH_LONG_DOUBLE);
 }

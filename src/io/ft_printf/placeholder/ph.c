@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:06:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:40:46 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 16:23:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_bool			ft_print_ph(t_printf *state)
 		ft_apply_precision(state);
 	if (ft_is_length(state))
 		ft_apply_length(state);
-	ft_apply_type(state);
-	if (!ft_validate_ph(state))
+	if (!ft_is_type(state))
 		return (false);
+	ft_apply_type(state);
 	return (ft_compute_and_print_ph(state));
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:18:57 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define ISWHITESPACE(c) (c == ' ' ? 1 : (c == '\n' ? 1 : (c == '\t' ? 1 : 0)))
 
 int					ft_atoi(const char *nptr);
+
+int					ft_atoi_consume(char **str);
 
 char				*ft_itoa(int n);
 

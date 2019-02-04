@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:39:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/04 17:33:45 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,13 @@ static t_printf		*state()
 	return (state);
 }
 
-static t_bool			test1()
+static t_bool			test1(t_printf *pf)
 {
-	ft_printf("Ohyeyahh%d\n", "bite", 31);
+	// ft_printf("Ohyeyahh%2$-d\n", "bite", 31);
+	pf->format = ft_strnew(10);
+	ft_strcpy(pf->format, "%12$-#10.4h%");
+	ft_print_ph(pf);
+	printf("Param: %u, Flags: %u, Width: %u, Precision: %u, Length: %u, Converstion: %u\n", pf->part.nu, pf->part.flags, pf->part.width, pf->part.precision, pf->part.length, pf->part.modifier);
 	return (true);
 }
 
