@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 13:32:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:32:03 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 #include "tests.h"
 #include "ft_mem.h"
 #include "ft_str.h"
+#include <wchar.h>
+#include "ft_utils.h"
+#include <locale.h>
 
-static t_printf		*state()
+static t_printf			*state()
 {
-	t_printf		*state;
+	t_printf			*state;
 
 	if (!(state = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		return (NULL);
@@ -42,28 +45,43 @@ static t_bool			test1(t_printf *pf)
 	return (true);
 }
 
-static t_bool			test2()
+static t_bool			teststring()
 {
-	ft_printf("Say %s !\n", "yesss");
+	printf("BS: Say %-10.3s !\n", "bonjour");
+	ft_printf("My: Say %-10.3s !\n", "bonjour");
 	return (true);
 }
 
-void			ft_printf_test()
+static t_bool			testchar()
 {
-	static		t_bool (*tests[])(t_printf *) = 
+	printf("digit %zu\n\n", ft_count_digits_intmax(12231231));
+	const wchar_t		wc = L'\x3b1';
+	setlocale(LC_ALL, "en_US.UTF-8");
+
+	printf("BS: Char %6c .\n", 'A');
+	ft_printf("My: Char %6c .\n", 'A');
+	printf("BS: Wide Char %-6C .\n", wc);
+	ft_printf("My: Wide Char %-6C .\n", wc);
+	return (true);
+}
+
+void					ft_printf_test()
+{
+	static t_bool 		(*tests[])(t_printf *) = 
 	{
-//				test1,
-				test2,
-				ft_parameter_test,
-				ft_flags_test,
-				ft_width_test,
-				ft_precision_test,
-				ft_length_test
+//						test1,
+						teststring,
+						testchar,
+						ft_parameter_test,
+						ft_flags_test,
+						ft_width_test,
+						ft_precision_test,
+						ft_length_test
 	};
-	uint16_t	score;
-	uint16_t	length;
-	uint8_t		current;
-	t_printf	*pf;
+	uint16_t			score;
+	uint16_t			length;
+	uint8_t				current;
+	t_printf			*pf;
 
 	pf = state();
 	current = 0;

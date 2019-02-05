@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute.c                                          :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:13:28 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/05 15:01:53 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/05 15:06:01 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void					ft_root_ph(t_printf *state)
+t_bool					ft_test_flag(t_printf *state, uint8_t flag)
 {
-	if (state->part.nu == 0)
-		ft_next_param(state);
-	else
-		ft_iparam(state);
-	if (state->part.modifier == CSINT)
-		ft_pfdi(state);
-	if (state->part.modifier == CACHR || state->part.modifier == CAWCH)
-		ft_pfc(state);
-	if (state->part.modifier == CASTR)
-		ft_pfs(state);
+	return (state->part.flags & flag);
 }

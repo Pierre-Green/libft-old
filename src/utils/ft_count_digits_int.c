@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute.c                                          :+:      :+:    :+:   */
+/*   ft_count_digits_int.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:13:28 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/05 16:26:24 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/05 16:41:07 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_utils.h"
 
-void					ft_root_ph(t_printf *state)
+size_t				ft_count_digits_intmax(intmax_t i)
 {
-	if (state->part.nu == 0)
-		ft_next_param(state);
-	else
-		ft_iparam(state);
-	if (state->part.modifier == CSINT)
-		ft_pfdi(state);
-	if (state->part.modifier == CACHR || state->part.modifier == CAWCH)
-		ft_pfc(state);
-	if (state->part.modifier == CASTR)
-		ft_pfs(state);
+	size_t			res;
+
+	res = 0;
+	while (i)
+	{
+		i *= 0.1;
+		res++;
+	}
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 13:46:35 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:14:25 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@
 # define LSIZT 0b00000010
 # define LLDOU 0b00000001
 
-# define MODIFIERS "diouxXaAeEfFgGcs%"
+# define MODIFIERS "diouxXaAeEfFgGcCs%"
 # define INT_MODIFIERS "diouxX"
 # define DOUBLE_MODIFIERS "aAeEfFgG"
-# define ALPHA_MODIFIERS "cs"
+# define ALPHA_MODIFIERS "cCs"
 # define CSINT 1
 # define CUOCT 2
 # define CUINT 3
@@ -78,12 +78,14 @@
 # define CDMGE 11
 # define CDGEN 12
 # define CACHR 13
-# define CASTR 14
+# define CAWCH 14
+# define CASTR 15
 # define CXXXX 42
 
 typedef union			u_values
 {
-	char				*str;
+	void				*str;
+	intmax_t			i;
 }						t_values;
 
 typedef struct			s_part
@@ -152,9 +154,21 @@ void					ft_next_param(t_printf *state);
 
 void					ft_iparam(t_printf *state);
 
+void					ft_print_0(t_printf *state, size_t count);
+
+void					ft_print_blank(t_printf *state, size_t count);
+
+void					ft_print_str(t_printf *state, char *str, size_t length);
+
+t_bool					ft_test_flag(t_printf *state, uint8_t flag);
+
 /*
 ** Modifiers
 */
 void					ft_pfs(t_printf *state);
+
+void					ft_pfc(t_printf *state);
+
+void					ft_pfdi(t_printf *state);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:39:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 13:57:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 15:50:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void				alpha(t_printf *state)
 	c = *(state->format);
 	if (c == 'c')
 		state->part.modifier = CACHR;
+	if (c == 'C')
+		state->part.modifier = CAWCH;
 	if (c == 's')
 		state->part.modifier = CASTR;
 }
