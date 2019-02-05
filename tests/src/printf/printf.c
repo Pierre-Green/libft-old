@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:32:03 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 18:11:23 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_bool			test1(t_printf *pf)
 static t_bool			teststring()
 {
 	printf("BS: Say %-10.3s !\n", "bonjour");
-	ft_printf("My: Say %-10.3s !\n", "bonjour");
+	ft_printf("My: Say %-10.8s !\n", "bonjour");
 	return (true);
 }
 

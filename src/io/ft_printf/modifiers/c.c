@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:21:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:10:47 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:45:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@
 
 static void				ft_root_char(t_printf *state)
 {
-	wchar_t				wc;
-
 	if (state->part.modifier == CAWCH || state->part.length == LENGTH_LONG_INT)
-	{
-		wc = (wchar_t)state->part.value.i;
-		write(state->fd, &wc, sizeof(wc));
-	}
+		ft_putwchar_fd((wchar_t)state->part.value.i, state->fd);
 	else
 		ft_putchar_fd((unsigned char)state->part.value.i, state->fd);
 }

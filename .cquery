@@ -1,6 +1,10 @@
 %clang
 %c
 
+-Wall
+-Wextra
+-Werror
+
 # Includes
 -Iincludes
 -Itests/includes
