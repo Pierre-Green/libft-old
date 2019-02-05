@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 18:11:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 18:40:59 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,13 @@ static t_bool			test1(t_printf *pf)
 
 static t_bool			teststring()
 {
-	printf("BS: Say %-10.3s !\n", "bonjour");
-	ft_printf("My: Say %-10.8s !\n", "bonjour");
+	printf("BS: Say %-10s !\n", "bonjour");
+	ft_printf("My: Say %-10s !\n", "bonjour");
 	return (true);
 }
 
 static t_bool			testchar()
 {
-	printf("digit %zu\n\n", ft_count_digits_intmax(12231231));
 	const wchar_t		wc = L'\x3b1';
 	setlocale(LC_ALL, "en_US.UTF-8");
 
@@ -65,6 +64,12 @@ static t_bool			testchar()
 	return (true);
 }
 
+static t_bool			testsignedint()
+{
+	printf("INT: %010d\n", 21);
+	return (true);
+}
+
 void					ft_printf_test()
 {
 	static t_bool 		(*tests[])(t_printf *) = 
@@ -72,6 +77,7 @@ void					ft_printf_test()
 //						test1,
 						teststring,
 						testchar,
+						testsignedint,
 						ft_parameter_test,
 						ft_flags_test,
 						ft_width_test,
