@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 22:44:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/04 17:43:07 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 14:02:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 
 void		ft_print_noph(t_printf *state)
 {
-	while (*(state->format + state->length) 
-			&& *(state->format + state->length) != FORMAT_BEGIN)
-		state->length++;
-	write(state->fd, state->format, state->length);
-	state->format += state->length;
+	size_t	length;
+
+	length = 0;
+	while (*(state->format + length) && *(state->format + length) != FORMAT_BEGIN)
+		length++;
+	write(state->fd, state->format, length);
+	state->format += length;
+	state->length += length;
 }

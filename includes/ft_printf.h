@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/04 18:16:31 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:46:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@
 # define CASTR 14
 # define CXXXX 42
 
+typedef union			u_values
+{
+	char				*str;
+}						t_values;
+
 typedef struct			s_part
 {
 	uint16_t			nu;
@@ -91,6 +96,7 @@ typedef struct			s_part
 	uint32_t			precision;
 	uint8_t				length;
 	uint8_t				modifier;
+	t_values			value;
 }						t_part;
 
 typedef struct			s_printf
@@ -140,13 +146,15 @@ void					ft_print_noph(t_printf *state);
 
 t_bool					ft_print_ph(t_printf *state);
 
-t_bool					ft_compute_and_print_ph(t_printf *state);
+void					ft_root_ph(t_printf *state);
 
-void					*	
+void					ft_next_param(t_printf *state);
+
+void					ft_iparam(t_printf *state);
 
 /*
 ** Modifiers
 */
-void		ft_pf_str(t_printf *state);
+void					ft_pfs(t_printf *state);
 
 #endif

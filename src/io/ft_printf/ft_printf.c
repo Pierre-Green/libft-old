@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/04 18:08:25 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:12:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static int			cprintf(int fd, char *format, va_list params)
 	{
 		if (*state->format != FORMAT_BEGIN)
 			ft_print_noph(state);
-		ft_putendl(state->format);
 		if (*state->format == FORMAT_BEGIN)
 			if(!ft_print_ph(state))
 				return (PH_ERROR);

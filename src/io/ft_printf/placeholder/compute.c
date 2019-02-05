@@ -6,14 +6,14 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 12:20:09 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:41:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_bool					ft_compute_and_print_ph(t_printf *state)
+void					ft_root_ph(t_printf *state)
 {
-	(void)state;
-	return (true);
+	if (state->part.modifier == CASTR)
+		ft_pfs(state);
 }

@@ -1,5 +1,5 @@
 SRCS+=io/ft_printf/ft_printf.c
-SRCS+=io/ft_printf/modifiers/str.c
+SRCS+=io/ft_printf/modifiers/s.c
 SRCS+=io/ft_printf/placeholder/compute.c
 SRCS+=io/ft_printf/placeholder/flags/apply.c
 SRCS+=io/ft_printf/placeholder/flags/checker.c
@@ -15,6 +15,7 @@ SRCS+=io/ft_printf/placeholder/type/checker.c
 SRCS+=io/ft_printf/placeholder/width/apply.c
 SRCS+=io/ft_printf/placeholder/width/checker.c
 SRCS+=io/ft_printf/utils/io.c
+SRCS+=io/ft_printf/utils/params.c
 SRCS+=io/ft_putchar.c
 SRCS+=io/ft_putchar_fd.c
 SRCS+=io/ft_putendl.c

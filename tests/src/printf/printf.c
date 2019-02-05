@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/04 17:33:45 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:32:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,18 @@ static t_bool			test1(t_printf *pf)
 	return (true);
 }
 
+static t_bool			test2()
+{
+	ft_printf("Say %s !\n", "yesss");
+	return (true);
+}
+
 void			ft_printf_test()
 {
 	static		t_bool (*tests[])(t_printf *) = 
 	{
-				test1,
+//				test1,
+				test2,
 				ft_parameter_test,
 				ft_flags_test,
 				ft_width_test,
@@ -69,7 +76,6 @@ void			ft_printf_test()
 			score++;
 		else
 			printf("Failed test %d\n\n", current + 1);
-		ft_strdel(&pf->format);
 		current++;
 	}
 	printf("ft_printf score: %d/%d\n", score, length);

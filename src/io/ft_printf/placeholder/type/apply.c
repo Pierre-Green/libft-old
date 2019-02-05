@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:39:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/04 17:00:47 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:57:02 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void					ft_apply_type(t_printf *state)
 		alpha(state);
 	if (*state->format == '%')
 		state->part.modifier = CXXXX;
+	state->format++;
 }
