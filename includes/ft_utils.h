@@ -6,13 +6,14 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:27:24 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/06 19:31:57 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 # include <stdlib.h>
+# include <stdint.h>
 # define ABS(v) (v < 0 ? -v : v)
 # define ISWHITESPACE(c) (c == ' ' ? 1 : (c == '\n' ? 1 : (c == '\t' ? 1 : 0)))
 

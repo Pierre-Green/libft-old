@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:09:56 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 17:54:51 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/06 20:04:16 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void				ft_next_in_va_list(t_printf *state, va_list list)
 		state->part.value.i = va_arg(list, int);
 	if (state->part.modifier == CAWCH)
 		state->part.value.i = va_arg(list, wchar_t);
+	if (state->part.modifier == CSINT)
+		state->part.value.i = va_arg(list, int);
 }
 
 void					ft_next_param(t_printf *state)

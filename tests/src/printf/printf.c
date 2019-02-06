@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 18:40:59 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/06 21:23:00 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_bool			test1(t_printf *pf)
 static t_bool			teststring()
 {
 	printf("BS: Say %-10s !\n", "bonjour");
-	ft_printf("My: Say %-10s !\n", "bonjour");
+	ft_printf("My: Say %-10s !\n\n", "bonjour");
 	return (true);
 }
 
@@ -60,13 +60,18 @@ static t_bool			testchar()
 	printf("BS: Char %6c .\n", 'A');
 	ft_printf("My: Char %6c .\n", 'A');
 	printf("BS: Wide Char %-6C .\n", wc);
-	ft_printf("My: Wide Char %-6C .\n", wc);
+	ft_printf("My: Wide Char %-6C .\n\n", wc);
 	return (true);
 }
 
 static t_bool			testsignedint()
 {
-	printf("INT: %010d\n", 21);
+	printf("BS: INT: %10.6d.\n", -21);
+	ft_printf("My: INT: %10.6d.\n", -21);
+	printf("BS: INT: % 5d.\n", 213456);
+	ft_printf("My: INT: % 5d.\n", -213456);
+	printf("BS: INT: %0+10d.\n", 213456);
+	printf("My: INT: %0+10d.\n", 213456);
 	return (true);
 }
 

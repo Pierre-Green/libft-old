@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/01/29 12:20:34 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/06 21:23:56 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ $(NAME): $(OBJS)
 $(OUTDIR)%.o: $(SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
 	@echo "Making $<"
-	$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
+	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
 
 devTest: CFLAGS += -g
 devTest: re test
@@ -64,7 +64,7 @@ devTest: re test
 # Test rules
 test: $(NAME) $(TEST_OBJS)
 	@echo "Compiling tests"
-	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME)
+	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME) -lm
 	@echo "Running tests"
 	@./$(TEST_NAME)
 
@@ -86,6 +86,6 @@ getSources:
 	@rm -f tests/sources.mk
 	@touch sources.mk
 	@touch tests/sources.mk 
-	@find src/ -name "*.c" | sed  "s/src\/\//SRCS+=/g" >> sources.mk
-	@find tests/src/ -name "*.c" | sed "s/tests\/src\/\//TEST_SRCS+=/g" >> tests/sources.mk
+	@find src/ -name "*.c" | sed  "s/src\//SRCS+=/g" >> sources.mk
+	@find tests/src/ -name "*.c" | sed "s/tests\/src\//TEST_SRCS+=/g" >> tests/sources.mk
 
