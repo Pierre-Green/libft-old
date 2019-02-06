@@ -1,4 +1,5 @@
 SRCS+=utils/ft_count_digits_int.c
+SRCS+=utils/ft_decimal2octal.c
 SRCS+=utils/ft_atoi.c
 SRCS+=utils/ft_atoi_consume.c
 SRCS+=utils/ft_isalnum.c
@@ -181,7 +182,10 @@ SRCS+=io/ft_printf/utils/params.c
 SRCS+=io/ft_printf/utils/flags.c
 SRCS+=io/ft_printf/ft_printf.c
 SRCS+=io/ft_printf/modifiers/s.c
+SRCS+=io/ft_printf/modifiers/o.c
 SRCS+=io/ft_printf/modifiers/di.c
+SRCS+=io/ft_printf/modifiers/xX.c
+SRCS+=io/ft_printf/modifiers/u.c
 SRCS+=io/ft_printf/modifiers/c.c
 SRCS+=io/ft_printf/placeholder/parameter/apply.c
 SRCS+=io/ft_printf/placeholder/parameter/checker.c

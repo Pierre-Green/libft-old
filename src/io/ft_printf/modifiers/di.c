@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 16:12:02 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 21:19:32 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/06 22:15:16 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void					ft_pfdi(t_printf *state)
 		ft_print_signed_int_pf(state, p_length, length);
 		ft_print_blank(state, width - p_length);
 	}
-	else if(ft_test_flag(state, FFIL0))
+	else if(ft_test_flag(state, FFIL0) && p_length == length)
 	{
 		ft_print_0(state, width - p_length);
 		ft_print_signed_int_pf(state, p_length, length);

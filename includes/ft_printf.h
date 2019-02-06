@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 21:14:10 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/06 22:01:10 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,5 +172,11 @@ void					ft_pfs(t_printf *state);
 void					ft_pfc(t_printf *state);
 
 void					ft_pfdi(t_printf *state);
+
+void					ft_pfo(t_printf *state);
+
+void					ft_pfu(t_printf *state);
+
+void					ft_pfxX(t_printf *state);
 
 #endif

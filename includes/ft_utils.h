@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 19:31:57 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/06 21:49:20 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 
 int					ft_isprint(int c);
+
+int					ft_decimal2octal(int i);
 
 #endif

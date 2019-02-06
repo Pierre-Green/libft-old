@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 21:23:00 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/06 22:43:40 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,28 @@ static t_bool			testsignedint()
 	printf("BS: INT: % 5d.\n", 213456);
 	ft_printf("My: INT: % 5d.\n", -213456);
 	printf("BS: INT: %0+10d.\n", 213456);
-	printf("My: INT: %0+10d.\n", 213456);
+	printf("My: INT: %0+10d.\n\n", 213456);
 	return (true);
 }
+
+static t_bool			testunsignedoctal()
+{
+	printf("BS: Unsigned Octal %o\n", 13452);
+	ft_printf("My: Unsigned Octal %o\n", 13452);
+	printf("BS: Unsigned Octal %-#o\n", 1);
+	ft_printf("My: Unsigned Octal %-#o\n", 1);
+	printf("BS: Unsigned Octal %010o\n", 1234123);
+	ft_printf("My: Unsigned Octal %010o\n\n", 1234123);
+	return (true);
+}
+
+static t_bool			testunsignedecimal()
+{
+	printf("BS: Unsigned Decimal %u\n", 1842553331615);
+	ft_printf("My: Unsigned Decimal %u\n", 1842553331615);
+	return (true);
+}
+
 
 void					ft_printf_test()
 {
@@ -83,6 +102,8 @@ void					ft_printf_test()
 						teststring,
 						testchar,
 						testsignedint,
+						testunsignedoctal,
+						testunsignedecimal,
 						ft_parameter_test,
 						ft_flags_test,
 						ft_width_test,

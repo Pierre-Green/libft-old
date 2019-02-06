@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test1.c                                            :+:      :+:    :+:   */
+/*   ft_decimal2octal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 18:35:01 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 18:59:42 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/06 21:49:33 by pierre            #+#    #+#             */
+/*   Updated: 2019/02/06 21:52:01 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
-#include <mlx.h>
+#include "ft_utils.h"
 
-void				ft_mlx_test1(t_mlx_state *state)
+int					ft_decimal2octal(int i)
 {
-	uint8_t			curr;
+	int				result;
+	size_t			j;
 
-	curr = 10;
-	while (curr < 100)
+	result = 0;
+	j = 1;
+	while (i != 0)
 	{
-		mlx_pixel_put(state->mlx, state->win, curr, 10, 0xFF0000);
-		curr++;
+		result += (i % 8) * j;
+		i /= 8;
+		j *= 10;
 	}
+	return (result);
 }
