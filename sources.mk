@@ -1,6 +1,10 @@
 SRCS+=/io/ft_printf/ft_printf.c
-SRCS+=/io/ft_printf/modifiers/c.c
+SRCS+=/io/ft_printf/modifiers/aA.c
+SRCS+=/io/ft_printf/modifiers/cC.c
 SRCS+=/io/ft_printf/modifiers/di.c
+SRCS+=/io/ft_printf/modifiers/eE.c
+SRCS+=/io/ft_printf/modifiers/fF.c
+SRCS+=/io/ft_printf/modifiers/gG.c
 SRCS+=/io/ft_printf/modifiers/n.c
 SRCS+=/io/ft_printf/modifiers/o.c
 SRCS+=/io/ft_printf/modifiers/s.c

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 18:59:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:52:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,12 @@ void					ft_root_ph(t_printf *state)
 		ft_pfs(state);
 	if (state->part.modifier == CCURL)
 		ft_pfn(state);
+	if (state->part.modifier == CDMHX || state->part.modifier == CDHEX)
+		ft_pfaA(state);
+	if (state->part.modifier == CDMEX || state->part.modifier == CDEXP)
+		ft_pfeE(state);
+	if (state->part.modifier == CDDEC)
+		ft_pffF(state);
+	if (state->part.modifier == CDMGE || state->part.modifier == CDGEN)
+		ft_pfgG(state);
 }

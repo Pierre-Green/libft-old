@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:09:56 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 19:04:35 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:47:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ static void				ft_next_in_va_list(t_printf *state, va_list list)
 		state->part.value.i = (uintmax_t)va_arg(list, intmax_t);
 	if (state->part.modifier == CCURL)
 		state->part.value.ptr = (void *)va_arg(list, int *);
+	if (state->part.modifier == CDMHX || state->part.modifier == CDHEX)
+		state->part.value.d = va_arg(list, long double);
+	if (state->part.modifier == CDEXP)
+		state->part.value.d = va_arg(list, long double);
+	if (state->part.modifier == CDDEC)
+		state->part.value.d = va_arg(list, long double);
+	if (state->part.modifier == CDMGE || state->part.modifier == CDGEN)
+		state->part.value.d = va_arg(list, long double);
 }
 
 void					ft_next_param(t_printf *state)
