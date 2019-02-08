@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 16:13:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:20:48 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <wchar.h>
 #include "ft_utils.h"
 #include <locale.h>
+#include <float.h>
 
 static t_printf			*state()
 {
@@ -95,11 +96,19 @@ static t_bool			testunsignedoctal()
 
 static t_bool			testunsignedecimal()
 {
-	printf("BS: Unsigned Decimal %lu\n", 1842553331615);
-	ft_printf("My: Unsigned Decimal %lu\n", 1842553331615);
+	printf("BS: Unsigned Decimal %llu\n", UINTMAX_MAX);
+	ft_printf("My: Unsigned Decimal %llu\n\n", UINTMAX_MAX);
 	return (true);
 }
 
+static t_bool			testunsignedhexa()
+{
+	printf("BS: Unsigned hexadecimal %x\n", 1231);
+	ft_printf("My: Unsigned hexadecimal %x\n", 1231);
+	printf("BS: Unsigned hexadecimal %#X\n", 123987);
+	ft_printf("My: Unsigned hexadecimal %#X\n\n", 123987);
+	return (true);
+}
 
 void					ft_printf_test()
 {
@@ -111,6 +120,7 @@ void					ft_printf_test()
 						testsignedint,
 						testunsignedoctal,
 						testunsignedecimal,
+						testunsignedhexa,
 						ft_parameter_test,
 						ft_flags_test,
 						ft_width_test,

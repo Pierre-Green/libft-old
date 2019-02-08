@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:22:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:43:07 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char		*ft_strnew(size_t size)
 
 	if (!(res = (char *)ft_memalloc(size + 1)))
 		return (NULL);
-	ft_strclr(res);
+	ft_memset(res, 0, size + 1);
 	return (res);
 }

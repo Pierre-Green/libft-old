@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 16:22:30 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:56:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 # include <stdlib.h>
 # include <stdint.h>
+# include "ft_bool.h"
 # define ABS(v) (v < 0 ? -v : v)
 # define ISWHITESPACE(c) (c == ' ' ? 1 : (c == '\n' ? 1 : (c == '\t' ? 1 : 0)))
 
@@ -24,6 +25,8 @@ int					ft_atoi_consume(char **str);
 size_t				ft_count_digits_int(intmax_t i);
 
 size_t				ft_count_digits_uint(uintmax_t i);
+
+char				*ft_int_to_hex(intmax_t i);
 
 char				*ft_itoa(int n);
 

@@ -203,6 +203,7 @@ SRCS+=/utils/ft_count_digits_int.c
 SRCS+=/utils/ft_count_digits_uint.c
 SRCS+=/utils/ft_decimal2octal.c
 SRCS+=/utils/ft_divmod.c
+SRCS+=/utils/ft_int_to_hex.c
 SRCS+=/utils/ft_isalnum.c
 SRCS+=/utils/ft_isalpha.c
 SRCS+=/utils/ft_isascii.c

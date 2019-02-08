@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:09:56 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 16:07:33 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:24:47 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void				ft_next_in_va_list(t_printf *state, va_list list)
 		state->part.value.i = va_arg(list, uintmax_t);
 	if (state->part.modifier == CUINT)
 		state->part.value.i = va_arg(list, uintmax_t);
+	if (state->part.modifier == CUMHX || state->part.modifier == CUHEX)
+		state->part.value.i = (uintmax_t)va_arg(list, intmax_t);
 }
 
 void					ft_next_param(t_printf *state)
