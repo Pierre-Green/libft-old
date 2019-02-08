@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 16:12:02 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 16:52:09 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:48:22 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,5 @@ void					ft_pfdi(t_printf *state)
 		ft_print_blank(state, width - p_length);
 		ft_print_signed_int_pf(state, p_length, length, width);
 	}
+	state->length += width;
 }

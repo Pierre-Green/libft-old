@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:07:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 17:56:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:26:29 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char				*ft_int_to_hex(intmax_t i)
 	char			*res;
 
 	current = 0;
-	ft_memset(&buff[0], 0, 128);
 	while (i != 0)
 	{
 		tmp = i % 16;
@@ -33,7 +32,8 @@ char				*ft_int_to_hex(intmax_t i)
 			buff[current++] = (tmp + 55);
 		i /= 16;
 	}
-	res = ft_strnew(current);
+	res = malloc(current + 1);
+	res[current] = '\0';
 	reverser = current;
 	while (reverser > 0)
 	{

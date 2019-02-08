@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 17:20:48 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:21:25 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ static t_bool			testchar()
 	ft_printf("My: Char %6c .\n", 'A');
 	printf("BS: Wide Char %-6C .\n", wc);
 	ft_printf("My: Wide Char %-6C .\n\n", wc);
-	printf("BS: Signed Char %-6C .\n", wc);
-	ft_printf("My: Signed Char %-6C .\n\n", wc);
 	return (true);
 }
 

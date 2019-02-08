@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.c                                            :+:      :+:    :+:   */
+/*   n.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 19:36:03 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 18:45:35 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/08 18:52:52 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/08 19:00:19 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "ft_printf.h"
 
-int				main(void)
+void					ft_pfn(t_printf *state)
 {
-	ft_printf_test();
-	return (0);
+	intmax_t			*hey;
+
+	hey = (intmax_t *)state->part.value.ptr;
+	*hey = state->length;
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 15:20:07 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:56:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@
 # define LSIZT 0b00000010
 # define LLDOU 0b00000001
 
-# define MODIFIERS "diouxXaAeEfFgGcCs%"
+# define MODIFIERS "diouxXnaAeEfFgGcCs%"
 # define INT_MODIFIERS "diouxX"
 # define DOUBLE_MODIFIERS "aAeEfFgG"
 # define ALPHA_MODIFIERS "cCs"
@@ -80,6 +80,7 @@
 # define CACHR 13
 # define CAWCH 14
 # define CASTR 15
+# define CCURL 16
 # define CXXXX 42
 
 typedef union			u_values
@@ -108,7 +109,7 @@ typedef struct			s_printf
 	char				*format;
 	va_list				params;
 	va_list				it_params;
-	uint32_t			length;
+	uintmax_t			length;
 	t_part				part;
 
 }						t_printf;
@@ -179,5 +180,7 @@ void					ft_pfo(t_printf *state);
 void					ft_pfu(t_printf *state);
 
 void					ft_pfxX(t_printf *state);
+
+void					ft_pfn(t_printf *state);
 
 #endif

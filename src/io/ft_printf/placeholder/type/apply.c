@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:39:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 15:50:40 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:06:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,11 @@ static void				alpha(t_printf *state)
 
 void					ft_apply_type(t_printf *state)
 {
-	if (ft_strchr(INT_MODIFIERS, *state->format))
-		integer(state);
-	if (ft_strchr(DOUBLE_MODIFIERS, *state->format))
-		doubled(state);
-	if (ft_strchr(ALPHA_MODIFIERS, *state->format))
-		alpha(state);
+	integer(state);
+	doubled(state);
+	alpha(state);
+	if (*state->format == 'n')
+		state->part.modifier = CCURL;
 	if (*state->format == '%')
 		state->part.modifier = CXXXX;
 	state->format++;

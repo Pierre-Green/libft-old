@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 21:59:45 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 16:01:30 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:48:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void					ft_pfo(t_printf *state)
 		ft_print_blank(state, width - p_length);
 		ft_print_octal(state, i, p_length, length);
 	}
+	state->length += width;
 }

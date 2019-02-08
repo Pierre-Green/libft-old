@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 22:00:02 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 16:40:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:50:43 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void					ft_pfu(t_printf *state)
 		ft_print_blank(state, width - p_length);
 		ft_print_unsignedint(state, i, length, p_length);
 	}
+	state->length += width;
 }

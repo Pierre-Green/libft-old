@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 00:17:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 17:25:24 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:59:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void					ft_root_ph(t_printf *state)
 		ft_pfc(state);
 	if (state->part.modifier == CASTR)
 		ft_pfs(state);
-
+	if (state->part.modifier == CCURL)
+		ft_pfn(state);
 }
