@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xX.c                                               :+:      :+:    :+:   */
+/*   ft_put_uint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 22:01:17 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 15:50:06 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/08 16:28:43 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/08 16:31:20 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_io.h"
 
-void					ft_pfxX(t_printf *state)
+void				ft_put_uint(uintmax_t i)
 {
-	(void)state;
+	ft_put_uint_fd(i, 1);
 }

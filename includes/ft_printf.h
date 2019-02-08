@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 22:01:10 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 15:20:07 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,9 @@
 
 typedef union			u_values
 {
-	void				*str;
-	intmax_t			i;
+	void				*ptr;
+	uintmax_t			i;
+	long double			d;
 }						t_values;
 
 typedef struct			s_part

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 16:54:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:42:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define IO_H
 # include <unistd.h>
 # include <wchar.h>
+# include <stdint.h>
 
 void				ft_putchar(char c);
 
@@ -34,5 +35,17 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 
 void				ft_putnbr_fd(int n, int fd);
+
+void				ft_putnbrl(int n, size_t len);
+
+void				ft_putnbrl_fd(int n, int fd, size_t l);
+
+void				ft_put_uint(uintmax_t i);
+
+void				ft_put_uint_fd(uintmax_t i, int fd);
+
+void				ft_putl_uint(uintmax_t i, size_t l);
+
+void				ft_putl_uint_fd(uintmax_t i, int fd, size_t l);
 
 #endif

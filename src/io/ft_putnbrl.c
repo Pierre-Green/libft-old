@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xX.c                                               :+:      :+:    :+:   */
+/*   ft_putnbrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 22:01:17 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 15:50:06 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/08 16:41:18 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/08 16:43:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_io.h"
 
-void					ft_pfxX(t_printf *state)
+void				ft_putnbrl(int n, size_t len)
 {
-	(void)state;
+	ft_putnbrl_fd(n, 1, len);
 }

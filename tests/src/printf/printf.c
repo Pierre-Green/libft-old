@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 22:43:40 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:13:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,24 @@ static t_bool			testchar()
 	ft_printf("My: Char %6c .\n", 'A');
 	printf("BS: Wide Char %-6C .\n", wc);
 	ft_printf("My: Wide Char %-6C .\n\n", wc);
+	printf("BS: Signed Char %-6C .\n", wc);
+	ft_printf("My: Signed Char %-6C .\n\n", wc);
 	return (true);
 }
 
 static t_bool			testsignedint()
 {
-	printf("BS: INT: %10.6d.\n", -21);
-	ft_printf("My: INT: %10.6d.\n", -21);
+	signed char			c;
+
+	c = 'a';
+	printf("BS: INT: %1$10.6d str: %3$s str: %2$s.\n", -21, "yess", "hoy");
+	ft_printf("My: INT: %10.6d str: %3$s str: %2$s.\n", -21, "yess", "hoy");
 	printf("BS: INT: % 5d.\n", 213456);
 	ft_printf("My: INT: % 5d.\n", -213456);
 	printf("BS: INT: %0+10d.\n", 213456);
-	printf("My: INT: %0+10d.\n\n", 213456);
+	ft_printf("My: INT: %0+10d.\n", 213456);
+	printf("BS: INT: %hhd.\n", c);
+	ft_printf("My: INT: %hhd.\n\n", c);
 	return (true);
 }
 
@@ -88,8 +95,8 @@ static t_bool			testunsignedoctal()
 
 static t_bool			testunsignedecimal()
 {
-	printf("BS: Unsigned Decimal %u\n", 1842553331615);
-	ft_printf("My: Unsigned Decimal %u\n", 1842553331615);
+	printf("BS: Unsigned Decimal %lu\n", 1842553331615);
+	ft_printf("My: Unsigned Decimal %lu\n", 1842553331615);
 	return (true);
 }
 

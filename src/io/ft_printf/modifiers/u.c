@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 22:00:02 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/06 22:54:40 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:40:02 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		ft_print_unsignedint(t_printf *state, uintmax_t i, size_t length, s
 {
 	if (p_length > length)
 		ft_print_0(state, p_length - length);
-	ft_putnbr_fd(i, state->fd);
+	ft_putl_uint_fd(i, state->fd, length);
 }
 
 /*
@@ -25,15 +25,15 @@ static void		ft_print_unsignedint(t_printf *state, uintmax_t i, size_t length, s
 ** Width
 ** Precision
 */
-void			ft_pfu(t_printf *state)
+void					ft_pfu(t_printf *state)
 {
-	uintmax_t	i;
-	size_t		length;
-	size_t		p_length;
-	size_t		width;
+	unsigned long long	i;
+	size_t				length;
+	size_t				p_length;
+	size_t				width;
 
-	i = (uintmax_t)state->part.value.i;
-	length = ft_count_digits_intmax(i);
+	i = (unsigned long long)state->part.value.i;
+	length = ft_count_digits_uint(i);
 	p_length = length;
 	if (state->part.precision > length)
 		p_length = state->part.precision;

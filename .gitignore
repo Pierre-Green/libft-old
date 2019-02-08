@@ -1,6 +1,5 @@
 .vscode
 *.a
-main.c
 .DS_Store
 *.o
 .idea/

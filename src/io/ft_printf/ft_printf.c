@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/06 21:40:42 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 15:20:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,27 @@ static t_printf		*init(int fd, char *format, va_list params)
 	state->format = format;
 	state->length = 0;
 	state->fd = fd;
-	state->part.nu = 0;
-	state->part.flags = 0;
-	state->part.width_p = false;
-	state->part.width = 0;
-	state->part.precision_p = false;
-	state->part.precision = 0;
-	state->part.length = 0;
-	state->part.modifier = 0;
 	va_copy(state->params, params);
 	va_copy(state->it_params, params);
 	return (state);
+}
+
+static t_part		init_part()
+{
+	t_part			part;
+
+	part.nu = 0;
+	part.flags = 0;
+	part.width_p = false;
+	part.width = 0;
+	part.precision_p = false;
+	part.precision = 0;
+	part.length = 0;
+	part.modifier = 0;
+	part.value.i = 0;
+	part.value.ptr = NULL;
+	part.value.d = 0;
+	return (part);
 }
 
 static int			cprintf(int fd, char *format, va_list params)
@@ -44,6 +54,7 @@ static int			cprintf(int fd, char *format, va_list params)
 		return (INIT_ERROR);
 	while (*state->format)
 	{
+		state->part = init_part();
 		if (*state->format != FORMAT_BEGIN)
 			ft_print_noph(state);
 		if (*state->format == FORMAT_BEGIN)

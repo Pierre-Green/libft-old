@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 22:44:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 21:20:32 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:51:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void					ft_print_precised_int(t_printf *state, intmax_t i, size_t length, size_
 		ft_putchar_fd('-', state->fd);
 	if (precision > length)
 		ft_print_0(state, precision - length);
-	ft_putnbr_fd(ABS(i), state->fd);
+	ft_put_uint_fd(ABS(i), state->fd);
 }
 
 void					ft_print_0(t_printf *state, size_t count)

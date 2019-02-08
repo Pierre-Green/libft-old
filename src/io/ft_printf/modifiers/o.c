@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 21:59:45 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/06 22:40:01 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:01:30 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void					ft_pfo(t_printf *state)
 	size_t				width;
 
 	i = (uintmax_t)ft_decimal2octal(state->part.value.i);
-	length = ft_count_digits_intmax(i);
+	length = ft_count_digits_int(i);
 	if (ft_test_flag(state, FALTR))
 		length++;
 	p_length = length;

@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putl_uint_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:43:39 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 16:48:42 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/08 16:28:36 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/08 16:40:28 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
-#include "ft_utils.h"
 
-void			ft_putnbr_fd(int n, int fd)
+void				ft_putl_uint_fd(uintmax_t i, int fd, size_t l)
 {
-	ft_putnbrl_fd(n, fd, ft_count_digits_int(n));
+	uintmax_t		tmp;
+	size_t			current;
+	size_t			length;
+
+	current = 0;
+	while (current < l)
+	{
+		tmp = i;
+		length = l;
+		while (length-- != current + 1)
+			tmp /= 10;
+		ft_putchar_fd(tmp % 10 + '0', fd);
+		current++;
+	}
 }

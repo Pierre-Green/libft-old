@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/06 21:49:20 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:22:30 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int					ft_atoi(const char *nptr);
 
 int					ft_atoi_consume(char **str);
 
-size_t				ft_count_digits_intmax(intmax_t i);
+size_t				ft_count_digits_int(intmax_t i);
+
+size_t				ft_count_digits_uint(uintmax_t i);
 
 char				*ft_itoa(int n);
 
