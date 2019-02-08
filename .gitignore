@@ -7,3 +7,4 @@ CMakeLists.txt
 cmake-build-debug
 tests_bin
 tests/objs
+tests_bin.dSYM/
