@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c.c                                                :+:      :+:    :+:   */
+/*   cC.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:21:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 18:48:09 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/10 20:00:22 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "wchar.h"
+#include "ft_wchar.h"
 
 /*
 ** Flags: 0/-
@@ -30,23 +31,25 @@ static void				ft_root_char(t_printf *state)
 void					ft_pfc(t_printf *state)
 {
 	size_t				width;
+	size_t				length;
 
+	length = ft_wchar_length((wchar_t)state->part.value.i);
 	width = 1;
 	if (state->part.width)
 		width = state->part.width;
 	if (ft_test_flag(state, FLEFT))
 	{
 		ft_root_char(state);
-		ft_print_blank(state, width - 1);
+		ft_print_blank(state, width - length);
 	}
 	else if (ft_test_flag(state, FFIL0))
 	{
-		ft_print_0(state, width - 1);
+		ft_print_0(state, width - length);
 		ft_root_char(state);
 	}
 	else
 	{
-		ft_print_blank(state, width - 1);
+		ft_print_blank(state, width - length);
 		ft_root_char(state);
 	}
 	state->length += width;

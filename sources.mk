@@ -161,3 +161,4 @@ SRCS+=io/ft_printf/placeholder/length/checker.c
 SRCS+=io/ft_printf/placeholder/flags/apply.c
 SRCS+=io/ft_printf/placeholder/flags/checker.c
 SRCS+=io/ft_putnbr.c
+SRCS+=wchar/ft_wchar_length.c
