@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 15:21:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/10 20:00:22 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/10 20:11:55 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void					ft_pfc(t_printf *state)
 	size_t				length;
 
 	length = ft_wchar_length((wchar_t)state->part.value.i);
-	width = 1;
-	if (state->part.width)
+	width = length;
+	if (state->part.width > width)
 		width = state->part.width;
 	if (ft_test_flag(state, FLEFT))
 	{
