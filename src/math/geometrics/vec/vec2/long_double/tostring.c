@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sum.c                                              :+:      :+:    :+:   */
+/*   tostring.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 15:32:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/14 20:10:55 by pguthaus         ###   ########.fr       */
+/*   Created: 2018/12/26 16:14:40 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/10 16:01:17 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
+#include "ft_str.h"
+#include "ft_utils.h"
 
-t_vec2_i8		ft_vec2_i8_sum(t_vec2_i8 self, t_vec2_i8 vec)
+char			*ft_vec2_ld_tostring(t_vec2_ld self)
 {
-	self.x += vec.x;
-	self.y += vec.y;
-	return (self);
+	char		*result;
+
+	result = ft_strnew(13);
+	ft_strcpy(result, "(");
+	ft_strcat(result, ft_itoa(self.x));
+	ft_strcat(result, ", ");
+	ft_strcat(result, ft_itoa(self.y));
+	ft_strcat(result, ")");
+	return (result);
 }
