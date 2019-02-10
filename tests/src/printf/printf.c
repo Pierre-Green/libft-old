@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/10 20:11:33 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/10 22:05:43 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,13 @@ static t_bool			testunsignedhexa()
 	return (true);
 }
 
+static t_bool			tesfloatfloat()
+{
+	printf("BS: Double Max %f, %zu\n", DBL_MAX, sizeof(DBL_MAX));
+	printf("BS: Long double Max %Lf, %zu\n", LDBL_MAX, sizeof(LDBL_MAX));
+	return (true);
+}
+
 void					ft_printf_test()
 {
 	static t_bool 		(*tests[])(t_printf *) = 
@@ -119,6 +126,7 @@ void					ft_printf_test()
 						testunsignedoctal,
 						testunsignedecimal,
 						testunsignedhexa,
+						tesfloatfloat,
 						ft_parameter_test,
 						ft_flags_test,
 						ft_width_test,
