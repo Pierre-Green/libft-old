@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:41:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:41:30 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/12 19:44:51 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 # define FT_MATH_MATRIX_H
 # include <stdint.h>
 
-typedef struct 			s_matrix44_i8
+typedef struct 			s_matrix44_d
 {
-	int8_t 				matrix[4][4];
-}						t_matrix44_i8;
+	double 				matrix[4][4];
+}						t_matrix44_d;
 
-t_matrix44_i8			ft_init0_matrix44_i8();
+t_matrix44_d			ft_init0_matrix44_d();
 
-t_matrix44_i8			ft_init1_matrix44_i8(int8_t a);
+t_matrix44_d			ft_init1_matrix44_d(double a);
 
-t_matrix44_i8			ft_init44_matrix44_i8(int8_t matrixxx[4][4]);
+t_matrix44_d			ft_init44_matrix44_d(double a[4][4]);
 
-char 					*ft_matrix44_i8_tostring(t_matrix44_i8 self);
+t_matrix44_d			ft_multiply_matrix44_d(t_matrix44_d m1, t_matrix44_d m2);
 
 #endif

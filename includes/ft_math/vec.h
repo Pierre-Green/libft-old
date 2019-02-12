@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/10 16:02:29 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/12 19:11:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ typedef struct			s_vec2_d
 	double				y;
 }						t_vec2_d;
 
-typedef struct			s_vec2_ld
-{
-	long double			x;
-	long double			y; 
-}						t_vec2_ld;
-
 /*
  ** 3D vector types
  */
@@ -52,13 +46,6 @@ typedef struct			s_vec3_d
 	double				y;
 	double				z;
 }						t_vec3_d;
-
-typedef struct			s_vec3_ld
-{
-	long double			x;
-	long double			y;
-	long double			z;
-}						t_vec3_ld;
 
 /*
  ** vec2_f
@@ -119,35 +106,6 @@ double					ft_vec2_d_crossproduct(t_vec2_d self, t_vec2_d vec);
 t_vec2_d				ft_vec2_d_normalize(t_vec2_d self);
 
 /*
- ** vec2_ld
- */
-t_vec2_ld				ft_init0_vec2_ld(void);
-
-t_vec2_ld				ft_init1_vec2_ld(long double a);
-
-t_vec2_ld				ft_init2_vec2_ld(long double x, long double y);
-
-t_vec2_ld				ft_vec2_ld_sum(t_vec2_ld self, t_vec2_ld vec);
-
-t_vec2_ld				ft_vec2_ld_minus(t_vec2_ld self, t_vec2_ld vec);
-
-t_vec2_ld				ft_vec2_ld_product1(t_vec2_ld self, long double a);
-
-long double				ft_vec2_ld_product2(t_vec2_ld self, t_vec2_ld vec);
-
-long double				ft_vec2_ld_norm(t_vec2_ld self);
-
-long double 			ft_vec2_ld_length(t_vec2_ld self);
-
-long double				ft_vec2_ld_at(t_vec2_ld self, uint8_t i);
-
-char					*ft_vec2_ld_tostring(t_vec2_ld self);
-
-long double				ft_vec2_ld_crossproduct(t_vec2_ld self, t_vec2_ld vec);
-
-t_vec2_ld				ft_vec2_ld_normalize(t_vec2_ld self);
-
-/*
  ** vec3_f
  */
 t_vec3_f				ft_init0_vec3_f(void);
@@ -204,34 +162,5 @@ char					*ft_vec3_d_tostring(t_vec3_d self);
 double					ft_vec3_d_crossproduct(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d				ft_vec3_d_normalize(t_vec3_d self);
-
-/*
- ** vec3_ld
- */
-t_vec3_ld				ft_init0_vec3_ld(void);
-
-t_vec3_ld				ft_init1_vec3_ld(long double a);
-
-t_vec3_ld				ft_init3_vec3_ld(long double x, long double y, long double z);
-
-t_vec3_ld				ft_vec3_ld_sum(t_vec3_ld self, t_vec3_ld vec);
-
-t_vec3_ld				ft_vec3_ld_minus(t_vec3_ld self, t_vec3_ld vec);
-
-t_vec3_ld				ft_vec3_ld_product1(t_vec3_ld self, long double a);
-
-long double				ft_vec3_ld_product3(t_vec3_ld self, t_vec3_ld vec);
-
-long double				ft_vec3_ld_norm(t_vec3_ld self);
-
-long double 			ft_vec3_ld_length(t_vec3_ld self);
-
-long double				ft_vec3_ld_at(t_vec3_ld self, uint8_t i);
-
-char					*ft_vec3_ld_tostring(t_vec3_ld self);
-
-long double				ft_vec3_ld_crossproduct(t_vec3_ld self, t_vec3_ld vec);
-
-t_vec3_ld				ft_vec3_ld_normalize(t_vec3_ld self);
 
 #endif

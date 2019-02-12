@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tostring.c                                         :+:      :+:    :+:   */
+/*   multiply.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 19:49:36 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/27 16:47:16 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/12 19:43:35 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/12 19:50:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/matrix.h"
-#include "ft_str.h"
-#include "ft_utils.h"
 
-char 					*ft_matrix44_i8_tostring(t_matrix44_i8 self)
+t_matrix44_d			ft_multiply_matrix44_d(t_matrix44_d m1, t_matrix44_d m2)
 {
-	char 				*res;
-	uint8_t 			x;
-	uint8_t 			y;
+	t_matrix44_d		matrix;
+	uint8_t				x;
+	uint8_t				y;
 
-	res = ft_strnew(((4 + 1) * 4 * 4) + 1);
 	y = 0;
 	while (y < 4)
 	{
 		x = 0;
 		while (x < 4)
 		{
-			ft_strcat(res, ft_itoa(self.matrix[y][x]));
-			if (x != 3)
-				ft_strcat(res, " ");
+			matrix.matrix[y][x] = m1.matrix[y][0] * m2.matrix[0][x]
+								+ m1.matrix[y][1] * m2.matrix[1][x]
+								+ m1.matrix[y][2] * m2.matrix[2][x]
+								+ m1.matrix[y][3] * m2.matrix[3][x];
 			x++;
 		}
-		ft_strcat(res, "\n");
 		y++;
 	}
-	return (res);
+	return (matrix);
 }
