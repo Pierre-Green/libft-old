@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:29:50 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/10 22:05:43 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/12 18:42:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,9 @@ static t_bool			testunsignedhexa()
 
 static t_bool			tesfloatfloat()
 {
-	printf("BS: Double Max %f, %zu\n", DBL_MAX, sizeof(DBL_MAX));
-	printf("BS: Long double Max %Lf, %zu\n", LDBL_MAX, sizeof(LDBL_MAX));
+	printf("BS: Double %f\n", 1223.342);
+	ft_printf("BS: Double %f\n", 1223.342);
+	// printf("BS: Long double Max %Lf, %zu\n", LDBL_MAX, sizeof(LDBL_MAX));
 	return (true);
 }
 

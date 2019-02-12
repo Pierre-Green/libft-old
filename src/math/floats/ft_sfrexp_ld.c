@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fF.c                                               :+:      :+:    :+:   */
+/*   ft_sfrexp_ld.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/08 19:33:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/12 18:43:03 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/02/12 18:35:51 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/02/12 18:36:59 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_math/floats.h"
 
-void					ft_pffF(t_printf *state)
+t_ldouble		ft_sfrexp_ld(long double x)
 {
-	t_double			d;
+	t_ldouble	ld;
 
-	d = ft_sfrexp_d(state->part.value.d);
-	ft_printf("Double splitted: sign: %u, exp: %u, frac: %u\n", d.t_dparts.sign, d.t_dparts.exp, d.t_dparts.frac);
+	ld.ld = x;
+	return (ld);
 }
