@@ -1,0 +1,68 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile.dev                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/02/18 19:17:34 by pguthaus          #+#    #+#              #
+#    Updated: 2019/02/18 19:40:15 by pguthaus         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Sources sets
+include sources.mk
+include tests/sources.mk
+
+# Output name
+NAME			=			libft_dev.a
+
+TEST_NAME		=			tests_dev
+
+# Compilation
+CC				=			gcc
+CFLAGS			=			-g
+
+# Paths
+SRCDIR			=			./src/
+INCDIR			=			./includes/
+OUTDIR			=			./objs/dev
+
+# MLX
+MLX_INC			=			/usr/local/include
+MLX_ARGS		=			-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+
+# Test paths
+TEST_DIR		=			./tests/
+TEST_SRCDIR		=			$(addprefix $(TEST_DIR), src/)
+TEST_INCDIR		=			$(addprefix $(TEST_DIR), includes/)
+TEST_OUTDIR		=			$(addprefix $(TEST_DIR), objs/dev)
+
+# OBJS
+OBJS			=			$(addprefix $(OUTDIR),$(SRCS:.c=.o))
+TEST_OBJS		=			$(addprefix $(TEST_OUTDIR),$(TEST_SRCS:.c=.o))
+
+dev: $(NAME)
+
+re: fclean $(NAME)
+
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+
+$(OUTDIR)/%.o: $(SRCDIR)%.c
+	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
+	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
+
+test: $(NAME) $(TEST_OBJS)
+	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME) -lm
+	@./$(TEST_NAME)
+
+$(TEST_OUTDIR)/%.o: $(TEST_SRCDIR)%.c
+	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
+	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(TEST_INCDIR) -o $@ -c $<
+
+clean:
+	@rm -rf $(OUTDIR) $(TEST_OUTDIR)
+
+fclean: clean
+	@rm -rf $(NAME) $(TEST_NAME)*
