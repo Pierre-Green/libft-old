@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:34 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/18 19:40:15 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/18 19:53:56 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,5 +64,5 @@ $(TEST_OUTDIR)/%.o: $(TEST_SRCDIR)%.c
 clean:
 	@rm -rf $(OUTDIR) $(TEST_OUTDIR)
 
-fclean: clean
+fclean:
 	@rm -rf $(NAME) $(TEST_NAME)*

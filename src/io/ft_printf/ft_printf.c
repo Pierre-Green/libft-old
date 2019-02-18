@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 15:20:39 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/18 19:52:46 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static t_part		init_part()
 static int			cprintf(int fd, char *format, va_list params)
 {
 	t_printf		*state;
+	uint8_t			length;
 
 	if (!(state = init(fd, format, params)))
 		return (INIT_ERROR);
@@ -61,7 +62,9 @@ static int			cprintf(int fd, char *format, va_list params)
 			if(!ft_print_ph(state))
 				return (PH_ERROR);
 	}
-	return (state->length);
+	length = state->length;
+	ft_memdel((void **)&state);
+	return (length);
 }
 
 int					ft_printf(const char *format, ...)

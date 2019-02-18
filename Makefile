@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/18 19:42:29 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/18 19:53:47 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ clean:
 	@$(MAKE) -f $(DEVFILE) clean
 	@rm -rf objs/
 
-fclean:
+fclean: clean
 	@echo "Cleaning everything"
 	@$(MAKE) -f $(PRODFILE) fclean
 	@$(MAKE) -f $(DEVFILE) fclean

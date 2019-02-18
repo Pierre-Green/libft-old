@@ -54,6 +54,7 @@ SRCS+=/lst/ft_lstlast.c
 SRCS+=/lst/ft_lstmap.c
 SRCS+=/lst/ft_lstnew.c
 SRCS+=/lst/ft_lstsize.c
+SRCS+=/math/bigint/add.c
 SRCS+=/math/bigint/init.c
 SRCS+=/math/floats/ft_sfrexp_d.c
 SRCS+=/math/floats/ft_sfrexp_f.c
