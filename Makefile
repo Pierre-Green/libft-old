@@ -6,9 +6,11 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/18 19:53:47 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/20 22:34:42 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+include make/config.mk
 
 PRODFILE	=	make/Makefile.prod
 DEVFILE		=	make/Makefile.dev
@@ -45,9 +47,9 @@ fclean: clean
 	@$(MAKE) -f $(DEVFILE) fclean
 
 getSources:
-	@rm -f sources.mk
-	@rm -f tests/sources.mk
-	@touch sources.mk
-	@touch tests/sources.mk 
-	@find src/ -name "*.c" | sed  "s/src\//SRCS+=/g" >> sources.mk
-	@find tests/src/ -name "*.c" | sed "s/tests\/src\//TEST_SRCS+=/g" >> tests/sources.mk
+	@rm -f $(SOURCEMAP)
+	@rm -f $(TESTSOURCEMAP)
+	@touch $(SOURCEMAP)
+	@touch $(TESTSOURCEMAP) 
+	@find src/ -name "*.c" | sed  "s/src\//SRCS+=/g" >> $(SOURCEMAP)
+	@find tests/src/ -name "*.c" | sed "s/tests\/src\//TEST_SRCS+=/g" >> $(TESTSOURCEMAP)
