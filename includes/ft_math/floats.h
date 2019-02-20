@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:53:33 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/12 18:34:33 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:07:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define FT_MATH_FLOATS_H
 # include "ft_bool.h"
 # include <stdint.h>
+# define F_EXP_BIAS (127)
+# define D_EXP_BIAS (1023)
+# define L_EXP_BIAS (16383)
+
 typedef unsigned __int128 uint128_t;
 
 typedef union		u_float
@@ -49,10 +53,10 @@ typedef union		u_ldouble
 	long double		ld;
 }					t_ldouble;
 
-t_float			ft_sfrexp_f(float x);
+uint32_t			ft_sfrexp_f(float x, int16_t *exp);
 
-t_double		ft_sfrexp_d(double x);
+uint64_t			ft_sfrexp_d(double x, int16_t *exp);
 
-t_ldouble		ft_sfrexp_ld(long double x);
+uint128_t			ft_sfrexp_ld(long double x, int16_t *exp);
 
 #endif
