@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:33:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/12 18:43:03 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:27:29 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 void					ft_pffF(t_printf *state)
 {
-	t_double			d;
+	uint64_t			frac;
+	int16_t				exp;
 
-	d = ft_sfrexp_d(state->part.value.d);
-	ft_printf("Double splitted: sign: %u, exp: %u, frac: %u\n", d.t_dparts.sign, d.t_dparts.exp, d.t_dparts.frac);
+	frac = ft_sfrexp_d(state->part.value.d, &exp);
+	ft_printf("Double splitted:, exp: %d, frac: %u\n", exp, frac);
 }
