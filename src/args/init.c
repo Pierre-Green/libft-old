@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/20 22:18:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/20 22:30:08 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_params				*get_params(int argc, char **argv)
 	{
 		tmp->value = ft_strdup(argv[current + 1]);
 		current++;
-		if (current != (size_t) argc)
+		if (current != (size_t) argc - 1)
 		{
 			if (!(tmp->next = (t_param *)malloc(sizeof(t_param))))
 				return (NULL);
