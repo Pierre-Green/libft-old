@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/21 00:21:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/21 00:34:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ typedef struct		s_window
 	size_t			width;
 	size_t			height;
 	int				(*render)(void *);
+	int				(*keypress)(int, void *);
+	int				(*longkeypress)(int, void *);
+	int				(*mouse)(int, int, int, void *);
 	struct s_window *next;
 }					t_window;
 
