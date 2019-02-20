@@ -108,6 +108,7 @@ SRCS+=/mem/ft_memcpy.c
 SRCS+=/mem/ft_memdel.c
 SRCS+=/mem/ft_memmove.c
 SRCS+=/mem/ft_memset.c
+SRCS+=/mlx/window/init.c
 SRCS+=/str/ft_strcat.c
 SRCS+=/str/ft_strchr.c
 SRCS+=/str/ft_strclr.c
