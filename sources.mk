@@ -1,3 +1,5 @@
+SRCS+=/args/at.c
+SRCS+=/args/init.c
 SRCS+=/io/ft_printf/ft_printf.c
 SRCS+=/io/ft_printf/modifiers/aA.c
 SRCS+=/io/ft_printf/modifiers/cC.c
@@ -106,8 +108,6 @@ SRCS+=/mem/ft_memcpy.c
 SRCS+=/mem/ft_memdel.c
 SRCS+=/mem/ft_memmove.c
 SRCS+=/mem/ft_memset.c
-SRCS+=/params/at.c
-SRCS+=/params/init.c
 SRCS+=/str/ft_strcat.c
 SRCS+=/str/ft_strchr.c
 SRCS+=/str/ft_strclr.c

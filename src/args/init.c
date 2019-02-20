@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/20 20:30:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/20 22:18:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_params.h"
+# include "ft_args.h"
 # include "ft_str.h"
 
 t_params				*get_params(int argc, char **argv)

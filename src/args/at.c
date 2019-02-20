@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 20:11:22 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/20 20:15:24 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/20 22:18:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_params.h"
+#include "ft_args.h"
 
 t_param					*at(t_params *params, size_t at)
 {
