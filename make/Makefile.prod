@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:37 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/20 22:36:40 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/21 18:14:46 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,10 @@ CFLAGS			=			-Wall -Werror -Wextra
 # Paths
 SRCDIR			=			./src/
 INCDIR			=			./includes/
-OUTDIR			=			./objs/prod
+OUTDIR			=			./objs/prod/
 
 # MLX
 MLX_INC			=			/usr/local/include
-MLX_ARGS		=			-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 # Test paths
 TEST_DIR		=			./tests/
