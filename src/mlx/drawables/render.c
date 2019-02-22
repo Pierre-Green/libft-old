@@ -6,14 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:23:35 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/21 02:54:20 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:15:14 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/drawable.h"
-#include "ft_mlx/text.h"
-#include "ft_mlx/button.h"
-#include "ft_mlx/container.h"
+#include "ft_mlx/drawables.h"
 
 int						ft_drawable_routerender(t_drawable drawable, t_point2d offset, void *s)
 {

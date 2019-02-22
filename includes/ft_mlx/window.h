@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/21 01:53:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:48:10 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include "ft_bool.h"
 # include "ft_lst.h"
+# include "ft_mlx/drawables.h"
 # define DEFAULT_WIDTH 500
 # define DEFAULT_HEIGHT 1000
 
