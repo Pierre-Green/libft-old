@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 13:20:08 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/22 13:44:27 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 13:56:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
 	node = files;
 	node->file = NULL;
 	*count = 0;
-	while (((dirent = readdir(dir)) != NULL) && dirent->d_type == DT_REG)
+	while (((dirent = readdir(dir)) != NULL))
 	{
-		if (ext[0] != '\0' && !gdf_extension(dirent, ext))
+		if ((ext[0] != '\0' && !gdf_extension(dirent, ext)) || dirent->d_type == DT_REG)
 			continue ;
 		if (node->file == NULL)
 		{
