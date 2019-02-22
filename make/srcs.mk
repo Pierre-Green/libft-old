@@ -152,7 +152,6 @@ SRCS+=io/ft_putnbr.c
 SRCS+=args/init.c
 SRCS+=args/at.c
 SRCS+=mlx/drawables/utils.c
-SRCS+=mlx/drawables/render.c
 SRCS+=mlx/drawables/container/init.c
 SRCS+=mlx/hooks/dispatchers.c
 SRCS+=mlx/window/init.c
