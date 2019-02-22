@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/22 13:35:22 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 13:44:42 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_dfiles
 	struct s_dfiles	*next;
 }					t_dfiles;
 
-t_dfiles			*ft_get_dir_files(DIR *dir, size_t *count);
+t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count);
 
 void				ft_putchar(char c);
 

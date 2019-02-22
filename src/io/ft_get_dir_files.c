@@ -6,14 +6,33 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 13:20:08 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/22 13:37:19 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 13:44:27 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 #include <stdlib.h>
 
-t_dfiles			*ft_get_dir_files(DIR *dir, size_t *count)
+t_bool				gdf_extension(struct dirent *dirent, const char *ext)
+{
+	const char		*ptr = ext;
+
+	while (*ptr && *ptr != '.')
+	{
+		ptr++;
+	}
+	ptr++;
+	while (*ptr == *ext)
+	{
+		if (*ptr == '\0')
+			return (true);
+		ptr++;
+		ext++;
+	}
+	return (false);
+}
+
+t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
 {
 	t_dfiles		*files;
 	t_dfiles		*node;
@@ -26,6 +45,8 @@ t_dfiles			*ft_get_dir_files(DIR *dir, size_t *count)
 	*count = 0;
 	while (((dirent = readdir(dir)) != NULL) && dirent->d_type == DT_REG)
 	{
+		if (ext[0] != '\0' && !gdf_extension(dirent, ext))
+			continue ;
 		if (node->file == NULL)
 		{
 			node->file = dirent;
