@@ -115,6 +115,7 @@ SRCS+=io/ft_putwchar.c
 SRCS+=io/ft_putchar_fd.c
 SRCS+=io/ft_putendl.c
 SRCS+=io/ft_putendl_fd.c
+SRCS+=io/ft_get_dir_files.c
 SRCS+=io/ft_putstr.c
 SRCS+=io/ft_put_uint.c
 SRCS+=io/ft_putstr_fd.c
