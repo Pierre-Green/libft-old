@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 13:20:08 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/22 13:56:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 13:59:44 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_bool				gdf_extension(struct dirent *dirent, const char *ext)
 {
-	const char		*ptr = ext;
+	const char		*ptr = dirent->d_name;
 
 	while (*ptr && *ptr != '.')
 	{
