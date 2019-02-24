@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/22 15:47:46 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 17:22:28 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef enum			e_drawable_types
 						NONE
 }						t_drawable_types;
 
+typedef struct			s_image_carry
+{
+	char				**data;
+	int					bits_per_pixels;
+	int					size_line;
+	int					endian;
+}						t_image_carry;
+
 typedef struct			s_drawable
 {
 	void				*drawable;
@@ -41,7 +49,6 @@ typedef struct			s_drawables
 typedef struct			s_text
 {
 	char				*text;
-	char				*(*image)(struct s_text *);
 	t_dim2d				dim;
 	t_point2d			pos;
 }						t_text;
@@ -49,7 +56,7 @@ typedef struct			s_text
 typedef struct			s_button
 {
 	t_drawable			*child;
-	char				*(*image)(struct s_button *, t_point2d, char **);
+	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
 	void				(*onclick)();
 	t_color				background_color;
 	t_dim2d				dim;
@@ -59,7 +66,7 @@ typedef struct			s_button
 typedef struct			s_container
 {
 	t_drawables			*childs;
-	char				*(*image)(struct s_container *, t_point2d, char **);
+	char				*(*image)(struct s_container *, t_point2d, t_image_carry *);
 	void				(*add_child)(struct s_container *, t_drawable *);
 	t_color				background_color;
 	t_dim2d				dim;
@@ -71,5 +78,7 @@ t_container				*ft_init_container(t_point2d pos, t_dim2d dim);
 void					ft_add_drawable_to_drawables(t_drawables *dest, t_drawable *src);
 
 int						ft_drawable_routerender(t_drawable drawable, t_point2d offset, void *);
+
+t_image_carry			*ft_image_merge(t_image_carry *carry, t_point2d offset, char *value);
 
 #endif

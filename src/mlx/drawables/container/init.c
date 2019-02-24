@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/22 16:12:39 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/22 17:24:14 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ static void			container_add_child(t_container *self, t_drawable *drawable)
 	ft_add_drawable_to_drawables(self->childs, drawable);
 }
 
-static char			*image(t_container *self, t_point2d offset, char **dest)
+static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 {
-
+	carry = ft_image_merge(carry, offset, "ee");
+	return (*carry->data);
 }
 
 t_container			*ft_init_container(t_point2d pos, t_dim2d dim)
