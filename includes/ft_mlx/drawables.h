@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/25 15:00:34 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/25 15:32:18 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ void					ft_add_drawable_to_drawables(t_drawables *dest, t_drawable *src);
 int						ft_drawable_routerender(t_drawable drawable, t_point2d offset, void *);
 
 t_image_carry			*ft_image_merge(t_image_carry *carry, t_point2d offset, char *value);
+
+void					ft_put_pixel_to_image(char *data, int sl, int bpp, t_point2d pos)
 
 #endif
