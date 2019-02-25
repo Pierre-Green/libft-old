@@ -6,18 +6,23 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 17:13:54 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/25 17:46:49 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/25 18:47:46 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-t_image_carry			*ft_image_merge(t_image_carry *carry, t_point2d offset, char *value)
+t_image_carry			*ft_image_merge(t_image_carry *dest, t_point2d offset, t_image_carry *src)
 {
-	(void)value;
+	(void)dest;
 	(void)offset;
-	(void)carry;
+	(void)src;
 	return (NULL);
+}
+
+t_image_carry			*ft_image_router(t_drawable *drawable, t_image_carry *dest)
+{
+
 }
 
 void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y)
