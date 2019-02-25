@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/20 22:34:42 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/02/25 17:48:10 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ lib:
 	@$(MAKE) -f $(PRODFILE)
 	@echo "Static library has been created"
 
-devLib:
+dev:
 	@echo "Making the debugable static library..."
 	@$(MAKE) -f $(DEVFILE)
 	@echo "Debugable static library has been made"
