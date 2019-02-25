@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/25 14:39:41 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/25 15:00:34 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct			s_image_carry
 	int					size_line;
 	int					endian;
 }						t_image_carry;
+
+t_image_carry			*ft_image_carry_from(char **addr, int bpp, int sizel, int endian);
 
 typedef struct			s_drawable
 {
