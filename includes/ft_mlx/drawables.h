@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/22 17:22:28 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/25 14:39:41 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ft_math/dim.h"
 # include "ft_mlx/color.h"
 
-# define OFFSET_NULL (struct t_point2d { x = 0; y = 0; })
+# define OFFSET_NULL ({ 0, 0 })
 
 typedef enum			e_drawable_types
 {
