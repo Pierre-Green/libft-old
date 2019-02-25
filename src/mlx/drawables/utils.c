@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/25 15:31:57 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/25 15:44:53 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void						ft_put_pixel_to_image(char *data, int sl, int bpp, t_point2d pos)
 	unsigned int		color;
 
 	color = 0xFF0000;
-	data[pos.y * sl + pos.x * bpp / 8] = (color & 0xFF);
-  	data[pos.y * sl + pos.x * bpp / 8 + 1] = (color & 0xFF00) >> 8;
- 	data[pos.y * sl + pos.x * bpp / 8 + 2] = (color & 0xFF0000) >> 16;
+	data[pos.y * sl + pos.x * (bpp / 8)] = (color & 0xFF);
+  	data[(pos.y * sl + pos.x * (bpp / 8)) + 1] = (color & 0xFF00) >> 8;
+ 	data[(pos.y * sl + pos.x * (bpp / 8)) + 2] = (color & 0xFF0000) >> 16;
 }
