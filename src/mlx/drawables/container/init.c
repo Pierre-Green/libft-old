@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/25 17:47:52 by pierre           ###   ########.fr       */
+/*   Updated: 2019/02/27 21:53:15 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 	size_t			x;
 	size_t			y;
 
-	y = offset.y;
+	y = offset.y + self->pos.y;
 	while ((y - offset.y) < self->dim.height)
 	{
-		x = offset.x;
+		x = offset.x + self->pos.x;
 		while ((x - offset.x) < self->dim.width)
 		{
 			ft_put_pixel_to_image(carry, x, y);
