@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 01:27:27 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:03:09 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ t_image_carry			*ft_image_merge(t_image_carry *dest, t_point2d offset, t_image_c
 
 t_image_carry			*ft_image_router(t_drawable *drawable, t_image_carry *dest);
 
-void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y);
+void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y, unsigned int color);
 
 #endif

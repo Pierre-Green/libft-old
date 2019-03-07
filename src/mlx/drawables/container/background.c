@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 01:22:47 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 02:00:37 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:03:51 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	mlx_container_background(t_container *container, t_point2d offset, t_image_
 		x = offset.x + container->pos.x;
 		while ((x - (offset.x + container->pos.x)) < container->dim.width)
 		{
-			ft_put_pixel_to_image(carry, x, y);
+			ft_put_pixel_to_image(carry, x, y, container->background_color);
 			x++;
 		}
 		y++;
