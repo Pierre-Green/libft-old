@@ -6,11 +6,12 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/27 21:53:15 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 01:39:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
+#include "background.c"
 
 static void			container_add_child(t_container *self, t_drawable *drawable)
 {
@@ -23,19 +24,17 @@ static void			container_add_child(t_container *self, t_drawable *drawable)
 
 static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 {
-	size_t			x;
-	size_t			y;
+	t_drawables		*node;
+	const t_point2d	next_offset = { offset.x + self->pos.x, offset.y + self->pos.y };
+	t_container		*cont;
 
-	y = offset.y + self->pos.y;
-	while ((y - offset.y) < self->dim.height)
+	mlx_container_background(self, offset, carry);
+	node = self->childs;
+	while (node)
 	{
-		x = offset.x + self->pos.x;
-		while ((x - offset.x) < self->dim.width)
-		{
-			ft_put_pixel_to_image(carry, x, y);
-			x++;
-		}
-		y++;
+		if ((node->drawable->type == CONTAINER) && (cont = (t_container *)node->drawable))
+			cont->image(cont, next_offset, carry);
+		node = node->next;
 	}
 	return (*carry->data);
 }

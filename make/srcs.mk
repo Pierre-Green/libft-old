@@ -154,6 +154,7 @@ SRCS+=args/at.c
 SRCS+=mlx/drawables/image.c
 SRCS+=mlx/drawables/utils.c
 SRCS+=mlx/drawables/container/init.c
+SRCS+=mlx/drawables/container/background.c
 SRCS+=mlx/hooks/dispatchers.c
 SRCS+=mlx/window/init.c
 SRCS+=wchar/ft_wchar_length.c
