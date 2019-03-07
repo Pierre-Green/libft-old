@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 18:57:47 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 19:16:56 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_drawable					*ft_drawable_at(t_drawables *lst, size_t i)
 			return (NULL);
 		node = node->next;
 	}
-	return ((t_drawable *)node);
+	return ((t_drawable *)node->drawable);
 }
 
 t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
