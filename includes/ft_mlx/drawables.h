@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 02:03:09 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:09:31 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct			s_drawable
 	t_drawable_types	type;
 }						t_drawable;
 
+t_drawable				*ft_init_drawable(t_drawable_types type, void *value);
+
 typedef struct			s_drawables
 {
 	t_drawable			*drawable;
@@ -76,6 +78,8 @@ typedef struct			s_container
 }						t_container;
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim);
+
+t_drawable				*mlx_container_to_drawable(t_container *container);
 
 void					mlx_container_background(t_container *c, t_point2d o, t_image_carry *carry);
 
