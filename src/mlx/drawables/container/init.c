@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 18:46:31 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 19:29:44 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 static void			container_add_child(t_container *self, t_drawable *drawable)
 {
 	if (self->childs == NULL)
+	{
 		self->childs = (t_drawables *)malloc(sizeof(t_drawables));
-	self->childs->drawable = NULL;
-	self->childs->next = NULL;
+		self->childs->drawable = NULL;
+		self->childs->next = NULL;
+	}
 	ft_add_drawable_to_drawables(self->childs, drawable);
 }
 

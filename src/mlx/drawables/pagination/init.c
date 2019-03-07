@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 18:47:26 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 19:30:06 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 static void				pagination_add_item(t_pagination *self, t_drawable *drawable)
 {
 	if (self->items == NULL)
+	{
 		self->items = (t_drawables *)malloc(sizeof(t_drawables));
-	self->items->drawable = NULL;
-	self->items->next = NULL;
+		self->items->drawable = NULL;
+		self->items->next = NULL;
+	}
 	ft_add_drawable_to_drawables(self->items, drawable);
 }
 
