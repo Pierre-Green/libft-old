@@ -75,6 +75,7 @@ SRCS+=math/geometrics/vec/vec3/float/tostring.c
 SRCS+=math/geometrics/vec/vec3/float/minus.c
 SRCS+=math/geometrics/matrix/44/double/init.c
 SRCS+=math/geometrics/matrix/44/double/multiply.c
+SRCS+=math/geometrics/point/utils.c
 SRCS+=str/ft_striteri.c
 SRCS+=str/ft_strdup.c
 SRCS+=str/ft_strcmp.c
