@@ -6,40 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 15:48:13 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 16:17:30 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/window.h"
 
-static int			null_hook()
-{
-	return (0);
-}
-
-static void			add_keyboard_hook(t_window *window, int (*f)(int, void *))
-{
-	if (window->keyboard_hooks)
-		ft_lstadd(&window->keyboard_hooks, ft_lstnew(f, sizeof(f)));
-	else
-		window->keyboard_hooks = ft_lstnew(f, sizeof(f));
-}
-
-static void			add_lkeyboard_hook(t_window *window, int (*f)(int, void *))
-{
-	if (window->lkeyboard_hooks)
-		ft_lstadd(&window->lkeyboard_hooks, ft_lstnew(f, sizeof(f)));
-	else
-		window->lkeyboard_hooks = ft_lstnew(f, sizeof(f));
-}
-
-static void			add_mouse_hook(t_window *window, int (*f)(int, int, int, void *))
-{
-	if (window->mouse_hooks)
-		ft_lstadd(&window->mouse_hooks, ft_lstnew(f, sizeof(f)));
-	else
-		window->mouse_hooks = ft_lstnew(f, sizeof(f));
-}
 
 t_window			*ft_init_window()
 {

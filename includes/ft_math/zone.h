@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.h                                            :+:      :+:    :+:   */
+/*   zone.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 17:17:22 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/21 17:21:36 by pierre           ###   ########.fr       */
+/*   Created: 2019/03/07 16:00:34 by pierre            #+#    #+#             */
+/*   Updated: 2019/03/07 16:36:03 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MLX_HOOKS_H
-# define FT_MLX_HOOKS_H
-# include "ft_lst.h"
-# include "ft_mlx/window.h"
+#ifndef FT_MATH_ZONE_H
+# define FT_MATH_ZONE_H
+# include "ft_math/point.h"
+# include "ft_math/dim.h"
+# include "ft_bool.h"
 
-typedef struct		s_hook_carry
+typedef struct		s_zone2d
 {
-	void			*state;
-	t_window		*window;
+	t_point2d		pos;
+	t_dim2d			dim;
+}					t_zone2d;
 
-}					t_hook_carry;
+t_bool				ft_is_point_in_zone2d(t_zone2d zone, t_point2d point);
 
-int					keyboard_hooks_dispatcher(int keycode, void *p);
-
-int					lkeyboard_hooks_dispatcher(int keycode, void *p);
-
-int					mouse_hooks_dispatcher(int mouse, int x, int y, void *p);
+t_zone2d			ft_zone2d_from_pdim(t_point2d pos, t_dim2d dim);
 
 #endif

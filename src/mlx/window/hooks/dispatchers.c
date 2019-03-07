@@ -6,12 +6,11 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 15:56:32 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 16:31:48 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/hooks.h"
-#include "ft_printf.h"
+#include "ft_mlx/window.h"
 
 static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 {
@@ -19,7 +18,6 @@ static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 	int						(*f)(int, void *);
 
 	ret = 0;
-	ft_printf("%d\n", keycode);
 	while (node)
 	{
 		f = node->content;
@@ -36,27 +34,24 @@ int							keyboard_hooks_dispatcher(int keycode, void *p)
 	return (keyboard(keycode, carry->window->keyboard_hooks, carry));
 }
 
-int					lkeyboard_hooks_dispatcher(int keycode, void *p)
+int							lkeyboard_hooks_dispatcher(int keycode, void *p)
 {
 	const t_hook_carry		*carry = p;
 
 	return (keyboard(keycode, carry->window->lkeyboard_hooks, carry));
 }
 
-int					mouse_hooks_dispatcher(int mouse, int x, int y, void *p)
+int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
 {
-	const t_hook_carry		*carry = p;
-	t_list					*node;
-	int						ret;
-	int						(*f)(int, int, int, void *);
+	const t_hook_carry		*carry = p_carry;
+	t_mouse_hooks			*node;
 
-	ret = 0;
 	node = carry->window->mouse_hooks;
 	while (node)
 	{
-		f = node->content;
-		ret = f(mouse, x, y, carry->state);
+		if (ft_is_point_in_zone2d(node->zone, (t_point2d){ x, y }))
+			node->onclick(mouse, carry->state);
 		node = node->next;
 	}
-	return (ret);
+	return (0);
 }
