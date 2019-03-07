@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 18:58:45 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 19:32:34 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_c
 			offset.x += (gride.pos.x * self->items_dim.width)
 				+ ((gride.pos.x + 1) * self->items_margin[3])
 				+ (gride.pos.x * self->items_margin[1]);
-			ft_image_merge(ft_drawable_at(self->items, gride.pos.y * gride.pos.x), offset, carry);
+			ft_image_merge(ft_drawable_at(self->items, (gride.pos.y * gride.dim.width) + gride.pos.x), offset, carry);
 			gride.pos.x++;
 		}
 		gride.pos.y++;
