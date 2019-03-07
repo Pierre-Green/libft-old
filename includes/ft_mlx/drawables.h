@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 02:09:31 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:25:59 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct			s_container
 	t_point2d			pos;
 }						t_container;
 
-t_container				*ft_init_container(t_point2d pos, t_dim2d dim);
+t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
 
 t_drawable				*mlx_container_to_drawable(t_container *container);
 

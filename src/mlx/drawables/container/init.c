@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 01:39:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:26:28 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 	return (*carry->data);
 }
 
-t_container			*ft_init_container(t_point2d pos, t_dim2d dim)
+t_container			*ft_init_container(t_point2d pos, t_dim2d dim, t_color color)
 {
 	t_container		*container;
 
@@ -48,7 +48,7 @@ t_container			*ft_init_container(t_point2d pos, t_dim2d dim)
 	container->childs = NULL;
 	container->add_child = container_add_child;
 	container->image = image;
-	container->background_color = DEFAULT_BACKGROUND_COLOR;
+	container->background_color = color;
 	container->dim = dim;
 	container->pos = pos;
 	return (container);
