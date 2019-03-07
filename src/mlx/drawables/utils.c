@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 02:08:53 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 03:15:20 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
 	return (drawable);
 }
 
-t_image_carry				*ft_image_carry_from(char **addr, int bpp, int sizel, int endian)
+t_image_carry				*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian)
 {
 	t_image_carry			*carry;
 
 	if (!(carry = (t_image_carry *)malloc(sizeof(t_image_carry))))
 		return (NULL);
+	carry->img_ptr = img_ptr;
 	carry->data = addr;
 	carry->bits_per_pixels = bpp;
 	carry->size_line = sizel;

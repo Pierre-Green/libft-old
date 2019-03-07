@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 03:01:58 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 03:16:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ typedef enum			e_drawable_types
 
 typedef struct			s_image_carry
 {
+	void				*img_ptr;
 	char				**data;
 	int					bits_per_pixels;
 	int					size_line;
 	int					endian;
 }						t_image_carry;
 
-t_image_carry			*ft_image_carry_from(char **addr, int bpp, int sizel, int endian);
+t_image_carry			*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian);
 
 typedef struct			s_drawable
 {
