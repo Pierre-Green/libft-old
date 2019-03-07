@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:48:53 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 20:54:30 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "ft_mlx/window.h"
 #include <mlx.h>
 
-static void					mlx_container_text_drawer(t_container *container, void *mlx_ptr, t_window *win, t_point2d offset)
+void						mlx_container_render_txt(t_container *container, t_point2d offset, void *mlx_ptr, void *win)
 {
+	const t_window			*window = win;
 	t_drawables				*node;
 	t_drwble				obj;
 
@@ -24,11 +25,13 @@ static void					mlx_container_text_drawer(t_container *container, void *mlx_ptr,
 	{
 		obj = node->drawable->drawable;
 		if (node->drawable->type == CONTAINER)
-			mlx_container_text_drawer(obj.container, mlx_ptr, win, DDSUM(offset, obj.container->pos));
+			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), mlx_ptr, window->ptr);
 		if (node->drawable->type == TEXT)
-			mlx_string_put(mlx_ptr, win->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
+			mlx_string_put(mlx_ptr, window->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
 		if (node->drawable->type == BUTTON)
 			obj.button->render_txt(obj.button, offset, mlx_ptr, win);
+		if (node->drawable->type == PAGINATION)
+			obj.pagination->render_txt(obj.pagination, offset, mlx_ptr, win);
 		node = node->next;
 	}
 }

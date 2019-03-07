@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 19:29:44 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 20:55:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_container			*ft_init_container(t_point2d pos, t_dim2d dim, t_color color)
 	container->add_child = container_add_child;
 	container->image = image;
 	container->render = mlx_container_render;
+	container->render_txt = mlx_container_render_txt;
 	container->background_color = color;
 	container->dim = dim;
 	container->pos = pos;
