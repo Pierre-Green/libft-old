@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/21 18:48:39 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 15:48:13 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_window			*ft_init_window()
 	win->mouse_hooks = NULL;
 	win->add_mouse_hook = add_mouse_hook;
 	win->width = DEFAULT_WIDTH;
-	win->should_render_every_frame = true;
+	win->should_render_every_frame = false;
 	win->height = DEFAULT_HEIGHT;
 	win->ptr = NULL;
 	win->next = NULL;

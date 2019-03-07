@@ -6,11 +6,12 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/21 17:34:30 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 15:56:32 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/hooks.h"
+#include "ft_printf.h"
 
 static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 {
@@ -18,6 +19,7 @@ static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 	int						(*f)(int, void *);
 
 	ret = 0;
+	ft_printf("%d\n", keycode);
 	while (node)
 	{
 		f = node->content;
