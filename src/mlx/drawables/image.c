@@ -6,23 +6,23 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 17:13:54 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 02:02:42 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 18:43:38 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-t_image_carry			*ft_image_merge(t_image_carry *dest, t_point2d offset, t_image_carry *src)
+t_image_carry			*ft_image_merge(t_drawable *drawable, t_point2d offset, t_image_carry *carry)
 {
-	(void)dest;
-	(void)offset;
-	(void)src;
-	return (NULL);
-}
+	const t_drwble		obj = drawable->drawable;
 
-t_image_carry			*ft_image_router(t_drawable *drawable, t_image_carry *dest)
-{
-
+	if (drawable->type == CONTAINER)
+		obj.container->image(obj.container, offset, carry);
+	if (drawable->type == BUTTON)
+		obj.button->image(obj.button, offset, carry);
+	if (drawable->type == PAGINATION)
+		obj.pagination->image(obj.pagination, offset, carry);
+	return (carry);
 }
 
 void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y, unsigned int color)

@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:38:18 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 18:46:31 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,12 @@ static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 {
 	t_drawables		*node;
 	const t_point2d	next_offset = DDSUM(offset, self->pos);
-	t_drwble		obj;
 
 	mlx_container_background(self, offset, carry);
 	node = self->childs;
 	while (node)
 	{
-		obj = node->drawable->drawable;
-		if (node->drawable->type == CONTAINER)
-			obj.container->image(obj.container, next_offset, carry);
-		if (node->drawable->type == BUTTON)
-			obj.button->image(obj.button, next_offset, carry);
+		ft_image_merge(node->drawable, next_offset, carry);
 		node = node->next;
 	}
 	return (*carry->data);
