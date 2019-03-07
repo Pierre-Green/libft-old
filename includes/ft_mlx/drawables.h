@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 02:25:59 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 03:01:58 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ typedef struct			s_drawables
 typedef struct			s_text
 {
 	char				*text;
-	t_dim2d				dim;
+	t_color				color;
 	t_point2d			pos;
 }						t_text;
+
+t_text					*ft_init_text(t_point2d pos, char *text, t_color color);
 
 typedef struct			s_button
 {
@@ -70,6 +72,7 @@ typedef struct			s_button
 typedef struct			s_container
 {
 	t_drawables			*childs;
+	t_image_carry		*(*render)(struct s_container *, void *, void *, t_image_carry *);
 	char				*(*image)(struct s_container *, t_point2d, t_image_carry *);
 	void				(*add_child)(struct s_container *, t_drawable *);
 	t_color				background_color;
@@ -78,6 +81,8 @@ typedef struct			s_container
 }						t_container;
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
+
+t_image_carry			*mlx_container_render(t_container *container, void *mlx_ptr, void *win_ptr, t_image_carry *old);
 
 t_drawable				*mlx_container_to_drawable(t_container *container);
 
