@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:42:30 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:48:53 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void					mlx_container_text_drawer(t_container *container, void *mlx_ptr,
 		if (node->drawable->type == TEXT)
 			mlx_string_put(mlx_ptr, win->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
 		if (node->drawable->type == BUTTON)
-			obj.button->render_txt(obj.button, DDSUM(offset, obj.button->pos), mlx_ptr, win);
+			obj.button->render_txt(obj.button, offset, mlx_ptr, win);
 		node = node->next;
 	}
 }
