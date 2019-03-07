@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 02:18:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:37:35 by pierre           ###   ########.fr       */
+/*   Created: 2019/03/07 14:11:32 by pierre            #+#    #+#             */
+/*   Updated: 2019/03/07 14:14:37 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math/point.h"
+#include "ft_mlx/drawables.h"
+#include "ft_mlx/window.h"
+#include <mlx.h>
 
-t_point2d			ft_point2d_pos(int x, int y)
+void					mlx_button_render_txt(t_button *button, t_point2d offset, void *mlx_ptr, void *win)
 {
-	return ((t_point2d){ x, y });
-}
+	const t_window		*window = win;
 
-t_point2d			ft_point2d_sum(t_point2d a, t_point2d b)
-{
-	return ((t_point2d){ a.x + b.x, a.y + b.y });
+	mlx_string_put(mlx_ptr, window->ptr, offset.x + button->pos.x, offset.y + button->pos.y, 0xFFFFFF, button->text);
 }

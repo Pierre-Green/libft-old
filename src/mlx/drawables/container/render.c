@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 03:24:13 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:42:30 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #include "ft_mlx/window.h"
 #include <mlx.h>
 
-static void					mlx_container_text_drawer(t_container *container, void *mlx_ptr, t_window *win)
+static void					mlx_container_text_drawer(t_container *container, void *mlx_ptr, t_window *win, t_point2d offset)
 {
 	t_drawables				*node;
-	t_text					*txt;
+	t_drwble				obj;
 
 	node = container->childs;
 	while (node)
 	{
+		obj = node->drawable->drawable;
 		if (node->drawable->type == CONTAINER)
-			mlx_container_text_drawer(node->drawable->drawable, mlx_ptr, win);
+			mlx_container_text_drawer(obj.container, mlx_ptr, win, DDSUM(offset, obj.container->pos));
 		if (node->drawable->type == TEXT)
-		{
-			txt = (t_text *)node->drawable->drawable;
-			mlx_string_put(mlx_ptr, win->ptr, txt->pos.x, txt->pos.y, txt->color, txt->text);
-		}
+			mlx_string_put(mlx_ptr, win->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
+		if (node->drawable->type == BUTTON)
+			obj.button->render_txt(obj.button, DDSUM(offset, obj.button->pos), mlx_ptr, win);
 		node = node->next;
 	}
 }
@@ -48,6 +48,6 @@ t_image_carry				*mlx_container_render(t_container *container, void *mlx_ptr, vo
 	}
 	*old->data = container->image(container, POS(0, 0), old);
 	mlx_put_image_to_window(mlx_ptr, window->ptr, old->img_ptr, 0, 0);
-	mlx_container_text_drawer(container, mlx_ptr, (t_window *)window);
+	mlx_container_text_drawer(container, mlx_ptr, (t_window *)window, POS(0, 0));
 	return (old);
 }

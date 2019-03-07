@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 03:16:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:35:24 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,16 @@ typedef struct			s_image_carry
 
 t_image_carry			*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian);
 
-typedef struct			s_drawable
+typedef struct			s_button
 {
-	void				*drawable;
-	t_drawable_types	type;
-}						t_drawable;
-
-t_drawable				*ft_init_drawable(t_drawable_types type, void *value);
-
-typedef struct			s_drawables
-{
-	t_drawable			*drawable;
-	struct s_drawables	*next;
-}						t_drawables;
+	char				*text;
+	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
+	void				(*render_txt)(struct s_button *, t_point2d, void *, void *);
+	void				(*onclick)();
+	t_color				background_color;
+	t_dim2d				dim;
+	t_point2d			pos;
+}						t_button;
 
 typedef struct			s_text
 {
@@ -58,17 +55,8 @@ typedef struct			s_text
 	t_point2d			pos;
 }						t_text;
 
-t_text					*ft_init_text(t_point2d pos, char *text, t_color color);
-
-typedef struct			s_button
-{
-	t_drawable			*child;
-	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
-	void				(*onclick)();
-	t_color				background_color;
-	t_dim2d				dim;
-	t_point2d			pos;
-}						t_button;
+typedef struct s_drawables	t_drawables;
+typedef struct s_drawable	t_drawable;
 
 typedef struct			s_container
 {
@@ -80,6 +68,38 @@ typedef struct			s_container
 	t_dim2d				dim;
 	t_point2d			pos;
 }						t_container;
+
+typedef union			u_drwble
+{
+	t_container			*container;
+	t_text				*text;
+	t_button			*button;
+}						t_drwble;
+
+typedef struct			s_drawable
+{
+	t_drwble			drawable;
+	t_drawable_types	type;
+}						t_drawable;
+
+t_drawable				*ft_init_drawable(t_drawable_types type, void *value);
+
+typedef struct			s_drawables
+{
+	t_drawable			*drawable;
+	struct s_drawables	*next;
+}						t_drawables;
+
+
+t_text					*ft_init_text(t_point2d pos, char *text, t_color color);
+
+
+t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, void (*onclick));
+
+void					mlx_button_background(t_button *button, t_point2d offset, t_image_carry *carry);
+
+void					mlx_button_render_txt(t_button *button, t_point2d offset, void *mlx_ptr, void *win);
+
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
 

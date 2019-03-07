@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 03:15:20 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:35:12 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,18 @@ void						ft_add_drawable_to_drawables(t_drawables *dest, t_drawable *src)
 t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
 {
 	t_drawable				*drawable;
+	t_drwble				drwble;
 
 	if (!(drawable = malloc(sizeof(t_drawable))))
 		return (NULL);
+	if (type == CONTAINER)
+		drwble.container = value;
+	if (type == TEXT)
+		drwble.text = value;
+	if (type == BUTTON)
+		drwble.button = value;
 	drawable->type = type;
-	drawable->drawable = value;
+	drawable->drawable = drwble;
 	return (drawable);
 }
 
