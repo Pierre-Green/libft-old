@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 02:26:28 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/07 02:29:24 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
 	node = self->childs;
 	while (node)
 	{
-		if ((node->drawable->type == CONTAINER) && (cont = (t_container *)node->drawable))
+		if ((node->drawable->type == CONTAINER) && (cont = (t_container *)node->drawable->drawable))
 			cont->image(cont, next_offset, carry);
 		node = node->next;
 	}
