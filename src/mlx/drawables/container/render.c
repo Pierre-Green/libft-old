@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/08 01:46:08 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/08 01:52:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void						mlx_container_render_txt(t_container *container, t_point2d offset, voi
 	{
 		obj = node->drawable->drawable;
 		if (node->drawable->type == CONTAINER)
-			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), mlx_ptr, window->ptr);
+			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), mlx_ptr, win);
 		if (node->drawable->type == TEXT)
 			mlx_string_put(mlx_ptr, window->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
 		if (node->drawable->type == BUTTON)
