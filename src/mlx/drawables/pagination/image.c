@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 19:49:52 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/08 01:44:28 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,9 @@ char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_c
 	while (gride.pos.y < (int)gride.dim.height)
 	{
 		gride.pos.x = 0;
-		next_offset.y = offset.y + (gride.pos.y * self->items_dim.height)
-			+ ((gride.pos.y + 1) * self->items_margin[0])
-			+ (gride.pos.y * self->items_margin[2]);
 		while (gride.pos.x < (int)gride.dim.width)
 		{
-			next_offset.x = offset.x + (gride.pos.x * self->items_dim.width)
-				+ ((gride.pos.x + 1) * self->items_margin[3])
-				+ (gride.pos.x * self->items_margin[1]);
+			next_offset = mlx_pagination_offset(self, offset, gride);
 			ft_image_merge(ft_drawable_at(self->items, (gride.pos.y * gride.dim.width) + gride.pos.x), next_offset, carry);
 			gride.pos.x++;
 		}

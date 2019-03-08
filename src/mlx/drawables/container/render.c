@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 20:54:30 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/08 01:46:08 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ t_image_carry				*mlx_container_render(t_container *container, void *mlx_ptr, vo
 	}
 	*old->data = container->image(container, POS(0, 0), old);
 	mlx_put_image_to_window(mlx_ptr, window->ptr, old->img_ptr, 0, 0);
-	mlx_container_text_drawer(container, mlx_ptr, (t_window *)window, POS(0, 0));
+	container->render_txt(container, POS(0, 0), mlx_ptr, win);
 	return (old);
 }

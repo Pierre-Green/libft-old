@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 20:51:07 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/08 01:41:24 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,5 +142,7 @@ t_image_carry			*ft_image_router(t_drawable *drawable, t_image_carry *dest);
 void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y, unsigned int color);
 
 t_drawable				*ft_drawable_at(t_drawables *lst, size_t i);
+
+t_point2d				mlx_pagination_offset(t_pagination *pagination, t_point2d offset, t_zone2d gride);
 
 #endif
