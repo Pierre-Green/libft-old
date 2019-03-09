@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 16:27:51 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:19:12 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef int					t_mouse;
 typedef struct				s_mouse_hooks
 {
 	t_zone2d				zone;
-	void					(*onclick)(t_mouse, void *);
+	void					(*onclick)(t_mouse, int target, void *);
 	struct s_mouse_hooks	*next;
 }							t_mouse_hooks;
 
@@ -42,7 +42,7 @@ typedef struct				s_window
 	t_list					*keyboard_hooks;
 	void					(*add_lkeyboard_hook)(struct s_window *, int (*f)(int, void *));
 	t_list					*lkeyboard_hooks;
-	t_mouse_hooks			*(*add_mouse_hook)(struct s_window *, t_zone2d, void (*f)(t_mouse, void *));
+	t_mouse_hooks			*(*add_mouse_hook)(struct s_window *, t_zone2d, void (*f)(t_mouse, int, void *));
 	t_mouse_hooks			*mouse_hooks;
 	struct s_window 		*next;
 }							t_window;

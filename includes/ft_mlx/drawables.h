@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 00:05:04 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:18:08 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct			s_button
 	char				*text;
 	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
 	void				(*render_txt)(struct s_button *, t_point2d, void *, void *);
-	void				(*onclick)(int, void *);
+	void				(*onclick)(int, int, void *);
 	t_color				background_color;
 	t_dim2d				dim;
 	t_point2d			pos;
