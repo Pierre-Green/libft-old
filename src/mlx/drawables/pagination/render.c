@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 20:32:25 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/10 00:11:06 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:14:55 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void					render_txt_node(t_drawables *node, t_point2d offset, void *mlx_p
 
 	obj = node->drawable->drawable;
 	if (node->drawable->type == CONTAINER)
-		obj.container->render_txt(obj.container, offset, mlx_ptr, window->ptr);
+		obj.container->render_txt(obj.container, offset, mlx_ptr, window);
 	if (node->drawable->type == BUTTON)
-		obj.button->render_txt(obj.button, offset, mlx_ptr, window->ptr);
+		obj.button->render_txt(obj.button, offset, mlx_ptr, window);
 	node = node->next;
 }
 
