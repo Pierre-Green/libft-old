@@ -6,20 +6,12 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/08 02:03:48 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:04:44 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-static t_dim2d			mlx_pagination_gride_dims(t_pagination *pagination)
-{
-	t_dim2d				dim;
-
-	dim.width = pagination->zone.dim.width / (pagination->items_dim.width + pagination->items_margin[1] + pagination->items_margin[3]);
-	dim.height = pagination->zone.dim.height / (pagination->items_dim.height + pagination->items_margin[0] + pagination->items_margin[2]);
-	return (dim);
-}
 
 char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
 {
