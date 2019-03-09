@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 16:42:26 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:23:27 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
 	while (node && node->onclick)
 	{
 		if (ft_is_point_in_zone2d(node->zone, (t_point2d){ x, y }))
-			node->onclick(mouse, carry->state);
+			node->onclick(mouse, node->uuid, carry->state);
 		node = node->next;
 	}
 	return (0);

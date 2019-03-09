@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 00:18:08 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:26:25 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_image_carry			*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int si
 typedef struct			s_button
 {
 	char				*text;
+	int					uuid;
 	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
 	void				(*render_txt)(struct s_button *, t_point2d, void *, void *);
 	void				(*onclick)(int, int, void *);
@@ -113,7 +114,7 @@ typedef struct			s_drawables
 
 t_text					*ft_init_text(t_point2d pos, char *text, t_color color);
 
-t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, void (*onclick));
+t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, int uuid);
 
 void					mlx_button_background(t_button *button, t_point2d offset, t_image_carry *carry);
 

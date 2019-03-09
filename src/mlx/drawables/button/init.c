@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 14:00:51 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:12:04 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 00:26:57 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char				*image(t_button *self, t_point2d offset, t_image_carry *carry)
 	return (*carry->data);
 }
 
-t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, void (*onclick))
+t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, int uuid)
 {
 	t_button			*button;
 
@@ -30,6 +30,7 @@ t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *te
 	button->render_txt = mlx_button_render_txt;
 	button->background_color = color;
 	button->text = text;
-	button->onclick = onclick;
+	button->onclick = NULL;
+	button->uuid = uuid;
 	return (button);
 }
