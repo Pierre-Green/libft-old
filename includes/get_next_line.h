@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:01:40 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 01:02:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/10 01:04:45 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <sys/types.h>
 # include "ft_mem.h"
 # include "ft_io.h"
-# define BUFF_SIZE 256
-# define RET_OK 1
-# define RET_DONE 0
-# define RET_ERR -1
+# define GNL_BUFF_SIZE 256
+# define GNL_RET_OK 1
+# define GNL_RET_DONE 0
+# define GNL_RET_ERR -1
 
 typedef struct		s_buff
 {
-	char			content[BUFF_SIZE];
+	char			content[GNL_BUFF_SIZE];
 	char			*ptr_newl;
 	size_t			content_size;
 	struct s_buff	*next;

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:36:58 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/15 19:30:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/10 01:06:00 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static ssize_t		ft_a_p(t_buff **st_bf, char *line, ssize_t current)
 		(*st_bf)->content_size = (*st_bf)->content_size - t - 1;
 		ft_memcpy((*st_bf)->content, s + t + 1, (*st_bf)->content_size);
 		ft_bzero((char *)(*st_bf)->content + (*st_bf)->content_size,
-			BUFF_SIZE - (*st_bf)->content_size);
+			GNL_BUFF_SIZE - (*st_bf)->content_size);
 		(*st_bf)->ptr_newl = ft_memchr((*st_bf)->content, '\n',
 			(*st_bf)->content_size);
 		return (-1);
@@ -66,7 +66,7 @@ static ssize_t		ft_do_line(t_buff **st_bf, char **line)
 
 	len = ft_len(st_bf);
 	if (!(*line = malloc(len + 1)))
-		return (RET_ERR);
+		return (GNL_RET_ERR);
 	current = 0;
 	while (*st_bf)
 		if ((current = ft_a_p(st_bf, *line, current)) == -1)
@@ -91,18 +91,18 @@ int					get_next_line(const int fd, char **line)
 {
 	static t_buff	*s_bf[(unsigned long)INT_MAX + 1];
 	t_buff			*node;
-	char			buff[BUFF_SIZE];
+	char			buff[GNL_BUFF_SIZE];
 	ssize_t			res[2];
 
 	if (read(fd, buff, 0) < 0 || !line || (!s_bf[fd] && !(s_bf[fd] = i_buf())))
-		return (RET_ERR);
+		return (GNL_RET_ERR);
 	node = s_bf[fd];
 	while (node && !(node->ptr_newl) && node->next)
 		node = node->next;
-	while (!(node->ptr_newl) && (res[0] = read(fd, buff, BUFF_SIZE)) > 0)
+	while (!(node->ptr_newl) && (res[0] = read(fd, buff, GNL_BUFF_SIZE)) > 0)
 	{
 		if (!(node->next = i_buf()))
-			return (RET_ERR);
+			return (GNL_RET_ERR);
 		ft_memcpy(node->content, buff, res[0]);
 		node->content_size = res[0];
 		node->ptr_newl = ft_memchr(node->content, '\n', res[0]);
@@ -110,8 +110,8 @@ int					get_next_line(const int fd, char **line)
 			break ;
 		node = node->next;
 	}
-	if ((res[0] = ft_do_line(&s_bf[fd], line)) == (int)RET_ERR ||
-		res[0] == RET_ERR || (int)res[1] == RET_ERR)
-		return (RET_ERR);
-	return (!s_bf[fd] && (*line)[0] == '\0' ? RET_DONE : RET_OK);
+	if ((res[0] = ft_do_line(&s_bf[fd], line)) == (int)GNL_RET_ERR ||
+		res[0] == GNL_RET_ERR || (int)res[1] == GNL_RET_ERR)
+		return (GNL_RET_ERR);
+	return (!s_bf[fd] && (*line)[0] == '\0' ? GNL_RET_DONE : GNL_RET_OK);
 }
