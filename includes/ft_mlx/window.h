@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 00:25:26 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/11 14:51:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 typedef void *				t_winptr;
 
+typedef void *				t_mlxptr;
+
 typedef int					t_mouse;
 
 typedef struct				s_mouse_hooks
@@ -35,6 +37,7 @@ typedef struct				s_mouse_hooks
 typedef struct				s_window
 {
 	t_winptr				*ptr;
+	t_mlxptr				*mlx;
 	size_t					width;
 	size_t					height;
 	t_bool					should_render_every_frame;

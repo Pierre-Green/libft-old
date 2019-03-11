@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/25 17:48:10 by pierre           ###   ########.fr        #
+#    Updated: 2019/03/11 14:47:24 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,10 @@ dev:
 	@echo "Making the debugable static library..."
 	@$(MAKE) -f $(DEVFILE)
 	@echo "Debugable static library has been made"
+
+devRe: fclean dev
+
+re: fclean lib
 
 test:
 	@echo "Running tests..."
