@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 02:44:17 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 19:36:42 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/11 19:32:35 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/11 19:33:20 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-t_text					*ft_init_text(t_point2d pos, char *text, t_color color)
+void					mlx_text_render_txt(t_text *text, t_point2d offset, void *win)
 {
-	t_text				*res;
 
-	if (!(res = malloc(sizeof(t_text))))
-		return (NULL);
-	res->pos = pos;
-	res->render_txt = mlx_text_render_txt;
-	res->text = text;
-	res->align = LEFT;
-	res->color = color;
-	return (res);
 }

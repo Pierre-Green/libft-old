@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 19:26:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:36:55 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void						mlx_container_render_txt(t_container *container, t_point2d offset, void *win)
 {
-	const t_window			*window = win;
 	t_drawables				*node;
+	const t_point2d			next_offset = DDSUM(offset, container->pos);
 	t_drwble				obj;
 
 	node = container->childs;
@@ -25,13 +25,13 @@ void						mlx_container_render_txt(t_container *container, t_point2d offset, voi
 	{
 		obj = node->drawable->drawable;
 		if (node->drawable->type == CONTAINER)
-			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), win);
+			mlx_container_render_txt(obj.container, next_offset, win);
 		if (node->drawable->type == TEXT)
-			mlx_string_put(window->mlx, window->ptr, offset.x + obj.text->pos.x, offset.y + obj.text->pos.y, obj.text->color, obj.text->text);
+			obj.text->render_txt(obj.text, next_offset, win);
 		if (node->drawable->type == BUTTON)
-			obj.button->render_txt(obj.button, offset, win);
+			obj.button->render_txt(obj.button, next_offset, win);
 		if (node->drawable->type == PAGINATION)
-			obj.pagination->render_txt(obj.pagination, offset, win);
+			obj.pagination->render_txt(obj.pagination, next_offset, win);
 		node = node->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 19:27:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:36:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,18 @@ typedef struct			s_button
 	t_point2d			pos;
 }						t_button;
 
+typedef enum			e_alignement
+{
+	LEFT,
+	CENTER,
+	RIGHT
+}						t_alignement;
+
 typedef struct			s_text
 {
 	char				*text;
+	void				(*render_txt)(struct s_text *, t_point2d, void *);
+	t_alignement		align;
 	t_color				color;
 	t_point2d			pos;
 }						t_text;
@@ -123,6 +132,8 @@ void					mlx_container_render_txt(t_container *container, t_point2d offset, void
 void					mlx_button_render_txt(t_button *button, t_point2d offset, void *win);
 
 void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *win);
+
+void					mlx_text_render_txt(t_text *text, t_point2d offset, void *win);
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
 
