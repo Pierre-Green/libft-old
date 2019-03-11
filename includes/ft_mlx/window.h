@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 18:38:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 18:53:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "ft_lst.h"
 # include "ft_mlx/drawables.h"
 # include "ft_math/zone.h"
+# include <mlx.h>
 # define DEFAULT_WIDTH 500
 # define DEFAULT_HEIGHT 1000
 
@@ -38,10 +39,11 @@ typedef struct				s_window
 {
 	t_winptr				*ptr;
 	t_mlxptr				*mlx;
+	void					*carry;
 	size_t					width;
 	size_t					height;
 	t_bool					should_render_every_frame;
-	int						(*render)(void *);
+	int						(*render)(struct s_window *, void *);
 	void					(*add_keyboard_hook)(struct s_window *, int (*f)(int, void *));
 	t_list					*keyboard_hooks;
 	void					(*add_lkeyboard_hook)(struct s_window *, int (*f)(int, void *));
@@ -69,6 +71,6 @@ void						add_lkeyboard_hook(t_window *window, int (*f)(int, void *));
 
 void						add_keyboard_hook(t_window *window, int (*f)(int, void *));
 
-t_window					*ft_init_window();
+t_window					*ft_init_window(void *mlx_ptr, t_dim2d dims, char *title, void *carry);
 
 #endif
