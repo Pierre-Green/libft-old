@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 19:20:53 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:27:44 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct			s_button
 	char				*text;
 	int					uuid;
 	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
-	void				(*render_txt)(struct s_button *, t_point2d, void *, void *);
+	void				(*render_txt)(struct s_button *, t_point2d, void *);
 	void				(*onclick)(int, int, void *);
 	t_color				background_color;
 	t_dim2d				dim;
@@ -65,7 +65,7 @@ typedef struct			s_container
 {
 	t_drawables			*childs;
 	t_image_carry		*(*render)(struct s_container *, void *, void *, t_image_carry *);
-	void				(*render_txt)(struct s_container *, t_point2d, void *, void *);
+	void				(*render_txt)(struct s_container *, t_point2d, void *);
 	char				*(*image)(struct s_container *, t_point2d, t_image_carry *);
 	void				(*add_child)(struct s_container *, t_drawable *);
 	t_color				background_color;
@@ -76,7 +76,7 @@ typedef struct			s_container
 typedef struct			s_pagination
 {
 	char				*(*image)(struct s_pagination *, t_point2d, t_image_carry *);
-	void				(*render_txt)(struct s_pagination *, t_point2d, void *, void *);
+	void				(*render_txt)(struct s_pagination *, t_point2d, void *);
 	void				(*add_child)(struct s_pagination *, t_drawable *);
 	t_zone2d			zone;
 	t_drawables			*items;
@@ -118,11 +118,11 @@ t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *te
 
 void					mlx_button_background(t_button *button, t_point2d offset, t_image_carry *carry);
 
-void					mlx_container_render_txt(t_container *container, t_point2d offset, void *mlx_ptr, void *win);
+void					mlx_container_render_txt(t_container *container, t_point2d offset, void *win);
 
-void					mlx_button_render_txt(t_button *button, t_point2d offset, void *mlx_ptr, void *win);
+void					mlx_button_render_txt(t_button *button, t_point2d offset, void *win);
 
-void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *mlx_ptr, void *win);
+void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *win);
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
 

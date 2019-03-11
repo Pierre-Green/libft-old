@@ -6,26 +6,26 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 20:32:25 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/10 00:14:55 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/11 19:29:32 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 #include "ft_mlx/window.h"
 
-static void					render_txt_node(t_drawables *node, t_point2d offset, void *mlx_ptr, t_window *window)
+static void					render_txt_node(t_drawables *node, t_point2d offset, t_window *window)
 {
 	t_drwble			obj;
 
 	obj = node->drawable->drawable;
 	if (node->drawable->type == CONTAINER)
-		obj.container->render_txt(obj.container, offset, mlx_ptr, window);
+		obj.container->render_txt(obj.container, offset, window);
 	if (node->drawable->type == BUTTON)
-		obj.button->render_txt(obj.button, offset, mlx_ptr, window);
+		obj.button->render_txt(obj.button, offset, window);
 	node = node->next;
 }
 
-void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *mlx_ptr, void *win)
+void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *win)
 {
 	const t_window		*window = win;
 	const t_drawables	*node = pagination->items;
@@ -40,7 +40,7 @@ void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, v
 		while (gride.pos.x < (int)gride.dim.width)
 		{
 			next_offset = mlx_pagination_offset(pagination, offset, gride, true);
-			render_txt_node((t_drawables *)node, next_offset, mlx_ptr, (t_window *)window);
+			render_txt_node((t_drawables *)node, next_offset, (t_window *)window);
 			node = node->next;
 			gride.pos.x++;
 		}

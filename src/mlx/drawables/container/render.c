@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/08 01:52:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/11 19:26:44 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_mlx/window.h"
 #include <mlx.h>
 
-void						mlx_container_render_txt(t_container *container, t_point2d offset, void *mlx_ptr, void *win)
+void						mlx_container_render_txt(t_container *container, t_point2d offset, void *win)
 {
 	const t_window			*window = win;
 	t_drawables				*node;
@@ -25,13 +25,13 @@ void						mlx_container_render_txt(t_container *container, t_point2d offset, voi
 	{
 		obj = node->drawable->drawable;
 		if (node->drawable->type == CONTAINER)
-			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), mlx_ptr, win);
+			mlx_container_render_txt(obj.container, DDSUM(offset, obj.container->pos), win);
 		if (node->drawable->type == TEXT)
-			mlx_string_put(mlx_ptr, window->ptr, obj.text->pos.x, obj.text->pos.y, obj.text->color, obj.text->text);
+			mlx_string_put(window->mlx, window->ptr, offset.x + obj.text->pos.x, offset.y + obj.text->pos.y, obj.text->color, obj.text->text);
 		if (node->drawable->type == BUTTON)
-			obj.button->render_txt(obj.button, offset, mlx_ptr, win);
+			obj.button->render_txt(obj.button, offset, win);
 		if (node->drawable->type == PAGINATION)
-			obj.pagination->render_txt(obj.pagination, offset, mlx_ptr, win);
+			obj.pagination->render_txt(obj.pagination, offset, win);
 		node = node->next;
 	}
 }
@@ -51,6 +51,6 @@ t_image_carry				*mlx_container_render(t_container *container, void *mlx_ptr, vo
 	}
 	*old->data = container->image(container, POS(0, 0), old);
 	mlx_put_image_to_window(mlx_ptr, window->ptr, old->img_ptr, 0, 0);
-	container->render_txt(container, POS(0, 0), mlx_ptr, win);
+	container->render_txt(container, POS(0, 0), win);
 	return (old);
 }
