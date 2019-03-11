@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 19:32:35 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 19:55:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:57:59 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void					mlx_text_render_txt(t_text *text, t_point2d offset, void *win)
 		pos.x -= text_width / 2;
 	else if (text->align == RIGHT)
 		pos.x -= text_width;
-	mlx_string_put(window->ptr, window->mlx, pos.x, pos.y, text->color, text->text);
+	mlx_string_put(window->mlx, window->ptr, pos.x, pos.y, text->color, text->text);
 }
