@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 19:36:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 20:00:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,6 @@ typedef struct			s_image_carry
 
 t_image_carry			*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian);
 
-typedef struct			s_button
-{
-	char				*text;
-	int					uuid;
-	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
-	void				(*render_txt)(struct s_button *, t_point2d, void *);
-	void				(*onclick)(int, int, void *);
-	t_color				background_color;
-	t_dim2d				dim;
-	t_point2d			pos;
-}						t_button;
-
 typedef enum			e_alignement
 {
 	LEFT,
@@ -66,6 +54,18 @@ typedef struct			s_text
 	t_color				color;
 	t_point2d			pos;
 }						t_text;
+
+typedef struct			s_button
+{
+	t_text				*text;
+	int					uuid;
+	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
+	void				(*render_txt)(struct s_button *, t_point2d, void *);
+	void				(*onclick)(int, int, void *);
+	t_color				background_color;
+	t_dim2d				dim;
+	t_point2d			pos;
+}						t_button;
 
 typedef struct s_drawables	t_drawables;
 typedef struct s_drawable	t_drawable;
