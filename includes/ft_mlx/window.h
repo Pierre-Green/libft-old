@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 14:51:35 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/11 18:38:05 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct				s_window
 	t_list					*lkeyboard_hooks;
 	t_mouse_hooks			*(*add_mouse_hook)(struct s_window *, int, t_zone2d, void (*f)(t_mouse, int, void *));
 	t_mouse_hooks			*mouse_hooks;
-	struct s_window 		*next;
 }							t_window;
 
 typedef struct				s_hook_carry

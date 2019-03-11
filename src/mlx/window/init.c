@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/07 16:17:30 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/11 18:38:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ t_window			*ft_init_window()
 	win->should_render_every_frame = false;
 	win->height = DEFAULT_HEIGHT;
 	win->ptr = NULL;
-	win->next = NULL;
 	return (win);
 }
