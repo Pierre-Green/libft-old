@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 00:26:25 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/11 19:20:53 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,7 @@ t_drawable				*ft_drawable_at(t_drawables *lst, size_t i);
 t_point2d				mlx_pagination_offset(t_pagination *pagination, t_point2d offset, t_zone2d gride, t_bool center);
 
 t_dim2d					mlx_pagination_gride_dims(t_pagination *pagination);
+
+size_t					mlx_text_width(char *str);
 
 #endif

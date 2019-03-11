@@ -102,6 +102,7 @@ SRCS+=/mlx/drawables/pagination/init.c
 SRCS+=/mlx/drawables/pagination/render.c
 SRCS+=/mlx/drawables/pagination/utils.c
 SRCS+=/mlx/drawables/text/init.c
+SRCS+=/mlx/drawables/text/utils.c
 SRCS+=/mlx/drawables/utils.c
 SRCS+=/mlx/window/hooks/dispatchers.c
 SRCS+=/mlx/window/hooks/utils.c
