@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 17:13:54 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 14:44:09 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/12 18:16:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_image_carry			*ft_image_merge(t_drawable *drawable, t_point2d offset, t_image_
 		obj.button->image(obj.button, offset, carry);
 	if (drawable->type == PAGINATION)
 		obj.pagination->image(obj.pagination, offset, carry);
+	if (drawable->type == CANVAS)
+		obj.canvas->image_intern(obj.canvas, offset, carry);
 	return (carry);
 }
 

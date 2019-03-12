@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 19:38:06 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/12 18:21:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
 		drwble.button = value;
 	if (type == PAGINATION)
 		drwble.pagination = value;
+	if (type == CANVAS)
+		drwble.canvas = value;
 	drawable->type = type;
 	drawable->drawable = drwble;
 	return (drawable);

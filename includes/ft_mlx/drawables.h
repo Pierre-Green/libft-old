@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/12 16:00:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/12 18:19:22 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef enum			e_drawable_types
 						TEXT,
 						BUTTON,
 						PAGINATION,
+						CANVAS,
 						NONE
 }						t_drawable_types;
 
@@ -72,9 +73,16 @@ typedef struct			s_button
 typedef struct			s_canvas
 {
 	t_zone2d			zone;
-	t_image_carry		*(*image)(struct s_canvas *, t_point2d offset, t_image_carry *);
+	void				*s;
+	t_image_carry		*img;
+	t_image_carry		*(*image_intern)(struct s_canvas *, t_point2d offset, t_image_carry *);
+	t_image_carry		*(*image)(struct s_canvas *, void *);
 	t_bool				has_focus;
 }						t_canvas;
+
+t_canvas				*mlx_init_canvas(t_point2d pos, t_dim2d dim, t_image_carry *(*image)(t_canvas *, void *), void *mlx_ptr, void *s);
+
+t_image_carry			*mlx_canvas_image_intern(t_canvas *, t_point2d offset, t_image_carry *);
 
 typedef struct s_drawables	t_drawables;
 typedef struct s_drawable	t_drawable;
@@ -113,6 +121,7 @@ typedef union			u_drwble
 	t_text				*text;
 	t_button			*button;
 	t_pagination		*pagination;
+	t_canvas			*canvas;
 }						t_drwble;
 
 typedef struct			s_drawable
