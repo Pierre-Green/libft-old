@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 20:00:39 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/12 16:00:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "ft_mlx/color.h"
 
 # define OFFSET_NULL ({ 0, 0 })
+# define MLX_CHAR_WIDTH 10
+# define MLX_CHAR_HEIGHT 20
 
 typedef size_t			t_margin[4];
 
@@ -66,6 +68,13 @@ typedef struct			s_button
 	t_dim2d				dim;
 	t_point2d			pos;
 }						t_button;
+
+typedef struct			s_canvas
+{
+	t_zone2d			zone;
+	t_image_carry		*(*image)(struct s_canvas *, t_point2d offset, t_image_carry *);
+	t_bool				has_focus;
+}						t_canvas;
 
 typedef struct s_drawables	t_drawables;
 typedef struct s_drawable	t_drawable;
