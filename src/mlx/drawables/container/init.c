@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:19:09 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 20:55:02 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/12 18:50:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,6 @@ static void			container_add_child(t_container *self, t_drawable *drawable)
 	ft_add_drawable_to_drawables(self->childs, drawable);
 }
 
-static char			*image(t_container *self, t_point2d offset, t_image_carry *carry)
-{
-	t_drawables		*node;
-	const t_point2d	next_offset = DDSUM(offset, self->pos);
-
-	mlx_container_background(self, offset, carry);
-	node = self->childs;
-	while (node)
-	{
-		ft_image_merge(node->drawable, next_offset, carry);
-		node = node->next;
-	}
-	return (*carry->data);
-}
-
 t_container			*ft_init_container(t_point2d pos, t_dim2d dim, t_color color)
 {
 	t_container		*container;
@@ -47,7 +32,7 @@ t_container			*ft_init_container(t_point2d pos, t_dim2d dim, t_color color)
 		return (NULL);
 	container->childs = NULL;
 	container->add_child = container_add_child;
-	container->image = image;
+	container->image = mlx_container_image;
 	container->render = mlx_container_render;
 	container->render_txt = mlx_container_render_txt;
 	container->background_color = color;
