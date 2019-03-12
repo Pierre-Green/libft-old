@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/12 18:51:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/12 21:26:21 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define OFFSET_NULL ({ 0, 0 })
 # define MLX_CHAR_WIDTH 10
 # define MLX_CHAR_HEIGHT 20
+# define MLX_PAGINATION_BOT_SIZE 50
 
 typedef size_t			t_margin[4];
 

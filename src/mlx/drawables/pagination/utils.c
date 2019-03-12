@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 01:41:58 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/10 00:05:14 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/12 21:26:57 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_dim2d					mlx_pagination_gride_dims(t_pagination *pagination)
 	t_dim2d				dim;
 
 	dim.width = pagination->zone.dim.width / (pagination->items_dim.width + pagination->items_margin[1] + pagination->items_margin[3]);
-	dim.height = pagination->zone.dim.height / (pagination->items_dim.height + pagination->items_margin[0] + pagination->items_margin[2]);
+	dim.height = (pagination->zone.dim.height - MLX_PAGINATION_BOT_SIZE ) / (pagination->items_dim.height + pagination->items_margin[0] + pagination->items_margin[2]);
 	return (dim);
 }
 
