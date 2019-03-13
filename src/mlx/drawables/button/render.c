@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 14:11:32 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/12 14:45:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:09:48 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void					mlx_button_render_txt(t_button *button, t_point2d offset, void *win)
 	next_offset.y += button->dim.height / 2;
 	next_offset.x += button->dim.width / 2;
 	window = win;
-	window->add_mouse_hook(window, button->uuid, ft_zone2d_from_pdim(DDSUM(offset, button->pos), button->dim), button->onclick);
+	window->add_mouse_hook(window, button->uuid, ft_zone2d_from_pdim(DDSUM(offset, button->pos), button->dim), button->onclick, button->s);
 	button->text->render_txt(button->text, next_offset, win);
 }

@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 20:32:25 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 19:29:32 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:17:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@ void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, v
 	const t_drawables	*node = pagination->items;
 	t_zone2d			gride;
 	t_point2d			next_offset;
+	size_t				current;
 
 	offset = DDSUM(offset, pagination->zone.pos);
-	gride = ft_zone2d_from_pdim(POS(0, 0), mlx_pagination_gride_dims(pagination));
-	while (gride.pos.y < (int)gride.dim.height)
+	gride = ft_zone2d_from_pdim(POS(0, 0), pagination->gride);
+	current = 0;
+	while (current++ < pagination->page * (pagination->gride.width * pagination->gride.height))
+		node = node->next;
+	while (gride.pos.y < (int)gride.dim.height && node)
 	{
 		gride.pos.x = 0;
-		while (gride.pos.x < (int)gride.dim.width)
+		while (gride.pos.x < (int)gride.dim.width && node)
 		{
 			next_offset = mlx_pagination_offset(pagination, offset, gride, true);
 			render_txt_node((t_drawables *)node, next_offset, (t_window *)window);

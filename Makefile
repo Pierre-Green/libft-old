@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/03/11 14:47:24 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/03/13 16:42:01 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ dev:
 	@$(MAKE) -f $(DEVFILE)
 	@echo "Debugable static library has been made"
 
-devRe: fclean dev
+devre: fclean dev
 
 re: fclean lib
 
@@ -35,7 +35,7 @@ test:
 	@echo "Running tests..."
 	@$(MAKE) -f $(PRODFILE) test
 
-devTest:
+devtest:
 	@echo "Running debugable tests..."
 	@$(MAKE) -f $(DEVFILE) test
 
@@ -50,7 +50,7 @@ fclean: clean
 	@$(MAKE) -f $(PRODFILE) fclean
 	@$(MAKE) -f $(DEVFILE) fclean
 
-getSources:
+getsources:
 	@rm -f $(SOURCEMAP)
 	@rm -f $(TESTSOURCEMAP)
 	@touch $(SOURCEMAP)

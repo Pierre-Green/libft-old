@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 18:53:52 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:09:33 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct				s_mouse_hooks
 	t_zone2d				zone;
 	int						uuid;
 	void					(*onclick)(t_mouse, int target, void *);
+	void					*carry;
 	struct s_mouse_hooks	*next;
 }							t_mouse_hooks;
 
@@ -48,7 +49,7 @@ typedef struct				s_window
 	t_list					*keyboard_hooks;
 	void					(*add_lkeyboard_hook)(struct s_window *, int (*f)(int, void *));
 	t_list					*lkeyboard_hooks;
-	t_mouse_hooks			*(*add_mouse_hook)(struct s_window *, int, t_zone2d, void (*f)(t_mouse, int, void *));
+	t_mouse_hooks			*(*add_mouse_hook)(struct s_window *, int, t_zone2d, void (*f)(t_mouse, int, void *), void *s);
 	t_mouse_hooks			*mouse_hooks;
 }							t_window;
 
@@ -65,7 +66,7 @@ int							lkeyboard_hooks_dispatcher(int keycode, void *p_carry);
 
 int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry);
 
-t_mouse_hooks				*add_mouse_hook(t_window *window, int, t_zone2d zone, void (*f)(t_mouse, int, void *));
+t_mouse_hooks				*add_mouse_hook(t_window *window, int, t_zone2d zone, void (*f)(t_mouse, int, void *), void *s);
 
 void						add_lkeyboard_hook(t_window *window, int (*f)(int, void *));
 

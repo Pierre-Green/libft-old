@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 14:00:51 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 20:01:31 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:08:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *te
 	button->pos = pos;
 	button->dim = dim;
 	button->image = image;
+	button->s = NULL;
 	button->render_txt = mlx_button_render_txt;
 	button->background_color = color;
 	button->text = ft_init_text(POS(0, 0), text, 0xFFFFFF);

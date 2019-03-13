@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/12 21:26:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:13:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # define MLX_CHAR_WIDTH 10
 # define MLX_CHAR_HEIGHT 20
 # define MLX_PAGINATION_BOT_SIZE 50
+# define MLX_PAGINATION_CTRBTN_WIDTH 50
+# define MLX_PAGINATION_CTRBTN_HEIGHT 30
+# define MLX_PAGINATION_ACTION_PREV 21
+# define MLX_PAGINATION_ACTION_NEXT 42
 
 typedef size_t			t_margin[4];
 
@@ -62,6 +66,7 @@ typedef struct			s_text
 typedef struct			s_button
 {
 	t_text				*text;
+	void				*s;
 	int					uuid;
 	char				*(*image)(struct s_button *, t_point2d, t_image_carry *);
 	void				(*render_txt)(struct s_button *, t_point2d, void *);
@@ -105,8 +110,12 @@ typedef struct			s_pagination
 	char				*(*image)(struct s_pagination *, t_point2d, t_image_carry *);
 	void				(*render_txt)(struct s_pagination *, t_point2d, void *);
 	void				(*add_child)(struct s_pagination *, t_drawable *);
+	t_button			*prev;
+	t_button			*next;
 	t_zone2d			zone;
 	t_drawables			*items;
+	t_dim2d				gride;
+	size_t				page;
 	size_t				items_count;
 	t_dim2d				items_dim;
 	t_margin			items_margin;
