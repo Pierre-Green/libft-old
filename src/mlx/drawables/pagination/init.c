@@ -6,11 +6,12 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:17:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:18:20 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
+#include "ft_printf.h"
 
 static void				pagination_add_item(t_pagination *self, t_drawable *drawable)
 {
@@ -29,6 +30,7 @@ static void				onclick(int mouse, int action, void *s)
 	
 	pagination = s;
 	(void)mouse;
+	ft_printf("Action : %d\n", action);
 	if (action == MLX_PAGINATION_ACTION_PREV && pagination->page > 0)
 		pagination->page = pagination->page - 1;
 	if (action == MLX_PAGINATION_ACTION_NEXT && pagination->page < pagination->items_count / (pagination->gride.height * pagination->gride.width))
