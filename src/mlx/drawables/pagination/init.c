@@ -6,23 +6,13 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:26:15 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 19:58:32 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 #include "ft_printf.h"
 
-static void				pagination_add_item(t_pagination *self, t_drawable *drawable)
-{
-	if (self->items == NULL)
-	{
-		self->items = (t_drawables *)malloc(sizeof(t_drawables));
-		self->items->drawable = NULL;
-		self->items->next = NULL;
-	}
-	ft_add_drawable_to_drawables(self->items, drawable);
-}
 
 static void				onclick(int mouse, int action, void *s)
 {
@@ -85,7 +75,7 @@ t_pagination			*mlx_init_pagination(t_zone2d zone, t_dim2d item_dim, t_margin it
 	pagination->items = NULL;
 	pagination->page = 0;
 	pagination->render_txt = mlx_pagination_render_txt;
-	pagination->add_child = pagination_add_item;
+	pagination->add_child = mlx_pagination_add_item;
 	pagination->image = mlx_pagination_image;
 	pagination->gride = mlx_pagination_gride_dims(pagination);
 	if (!(pagination->prev = pagination_prev(pagination)))

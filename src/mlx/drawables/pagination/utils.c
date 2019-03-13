@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 01:41:58 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/12 21:29:20 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 19:58:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ t_point2d				mlx_pagination_offset(t_pagination *pagination, t_point2d offset, t
 		+ ((gride.pos.x + 1) * pagination->items_margin[3])
 		+ (gride.pos.x * pagination->items_margin[1]);
 	return ((center ? pagination_center(pagination, res, gride.dim) : res));
+}
+
+void					mlx_pagination_add_item(t_pagination *self, t_drawable *drawable)
+{
+	if (self->items == NULL)
+	{
+		self->items = (t_drawables *)malloc(sizeof(t_drawables));
+		self->items->drawable = NULL;
+		self->items->next = NULL;
+	}
+	ft_add_drawable_to_drawables(self->items, drawable);
 }
