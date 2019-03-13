@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 17:56:56 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:02:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef FT_UTILS_H
+# define FT_UTILS_H
 # include <stdlib.h>
 # include <stdint.h>
 # include "ft_bool.h"

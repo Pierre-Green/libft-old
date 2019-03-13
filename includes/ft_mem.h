@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:58:21 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:02:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEM_H
-# define MEM_H
+#ifndef FT_MEM_H
+# define FT_MEM_H
 # include <stdlib.h>
 
 void				*ft_memchr(const void *b, int c, size_t len);

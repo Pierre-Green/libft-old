@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/22 13:44:42 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/13 21:00:20 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_H
-# define IO_H
+#ifndef FT_IO_H
+# define FT_IO_H
 # include <unistd.h>
 # include <wchar.h>
 # include <stdint.h>

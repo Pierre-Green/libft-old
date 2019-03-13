@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void					ft_pfgG(t_printf *state)
+void					ft_pfg(t_printf *state)
 {
 	(void)state;
 }

@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:56:10 by pguthaus          #+#    #+#             */
-/*   Updated: 2018/12/10 04:17:36 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 20:58:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LST_H
-# define LST_H
+#ifndef FT_LST_H
+# define FT_LST_H
 # include <stdlib.h>
 
 typedef struct		s_list
@@ -40,6 +40,5 @@ int					ft_lstsize(t_list *begin_list);
 t_list				*ft_lstlast(t_list *begin_list);
 
 t_list				*ft_lstat(t_list *begin_list, unsigned int nbr);
-
 
 #endif

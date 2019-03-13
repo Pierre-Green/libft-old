@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 19:03:38 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/05 18:24:20 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:02:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STR_H
-# define STR_H
+#ifndef FT_STR_H
+# define FT_STR_H
 # include <stdlib.h>
 
 char				*ft_strcat(char *dest, const char *src);

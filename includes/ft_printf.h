@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:50:44 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/10 20:13:48 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/13 21:06:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,8 @@ void					ft_print_blank(t_printf *state, size_t count);
 
 void					ft_print_str(t_printf *state, char *str, size_t length);
 
-void					ft_print_precised_int(t_printf *state, intmax_t i, size_t length, size_t precision);
+void					ft_print_precised_int(t_printf *state, intmax_t i,
+		size_t length, size_t precision);
 
 t_bool					ft_test_flag(t_printf *state, uint8_t flag);
 
@@ -179,16 +180,16 @@ void					ft_pfo(t_printf *state);
 
 void					ft_pfu(t_printf *state);
 
-void					ft_pfxX(t_printf *state);
+void					ft_pfx(t_printf *state);
 
 void					ft_pfn(t_printf *state);
 
-void					ft_pfaA(t_printf *state);
+void					ft_pfa(t_printf *state);
 
-void					ft_pfeE(t_printf *state);
+void					ft_pfe(t_printf *state);
 
-void					ft_pffF(t_printf *state);
+void					ft_pff(t_printf *state);
 
-void					ft_pfgG(t_printf *state);
+void					ft_pfg(t_printf *state);
 
 #endif

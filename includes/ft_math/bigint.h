@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bigint.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/10 22:11:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/18 16:31:57 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:01:29 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:01:32 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void				ft_bigint_div(t_bigint *a, t_bigint *b, t_bigint *des);
 
 void				ft_bigint_mod(t_bigint *a, t_bigint *b, t_bigint *des);
 
-void				ft_bigint_divmod(t_bigint *a, t_bigint *b, t_bigint *div, t_bigint *mod);
+void				ft_bigint_divmod(t_bigint *a, t_bigint *b, t_bigint *div,
+		t_bigint *mod);
 
 void				ft_bigint_pow(t_bigint *a, t_bigint *pow, t_bigint *res);
 

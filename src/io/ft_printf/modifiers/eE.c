@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void					ft_pfeE(t_printf *state)
+void					ft_pfe(t_printf *state)
 {
 	(void)state;
 }

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void					ft_pfaA(t_printf *state)
+void					ft_pfa(t_printf *state)
 {
 	(void)state;
 }

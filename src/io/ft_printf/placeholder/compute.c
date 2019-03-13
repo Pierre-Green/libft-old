@@ -25,7 +25,7 @@ void					ft_root_ph(t_printf *state)
 	if (state->part.modifier == CUINT)
 		ft_pfu(state);
 	if (state->part.modifier == CUMHX || state->part.modifier == CUHEX)
-		ft_pfxX(state);
+		ft_pfx(state);
 	if (state->part.modifier == CACHR || state->part.modifier == CAWCH)
 		ft_pfc(state);
 	if (state->part.modifier == CASTR)
@@ -33,11 +33,11 @@ void					ft_root_ph(t_printf *state)
 	if (state->part.modifier == CCURL)
 		ft_pfn(state);
 	if (state->part.modifier == CDMHX || state->part.modifier == CDHEX)
-		ft_pfaA(state);
+		ft_pfa(state);
 	if (state->part.modifier == CDMEX || state->part.modifier == CDEXP)
-		ft_pfeE(state);
+		ft_pfe(state);
 	if (state->part.modifier == CDDEC)
-		ft_pffF(state);
+		ft_pff(state);
 	if (state->part.modifier == CDMGE || state->part.modifier == CDGEN)
-		ft_pfgG(state);
+		ft_pfg(state);
 }

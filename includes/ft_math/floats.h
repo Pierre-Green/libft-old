@@ -6,13 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:53:33 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/20 19:07:17 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 20:57:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MATH_FLOATS_H
 # define FT_MATH_FLOATS_H
-# include "ft_bool.h"
 # include <stdint.h>
 # define F_EXP_BIAS (127)
 # define D_EXP_BIAS (1023)

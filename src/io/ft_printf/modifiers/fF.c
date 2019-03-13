@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "ft_math/floats.h"
 
-void					ft_pffF(t_printf *state)
+void					ft_pff(t_printf *state)
 {
 	uint64_t			frac;
 	int16_t				exp;

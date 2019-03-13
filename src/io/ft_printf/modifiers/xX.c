@@ -32,7 +32,7 @@ static void				ft_minify(t_printf *state)
 ** Width
 ** Precision
 */
-void					ft_pfxX(t_printf *state)
+void					ft_pfx(t_printf *state)
 {
 	state->part.value.ptr = ft_int_to_hex(state->part.value.i);
 	if (ft_test_flag(state, FALTR))

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 18:10:53 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:00:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include <stdint.h>
 
 /*
- ** 3D vector types
- */
+** 3D vector types
+*/
 typedef struct			s_vec3_f
 {
 	float				x;
@@ -32,8 +32,8 @@ typedef struct			s_vec3_d
 }						t_vec3_d;
 
 /*
- ** vec3_f
- */
+** vec3_f
+*/
 t_vec3_f				ft_init0_vec3_f(void);
 
 t_vec3_f				ft_init1_vec3_f(float a);
@@ -57,8 +57,8 @@ float					ft_vec3_f_crossproduct(t_vec3_f self, t_vec3_f vec);
 t_vec3_f				ft_vec3_f_normalize(t_vec3_f self);
 
 /*
- ** vec3_d
- */
+** vec3_d
+*/
 t_vec3_d				ft_init0_vec3_d(void);
 
 t_vec3_d				ft_init1_vec3_d(double a);
