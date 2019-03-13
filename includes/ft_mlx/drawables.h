@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 16:13:15 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:12:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # define MLX_CHAR_WIDTH 10
 # define MLX_CHAR_HEIGHT 20
 # define MLX_PAGINATION_BOT_SIZE 50
-# define MLX_PAGINATION_CTRBTN_WIDTH 50
-# define MLX_PAGINATION_CTRBTN_HEIGHT 30
 # define MLX_PAGINATION_ACTION_PREV 21
 # define MLX_PAGINATION_ACTION_NEXT 42
 
