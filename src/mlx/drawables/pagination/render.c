@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 20:32:25 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 16:58:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 17:27:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ static void					render_txt_node(t_drawables *node, t_point2d offset, t_window *w
 
 static void				pagination_render_txt_bot(t_pagination *self, t_point2d p_offset, t_window *window)
 {
-	
+	t_point2d			offset;
+
+	offset.y = p_offset.y + self->zone.dim.height - MLX_PAGINATION_BOT_SIZE;
+	offset.x = p_offset.x;
+	self->prev->render_txt(self->prev, offset, window);
+	self->next->render_txt(self->next, offset, window);
 }
 
 void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, void *win)
@@ -55,4 +60,5 @@ void					mlx_pagination_render_txt(t_pagination *pagination, t_point2d offset, v
 		}
 		gride.pos.y++;
 	}
+	pagination_render_txt_bot(pagination, offset, (t_window *)window);
 }

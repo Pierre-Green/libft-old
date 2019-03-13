@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 17:24:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 17:26:01 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static t_image_carry	*pagination_bottom_image(t_pagination *self, t_point2d p_of
 
 	offset.y = p_offset.y + self->zone.dim.height - MLX_PAGINATION_BOT_SIZE;
 	offset.x = p_offset.x;
-	*carry->data = self->prev->image(self->prev, offset, carry);
-	*carry->data = self->next->image(self->next, offset, carry);
+	self->prev->image(self->prev, offset, carry);
+	self->next->image(self->next, offset, carry);
 	return (carry);
 }
 
