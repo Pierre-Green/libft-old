@@ -111,6 +111,7 @@ SRCS+=/mlx/drawables/utils.c
 SRCS+=/mlx/window/hooks/dispatchers.c
 SRCS+=/mlx/window/hooks/utils.c
 SRCS+=/mlx/window/init.c
+SRCS+=/mlx/window/render.c
 SRCS+=/str/ft_strcat.c
 SRCS+=/str/ft_strchr.c
 SRCS+=/str/ft_strclr.c
