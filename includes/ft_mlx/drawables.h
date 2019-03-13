@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 18:12:18 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:14:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define OFFSET_NULL ({ 0, 0 })
 # define MLX_CHAR_WIDTH 10
 # define MLX_CHAR_HEIGHT 20
-# define MLX_PAGINATION_BOT_SIZE 50
+# define MLX_PAGINATION_BOT_SIZE 70
 # define MLX_PAGINATION_ACTION_PREV 21
 # define MLX_PAGINATION_ACTION_NEXT 42
 
