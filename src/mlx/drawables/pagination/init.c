@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 19:58:32 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:41:28 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:43:23 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 #include "ft_printf.h"
 
-
 static void				onclick(int mouse, int action, void *s)
 {
 	t_pagination		*pagination;
-	
+
 	pagination = s;
 	(void)mouse;
 	ft_printf("Action : %d\n", action);
 	if (action == MLX_PAGINATION_ACTION_PREV && pagination->page > 0)
 		pagination->page--;
-	if (action == MLX_PAGINATION_ACTION_NEXT && pagination->page < pagination->items_count / (pagination->gride.height * pagination->gride.width))
+	if (action == MLX_PAGINATION_ACTION_NEXT
+			&& pagination->page < pagination->items_count
+			/ (pagination->gride.height * pagination->gride.width))
 		pagination->page++;
 }
 
@@ -35,9 +36,9 @@ static t_button			*pagination_prev(t_pagination *self)
 	pos.y = 0;
 	pos.x = 100;
 	if (!(prev = mlx_init_button(pos, DIM(self->zone.dim.width / 4,
-		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Previous",
-		MLX_PAGINATION_ACTION_PREV)))
+		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Previous")))
 		return (NULL);
+	prev->uuid = MLX_PAGINATION_ACTION_PREV;
 	prev->s = self;
 	prev->onclick = onclick;
 	return (prev);
@@ -51,15 +52,16 @@ static t_button			*pagination_next(t_pagination *self)
 	pos.y = 0;
 	pos.x = 300;
 	if (!(next = mlx_init_button(pos, DIM(self->zone.dim.width / 4,
-		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Next",
-		MLX_PAGINATION_ACTION_NEXT)))
+		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Next")))
 		return (NULL);
+	next->uuid = MLX_PAGINATION_ACTION_NEXT;
 	next->s = self;
 	next->onclick = onclick;
 	return (next);
 }
 
-t_pagination			*mlx_init_pagination(t_zone2d zone, t_dim2d item_dim, t_margin item_margin)
+t_pagination			*mlx_init_pagination(t_zone2d zone, t_dim2d item_dim,
+		t_margin item_margin)
 {
 	t_pagination		*pagination;
 	size_t				curr;

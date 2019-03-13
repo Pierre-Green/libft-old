@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   dispatchers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 19:45:06 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:30:00 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/window.h"
 #include "ft_mem.h"
 
-static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
+static int					keyboard(int key, t_list *node,
+		const t_hook_carry *carry)
 {
 	int						ret;
 	int						(*f)(int, void *);
@@ -22,7 +23,7 @@ static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 	while (node)
 	{
 		f = node->content;
-		ret = f(keycode, carry->state);
+		ret = f(key, carry->state);
 		node = node->next;
 	}
 	return (ret);
@@ -42,7 +43,8 @@ int							lkeyboard_hooks_dispatcher(int keycode, void *p)
 	return (keyboard(keycode, carry->window->lkeyboard_hooks, carry));
 }
 
-int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
+int							mouse_hooks_dispatcher(int mouse, int x, int y,
+		void *p_carry)
 {
 	const t_hook_carry		*carry = p_carry;
 	t_mouse_hooks			*node;
@@ -51,7 +53,8 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
 	while (node && node->onclick)
 	{
 		if (ft_is_point_in_zone2d(node->zone, (t_point2d){ x, y }))
-			node->onclick(mouse, node->uuid, (node->carry ? node->carry : carry->state));
+			node->onclick(mouse, node->uuid,
+					(node->carry ? node->carry : carry->state));
 		node = node->next;
 	}
 	carry->window->mouse_hooks = NULL;

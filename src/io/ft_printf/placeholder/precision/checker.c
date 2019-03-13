@@ -24,5 +24,5 @@ t_bool					ft_is_precision(t_printf *state)
 		pos++;
 		return (ft_isdigit(*pos) || *pos == PRECISION_PARAM_VALUE);
 	}
-	return (false);
+	return (FALSE);
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 16:12:02 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 18:48:22 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:14:53 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 ** Lengths
 */
 
-static void				ft_print_signed_int_pf(t_printf *state, size_t p_length, size_t length, uint32_t width)
+static void				ft_print_signed_int_pf(t_printf *state, size_t p_length,
+		size_t length, uint32_t width)
 {
 	intmax_t			i;
 
@@ -28,14 +29,14 @@ static void				ft_print_signed_int_pf(t_printf *state, size_t p_length, size_t l
 	if (ft_test_flag(state, FSIGN) || ft_test_flag(state, FPOSI))
 		if (i >= 0)
 			ft_putchar_fd((ft_test_flag(state, FSIGN) ? '+' : ' '), state->fd);
-	if(ft_test_flag(state, FFIL0) && p_length == length)
+	if (ft_test_flag(state, FFIL0) && p_length == length)
 		ft_print_0(state, width - p_length);
 	ft_print_precised_int(state, i, length, p_length);
 }
 
 static size_t			ft_adjust_length(t_printf *state, size_t length)
 {
-	if ((ft_test_flag(state, FSIGN) || ft_test_flag(state, FPOSI)) 
+	if ((ft_test_flag(state, FSIGN) || ft_test_flag(state, FPOSI))
 			&& (int)state->part.value.i >= 0)
 		length++;
 	else if ((int)state->part.value.i < 0)
@@ -49,7 +50,8 @@ void					ft_pfdi(t_printf *state)
 	uint32_t			width;
 	size_t				p_length;
 
-	length = ft_adjust_length(state, ft_count_digits_int((int)state->part.value.i));
+	length = ft_adjust_length(state,
+			ft_count_digits_int((int)state->part.value.i));
 	width = state->part.width;
 	if (width < length)
 		width = length;
@@ -61,10 +63,8 @@ void					ft_pfdi(t_printf *state)
 		ft_print_signed_int_pf(state, p_length, length, width);
 		ft_print_blank(state, width - p_length);
 	}
-	else if(ft_test_flag(state, FFIL0) && p_length == length)
-	{
+	else if (ft_test_flag(state, FFIL0) && p_length == length)
 		ft_print_signed_int_pf(state, p_length, length, width);
-	}
 	else
 	{
 		ft_print_blank(state, width - p_length);

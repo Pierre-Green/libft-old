@@ -6,12 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:59:47 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/20 22:30:08 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:10:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_args.h"
-# include "ft_str.h"
+#include "ft_args.h"
+#include "ft_str.h"
 
 t_params				*get_params(int argc, char **argv)
 {
@@ -23,14 +23,14 @@ t_params				*get_params(int argc, char **argv)
 		return (NULL);
 	if (!(params->params = (t_param *)malloc(sizeof(t_param))))
 		return (NULL);
-	params->length = (size_t) argc - 1;
+	params->length = (size_t)argc - 1;
 	current = 0;
 	tmp = params->params;
-	while (current < (size_t) argc - 1)
+	while (current < (size_t)argc - 1)
 	{
 		tmp->value = ft_strdup(argv[current + 1]);
 		current++;
-		if (current != (size_t) argc - 1)
+		if (current != (size_t)argc - 1)
 		{
 			if (!(tmp->next = (t_param *)malloc(sizeof(t_param))))
 				return (NULL);

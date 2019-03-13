@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 14:11:32 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 16:09:48 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:33:27 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:33:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "ft_str.h"
 #include <mlx.h>
 
-void					mlx_button_render_txt(t_button *button, t_point2d offset, void *win)
+void					mlx_button_render_txt(t_button *button,
+		t_point2d offset, void *win)
 {
 	t_window			*window;
 	t_point2d			next_offset;
@@ -24,6 +25,8 @@ void					mlx_button_render_txt(t_button *button, t_point2d offset, void *win)
 	next_offset.y += button->dim.height / 2;
 	next_offset.x += button->dim.width / 2;
 	window = win;
-	window->add_mouse_hook(window, button->uuid, ft_zone2d_from_pdim(DDSUM(offset, button->pos), button->dim), button->onclick, button->s);
+	window->add_mouse_hook(window, button->uuid,
+		ft_zone2d_from_pdim(DDSUM(offset, button->pos), button->dim),
+		button->onclick, button->s);
 	button->text->render_txt(button->text, next_offset, win);
 }

@@ -17,7 +17,7 @@ void					ft_apply_width(t_printf *state)
 {
 	if (*state->format == FIELD_WIDTH_PARAM_VALUE)
 	{
-		state->part.width_p = true;
+		state->part.width_p = TRUE;
 		state->format++;
 	}
 	else

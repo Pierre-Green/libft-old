@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 19:21:02 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/12 15:59:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:46:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,3 @@ size_t					mlx_text_width(char *str)
 {
 	return (ft_strlen(str) * MLX_CHAR_WIDTH);
 }
-

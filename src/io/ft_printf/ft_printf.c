@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 03:23:12 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/18 19:52:46 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:12:11 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static t_printf		*init(int fd, char *format, va_list params)
 	return (state);
 }
 
-static t_part		init_part()
+static t_part		init_part(void)
 {
 	t_part			part;
 
 	part.nu = 0;
 	part.flags = 0;
-	part.width_p = false;
+	part.width_p = FALSE;
 	part.width = 0;
-	part.precision_p = false;
+	part.precision_p = FALSE;
 	part.precision = 0;
 	part.length = 0;
 	part.modifier = 0;
@@ -59,7 +59,7 @@ static int			cprintf(int fd, char *format, va_list params)
 		if (*state->format != FORMAT_BEGIN)
 			ft_print_noph(state);
 		if (*state->format == FORMAT_BEGIN)
-			if(!ft_print_ph(state))
+			if (!ft_print_ph(state))
 				return (PH_ERROR);
 	}
 	length = state->length;

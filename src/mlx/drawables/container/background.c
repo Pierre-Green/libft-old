@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 01:22:47 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 02:03:51 by pierre           ###   ########.fr       */
+/*   Created: 2019/03/13 21:37:35 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:37:57 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-void	mlx_container_background(t_container *container, t_point2d offset, t_image_carry *carry)
+void		mlx_container_background(t_container *container, t_point2d offset,
+		t_image_carry *carry)
 {
-	size_t			x;
-	size_t			y;
+	size_t	x;
+	size_t	y;
 
 	y = offset.y + container->pos.y;
 	while ((y - (offset.y + container->pos.y)) < container->dim.height)

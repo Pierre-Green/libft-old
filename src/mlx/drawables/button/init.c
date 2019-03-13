@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 14:00:51 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 19:28:29 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:33:15 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:35:03 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-
-t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, int uuid)
+t_button				*mlx_init_button(t_point2d pos, t_dim2d dim,
+		t_color color, char *text)
 {
 	t_button			*button;
 
@@ -28,6 +28,6 @@ t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *te
 	button->text = ft_init_text(POS(0, 0), text, 0xFFFFFF);
 	button->text->align = CENTER;
 	button->onclick = NULL;
-	button->uuid = uuid;
+	button->uuid = 0;
 	return (button);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xX.c                                               :+:      :+:    :+:   */
+/*   x.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 22:01:17 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 18:06:22 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:15:42 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:19:05 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void				ft_minify(t_printf *state)
 ** Width
 ** Precision
 */
+
 void					ft_pfx(t_printf *state)
 {
 	state->part.value.ptr = ft_int_to_hex(state->part.value.i);

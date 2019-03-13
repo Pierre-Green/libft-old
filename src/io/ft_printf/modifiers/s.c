@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:04:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 18:50:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:18:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** Width
 ** Precision
 */
+
 void			ft_pfs(t_printf *state)
 {
 	size_t	length;
@@ -34,7 +35,7 @@ void			ft_pfs(t_printf *state)
 		ft_print_str(state, value, length);
 		ft_print_blank(state, state->part.width - length);
 	}
-	else if(ft_test_flag(state, FFIL0))
+	else if (ft_test_flag(state, FFIL0))
 	{
 		ft_print_0(state, state->part.width - length);
 		ft_print_str(state, value, length);

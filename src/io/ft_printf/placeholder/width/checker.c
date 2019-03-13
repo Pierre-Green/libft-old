@@ -19,6 +19,6 @@ t_bool					ft_is_width(t_printf *state)
 
 	pos = state->format;
 	if (*pos == FIELD_WIDTH_PARAM_VALUE)
-		return (true);
+		return (TRUE);
 	return (ft_isdigit(*pos));
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:06:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:32:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void						add_keyboard_hook(t_window *window,
 		int (*f)(int, void *));
 
 t_window					*ft_init_window(void *mlx_ptr,
-		t_dim2d dims, char *title, void *carry, t_container *body);
+		t_dim2d dims, char *title, void *carry);
 
 int							mlx_render_window(t_window *window);
 

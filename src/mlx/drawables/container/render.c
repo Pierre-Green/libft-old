@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 02:48:40 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/11 19:36:55 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:38:53 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:39:47 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #include "ft_mlx/window.h"
 #include <mlx.h>
 
-void						mlx_container_render_txt(t_container *container, t_point2d offset, void *win)
+void					mlx_container_render_txt(t_container *container,
+		t_point2d offset, void *win)
 {
-	t_drawables				*node;
-	const t_point2d			next_offset = DDSUM(offset, container->pos);
-	t_drwble				obj;
+	t_drawables			*node;
+	const t_point2d		next_offset = DDSUM(offset, container->pos);
+	t_drwble			obj;
 
 	node = container->childs;
 	while (node)
@@ -36,18 +37,19 @@ void						mlx_container_render_txt(t_container *container, t_point2d offset, voi
 	}
 }
 
-t_image_carry				*mlx_container_render(t_container *container, void *mlx_ptr, void *win, t_image_carry *old)
+t_image_carry			*mlx_container_render(t_container *container,
+		void *mlx_ptr, void *win, t_image_carry *old)
 {
-	const t_window			*window = win;
-	void					*tmptr;
-	char					*tmpch;
-	int						params[3];
+	const t_window		*window = win;
+	void				*tmptr;
+	char				*tmpch;
+	int					parms[3];
 
 	if (!old)
 	{
 		tmptr = mlx_new_image(mlx_ptr, window->width, window->height);
-		tmpch = mlx_get_data_addr(tmptr, &params[0], &params[1], &params[2]);
-		old = ft_image_carry_from(tmptr, &tmpch, params[0], params[1], params[2]);
+		tmpch = mlx_get_data_addr(tmptr, &parms[0], &parms[1], &parms[2]);
+		old = ft_image_carry_from(tmptr, &tmpch, parms[0], parms[1], parms[2]);
 	}
 	*old->data = container->image(container, POS(0, 0), old);
 	mlx_put_image_to_window(mlx_ptr, window->ptr, old->img_ptr, 0, 0);

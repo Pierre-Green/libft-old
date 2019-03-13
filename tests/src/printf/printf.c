@@ -43,14 +43,14 @@ static t_bool			test1(t_printf *pf)
 	ft_strcpy(pf->format, "%12$-#10.4h%");
 	ft_print_ph(pf);
 	printf("Param: %u, Flags: %u, Width: %u, Precision: %u, Length: %u, Converstion: %u\n", pf->part.nu, pf->part.flags, pf->part.width, pf->part.precision, pf->part.length, pf->part.modifier);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			teststring()
 {
 	printf("BS: Say %-10s !\n", "bonjour");
 	ft_printf("My: Say %-10s !\n\n", "bonjour");
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			testchar()
@@ -62,7 +62,7 @@ static t_bool			testchar()
 	ft_printf("My: Char %6c .\n", 'A');
 	printf("BS: Wide Char %1C.\n", wc);
 	ft_printf("My: Wide Char %1C.\n\n", wc);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			testsignedint()
@@ -78,7 +78,7 @@ static t_bool			testsignedint()
 	ft_printf("My: INT: %0+10d.\n", 213456);
 	printf("BS: INT: %hhd.\n", c);
 	ft_printf("My: INT: %hhd.\n\n", c);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			testunsignedoctal()
@@ -89,14 +89,14 @@ static t_bool			testunsignedoctal()
 	ft_printf("My: Unsigned Octal %-#o\n", 1);
 	printf("BS: Unsigned Octal %010o\n", 1234123);
 	ft_printf("My: Unsigned Octal %010o\n\n", 1234123);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			testunsignedecimal()
 {
 	printf("BS: Unsigned Decimal %llu\n", UINTMAX_MAX);
 	ft_printf("My: Unsigned Decimal %llu\n\n", UINTMAX_MAX);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			testunsignedhexa()
@@ -105,7 +105,7 @@ static t_bool			testunsignedhexa()
 	ft_printf("My: Unsigned hexadecimal %x\n", 1231);
 	printf("BS: Unsigned hexadecimal %#X\n", 123987);
 	ft_printf("My: Unsigned hexadecimal %#X\n\n", 123987);
-	return (true);
+	return (TRUE);
 }
 
 static t_bool			tesfloatfloat()
@@ -113,7 +113,7 @@ static t_bool			tesfloatfloat()
 	printf("BS: Double %f\n", 1223.342);
 	ft_printf("BS: Double %f\n", 1223.342);
 	// printf("BS: Long double Max %Lf, %zu\n", LDBL_MAX, sizeof(LDBL_MAX));
-	return (true);
+	return (TRUE);
 }
 
 void					ft_printf_test()

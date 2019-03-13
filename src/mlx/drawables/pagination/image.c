@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 17:26:01 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:41:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-static t_image_carry	*pagination_bottom_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
+static t_image_carry	*pagination_bottom_image(t_pagination *self,
+		t_point2d p_offset, t_image_carry *carry)
 {
 	t_point2d			offset;
 
@@ -23,7 +24,8 @@ static t_image_carry	*pagination_bottom_image(t_pagination *self, t_point2d p_of
 	return (carry);
 }
 
-char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
+char					*mlx_pagination_image(t_pagination *self,
+		t_point2d p_offset, t_image_carry *carry)
 {
 	t_point2d			offset;
 	t_point2d			next_offset;
@@ -42,8 +44,10 @@ char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_c
 		gride.pos.x = 0;
 		while (gride.pos.x < (int)gride.dim.width && node)
 		{
-			next_offset = mlx_pagination_offset(self, offset, gride, true);
-			ft_image_merge(ft_drawable_at(self->items, (gride.pos.y * gride.dim.width) + gride.pos.x), next_offset, carry);
+			next_offset = mlx_pagination_offset(self, offset, gride, TRUE);
+			ft_image_merge(ft_drawable_at(self->items,
+						(gride.pos.y * gride.dim.width) + gride.pos.x),
+					next_offset, carry);
 			gride.pos.x++;
 		}
 		gride.pos.y++;

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:39:08 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/02/08 19:06:13 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:21:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void				integer(t_printf *state)
 {
 	char				c;
-	
+
 	c = *(state->format);
 	if (c == 'd' || c == 'i')
 		state->part.modifier = CSINT;
@@ -33,7 +33,7 @@ static void				integer(t_printf *state)
 static void				doubled(t_printf *state)
 {
 	char				c;
-	
+
 	c = *(state->format);
 	if (c == 'a')
 		state->part.modifier = CDMHX;
@@ -54,7 +54,7 @@ static void				doubled(t_printf *state)
 static void				alpha(t_printf *state)
 {
 	char				c;
-	
+
 	c = *(state->format);
 	if (c == 'c')
 		state->part.modifier = CACHR;

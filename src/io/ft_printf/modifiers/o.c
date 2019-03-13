@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   o.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 21:59:45 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/08 18:48:40 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:19:19 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:19:45 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_utils.h"
 
-static void				ft_print_octal(t_printf *state, uintmax_t i, size_t p_length, size_t length)
+static void				ft_print_octal(t_printf *state, uintmax_t i,
+		size_t p_length, size_t length)
 {
 	if (p_length > length)
 		ft_print_0(state, p_length - length);
@@ -27,6 +28,7 @@ static void				ft_print_octal(t_printf *state, uintmax_t i, size_t p_length, siz
 ** Width
 ** Precision
 */
+
 void					ft_pfo(t_printf *state)
 {
 	uintmax_t			i;

@@ -26,8 +26,8 @@ t_bool			ft_print_ph(t_printf *state)
 	if (ft_is_length(state))
 		ft_apply_length(state);
 	if (!ft_is_type(state))
-		return (false);
+		return (FALSE);
 	ft_apply_type(state);
 	ft_root_ph(state);
-	return (true);
+	return (TRUE);
 }

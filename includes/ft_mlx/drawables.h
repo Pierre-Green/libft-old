@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:03:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:36:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct			s_canvas
 	t_bool				has_focus;
 }						t_canvas;
 
-t_canvas				*mlx_init_canvas(t_point2d pos, t_dim2d dim, t_image_carry *(*image)(t_canvas *, void *), void *mlx_ptr, void *s);
+t_canvas				*mlx_init_canvas(t_point2d pos, t_dim2d dim, t_image_carry *(*image)(t_canvas *, void *), void *mlx_ptr);
 
 t_image_carry			*mlx_canvas_image_intern(t_canvas *, t_point2d offset, t_image_carry *);
 
@@ -148,7 +148,7 @@ typedef struct			s_drawables
 
 t_text					*ft_init_text(t_point2d pos, char *text, t_color color);
 
-t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text, int uuid);
+t_button				*mlx_init_button(t_point2d pos, t_dim2d dim, t_color color, char *text);
 
 void					mlx_button_background(t_button *button, t_point2d offset, t_image_carry *carry);
 

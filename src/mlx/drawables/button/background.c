@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 14:05:53 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/07 14:06:51 by pierre           ###   ########.fr       */
+/*   Created: 2019/03/13 21:33:01 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:34:04 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-void					mlx_button_background(t_button *button, t_point2d offset, t_image_carry *carry)
+void				mlx_button_background(t_button *button, t_point2d offset,
+		t_image_carry *carry)
 {
 	size_t			x;
 	size_t			y;

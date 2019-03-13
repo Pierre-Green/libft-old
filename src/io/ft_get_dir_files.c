@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_dir_files.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 13:20:08 by pierre            #+#    #+#             */
-/*   Updated: 2019/02/22 14:03:05 by pierre           ###   ########.fr       */
+/*   Created: 2019/03/13 21:23:29 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:24:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ t_bool				gdf_extension(struct dirent *dirent, const char *ext)
 	while (*ptr == *ext)
 	{
 		if (*ptr == '\0')
-			return (true);
+			return (TRUE);
 		ptr++;
 		ext++;
 	}
-	return (false);
+	return (TRUE);
 }
 
 t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
@@ -45,7 +45,8 @@ t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
 	*count = 0;
 	while (((dirent = readdir(dir)) != NULL))
 	{
-		if (dirent->d_type != DT_REG || (ext[0] != '\0' && !gdf_extension(dirent, ext)))
+		if (dirent->d_type != DT_REG || (ext[0] != '\0'
+					&& !gdf_extension(dirent, ext)))
 			continue ;
 		if (node->file == NULL)
 		{

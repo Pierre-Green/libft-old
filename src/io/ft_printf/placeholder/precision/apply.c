@@ -18,7 +18,7 @@ void					ft_apply_precision(t_printf *state)
 	state->format++;
 	if (*state->format == '*')
 	{
-		state->part.precision_p = true;
+		state->part.precision_p = TRUE;
 		state->format++;
 	}
 	else

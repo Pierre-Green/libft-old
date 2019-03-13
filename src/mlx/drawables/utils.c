@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
+/*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 14:30:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/12 18:21:56 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/13 21:49:25 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/13 21:49:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-void						ft_add_drawable_to_drawables(t_drawables *dest, t_drawable *src)
+void						ft_add_drawable_to_drawables(t_drawables *dest,
+		t_drawable *src)
 {
 	t_drawables				*node;
 
@@ -45,7 +46,8 @@ t_drawable					*ft_drawable_at(t_drawables *lst, size_t i)
 	return ((t_drawable *)node->drawable);
 }
 
-t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
+t_drawable					*ft_init_drawable(t_drawable_types type,
+		void *value)
 {
 	t_drawable				*drawable;
 	t_drwble				drwble;
@@ -67,7 +69,8 @@ t_drawable					*ft_init_drawable(t_drawable_types type, void *value)
 	return (drawable);
 }
 
-t_image_carry				*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian)
+t_image_carry				*ft_image_carry_from(void *img_ptr, char **addr,
+		int bpp, int sizel, int endian)
 {
 	t_image_carry			*carry;
 
@@ -80,4 +83,3 @@ t_image_carry				*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int s
 	carry->endian = endian;
 	return (carry);
 }
-
