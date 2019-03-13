@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:20:13 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:57:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
 			node->onclick(mouse, node->uuid, (node->carry ? node->carry : carry->state));
 		node = node->next;
 	}
-	carry->window->render(carry->window, carry->state);
+	carry->window->render(carry->window);
 	return (0);
 }

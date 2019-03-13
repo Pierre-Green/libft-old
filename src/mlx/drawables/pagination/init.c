@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:18:20 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:26:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void				onclick(int mouse, int action, void *s)
 	(void)mouse;
 	ft_printf("Action : %d\n", action);
 	if (action == MLX_PAGINATION_ACTION_PREV && pagination->page > 0)
-		pagination->page = pagination->page - 1;
+		pagination->page--;
 	if (action == MLX_PAGINATION_ACTION_NEXT && pagination->page < pagination->items_count / (pagination->gride.height * pagination->gride.width))
-		pagination->page = pagination->page + 1;
+		pagination->page++;
 }
 
 static t_button			*pagination_prev(t_pagination *self)

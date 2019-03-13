@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/11 19:07:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:53:09 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void			window_events(t_window *window)
 	mlx_mouse_hook(window->ptr, mouse_hooks_dispatcher, window->carry);
 }
 
-t_window			*ft_init_window(void *mlx_ptr, t_dim2d dims, char *title, void *s)
+t_window			*ft_init_window(void *mlx_ptr, t_dim2d dims, char *title, void *s, t_container *body)
 {
 	t_window		*win;
 	t_hook_carry	*carry;
@@ -30,7 +30,8 @@ t_window			*ft_init_window(void *mlx_ptr, t_dim2d dims, char *title, void *s)
 		return (NULL);
 	carry->window = win;
 	carry->state = s;
-	win->render = NULL;
+	win->render = mlx_render_window;
+	win->body = body;
 	win->keyboard_hooks = NULL;
 	win->mlx = mlx_ptr;
 	win->add_keyboard_hook = add_keyboard_hook;
