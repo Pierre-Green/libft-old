@@ -6,13 +6,13 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 17:21:29 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 17:24:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-static char				*pagination_bottom_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
+static t_image_carry	*pagination_bottom_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
 {
 	t_point2d			offset;
 
@@ -20,7 +20,7 @@ static char				*pagination_bottom_image(t_pagination *self, t_point2d p_offset, 
 	offset.x = p_offset.x;
 	*carry->data = self->prev->image(self->prev, offset, carry);
 	*carry->data = self->next->image(self->next, offset, carry);
-	return (*carry->data);
+	return (carry);
 }
 
 char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
@@ -48,6 +48,6 @@ char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_c
 		}
 		gride.pos.y++;
 	}
-	*carry->data = pagination_bottom_image(self, offset, carry);
+	carry = pagination_bottom_image(self, offset, carry);
 	return (*carry->data);
 }
