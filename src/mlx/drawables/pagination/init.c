@@ -6,7 +6,7 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:43:14 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:14:58 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:17:14 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_button			*pagination_prev(t_pagination *self)
 	pos.y = 0;
 	pos.x = 100;
 	if (!(prev = mlx_init_button(pos, DIM(self->zone.dim.width / 4,
-		MLX_PAGINATION_BOT_SIZE), 0x724F5B, "Previous",
+		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Previous",
 		MLX_PAGINATION_ACTION_PREV)))
 		return (NULL);
 	prev->s = self;
@@ -59,7 +59,7 @@ static t_button			*pagination_next(t_pagination *self)
 	pos.y = 0;
 	pos.x = 300;
 	if (!(next = mlx_init_button(pos, DIM(self->zone.dim.width / 4,
-		MLX_PAGINATION_BOT_SIZE), 0x724F5B, "Next",
+		MLX_PAGINATION_BOT_SIZE - 20), 0x724F5B, "Next",
 		MLX_PAGINATION_ACTION_NEXT)))
 		return (NULL);
 	next->s = self;
