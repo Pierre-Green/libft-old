@@ -6,11 +6,12 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:22:00 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 18:57:49 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 19:40:33 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/window.h"
+#include "ft_mem.h"
 
 static int					keyboard(int keycode, t_list *node, const t_hook_carry *carry)
 {
@@ -53,6 +54,7 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y, void *p_carry)
 			node->onclick(mouse, node->uuid, (node->carry ? node->carry : carry->state));
 		node = node->next;
 	}
+	carry->window->mouse_hooks = NULL;
 	carry->window->render(carry->window);
 	return (0);
 }
