@@ -6,20 +6,21 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:53:28 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 16:41:27 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 17:21:29 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-static void				pagination_bottom_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
+static char				*pagination_bottom_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
 {
 	t_point2d			offset;
 
 	offset.y = p_offset.y + self->zone.dim.height - MLX_PAGINATION_BOT_SIZE;
 	offset.x = p_offset.x;
-	self->prev->image(self->prev, offset, carry);
-	self->next->image(self->next, offset, carry);
+	*carry->data = self->prev->image(self->prev, offset, carry);
+	*carry->data = self->next->image(self->next, offset, carry);
+	return (*carry->data);
 }
 
 char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_carry *carry)
@@ -47,6 +48,6 @@ char					*mlx_pagination_image(t_pagination *self, t_point2d p_offset, t_image_c
 		}
 		gride.pos.y++;
 	}
-	pagination_bottom_image(self, offset, carry);
+	*carry->data = pagination_bottom_image(self, offset, carry);
 	return (*carry->data);
 }
