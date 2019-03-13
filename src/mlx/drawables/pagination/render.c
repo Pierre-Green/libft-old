@@ -6,14 +6,14 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 20:32:25 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 17:27:39 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 19:31:21 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 #include "ft_mlx/window.h"
 
-static void					render_txt_node(t_drawables *node, t_point2d offset, t_window *window)
+static void				render_txt_node(t_drawables *node, t_point2d offset, t_window *window)
 {
 	t_drwble			obj;
 

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 18:14:40 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/13 19:30:37 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,5 +188,9 @@ t_dim2d					mlx_pagination_gride_dims(t_pagination *pagination);
 char					*mlx_container_image(t_container *self, t_point2d offset, t_image_carry *carry);
 
 size_t					mlx_text_width(char *str);
+
+char					*mlx_button_image(t_button *self, t_point2d offset, t_image_carry *carry);
+
+void					mlx_container_add_child(t_container *self, t_drawable *drawable);
 
 #endif
