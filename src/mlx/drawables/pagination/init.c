@@ -6,14 +6,14 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:41:28 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:43:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/14 18:31:48 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 #include "ft_printf.h"
 
-static void				onclick(int mouse, int action, void *s)
+static void				onclick_action(int mouse, int action, void *s)
 {
 	t_pagination		*pagination;
 
@@ -40,7 +40,7 @@ static t_button			*pagination_prev(t_pagination *self)
 		return (NULL);
 	prev->uuid = MLX_PAGINATION_ACTION_PREV;
 	prev->s = self;
-	prev->onclick = onclick;
+	prev->onclick = onclick_action;
 	return (prev);
 }
 
@@ -56,7 +56,7 @@ static t_button			*pagination_next(t_pagination *self)
 		return (NULL);
 	next->uuid = MLX_PAGINATION_ACTION_NEXT;
 	next->s = self;
-	next->onclick = onclick;
+	next->onclick = onclick_action;
 	return (next);
 }
 

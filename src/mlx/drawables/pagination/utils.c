@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:43:36 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:45:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/14 18:36:17 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void					mlx_pagination_add_item(t_pagination *self,
 		self->items->next = NULL;
 	}
 	ft_add_drawable_to_drawables(self->items, drawable);
+	self->items_count++;
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:38:53 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:39:47 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/14 17:59:13 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ t_image_carry			*mlx_container_render(t_container *container,
 		tmptr = mlx_new_image(window->mlx, window->width, window->height);
 		tmpch = mlx_get_data_addr(tmptr, &parms[0], &parms[1], &parms[2]);
 		old = ft_image_carry_from(tmptr, &tmpch, parms[0], parms[1], parms[2]);
+	}
+	else
+	{
+		tmpch = mlx_get_data_addr(old->img_ptr, &parms[0], &parms[1], &parms[2]);
+		old = ft_image_carry_from(old->img_ptr, &tmpch, parms[0], parms[1], parms[2]);
 	}
 	*old->data = container->image(container, POS(0, 0), old);
 	mlx_put_image_to_window(window->mlx, window->ptr, old->img_ptr, 0, 0);

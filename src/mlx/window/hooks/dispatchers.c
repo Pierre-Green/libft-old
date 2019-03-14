@@ -6,11 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:30:00 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/14 18:23:43 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/window.h"
+#include "ft_printf.h"
 #include "ft_mem.h"
 
 static int					keyboard(int key, t_list *node,
@@ -50,14 +51,14 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y,
 	t_mouse_hooks			*node;
 
 	node = carry->window->mouse_hooks;
-	while (node && node->onclick)
+	while (node)
 	{
-		if (ft_is_point_in_zone2d(node->zone, (t_point2d){ x, y }))
+		if (ft_is_point_in_zone2d(node->zone, (t_point2d){ x, y }) && node->onclick)
 			node->onclick(mouse, node->uuid,
 					(node->carry ? node->carry : carry->state));
 		node = node->next;
 	}
 	carry->window->mouse_hooks = NULL;
-	// carry->window->render(carry->window);
+	carry->window->render(carry->window);
 	return (0);
 }
