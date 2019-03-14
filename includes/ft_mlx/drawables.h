@@ -93,7 +93,7 @@ typedef struct s_drawable	t_drawable;
 typedef struct			s_container
 {
 	t_drawables			*childs;
-	t_image_carry		*(*render)(struct s_container *, void *, void *, t_image_carry *);
+	t_image_carry		*(*render)(struct s_container *, void *, t_image_carry *);
 	void				(*render_txt)(struct s_container *, t_point2d, void *);
 	char				*(*image)(struct s_container *, t_point2d, t_image_carry *);
 	void				(*add_child)(struct s_container *, t_drawable *);
@@ -162,7 +162,7 @@ void					mlx_text_render_txt(t_text *text, t_point2d offset, void *win);
 
 t_container				*ft_init_container(t_point2d pos, t_dim2d dim, t_color color);
 
-t_image_carry			*mlx_container_render(t_container *container, void *mlx_ptr, void *win_ptr, t_image_carry *old);
+t_image_carry			*mlx_container_render(t_container *container,void *win, t_image_carry *old);
 
 t_drawable				*mlx_container_to_drawable(t_container *container);
 

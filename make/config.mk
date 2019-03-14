@@ -1,3 +1,6 @@
+SOURCEMAP		=			make/srcs.mk
+TESTSOURCEMAP	=			make/test_srcs.mk
+
 UNAME_S         :=          $(shell uname)
 
 # Compilation

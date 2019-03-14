@@ -38,7 +38,7 @@ void					mlx_container_render_txt(t_container *container,
 }
 
 t_image_carry			*mlx_container_render(t_container *container,
-		void *mlx_ptr, void *win, t_image_carry *old)
+		void *win, t_image_carry *old)
 {
 	const t_window		*window = win;
 	void				*tmptr;
@@ -47,12 +47,12 @@ t_image_carry			*mlx_container_render(t_container *container,
 
 	if (!old)
 	{
-		tmptr = mlx_new_image(mlx_ptr, window->width, window->height);
+		tmptr = mlx_new_image(window->mlx, window->width, window->height);
 		tmpch = mlx_get_data_addr(tmptr, &parms[0], &parms[1], &parms[2]);
 		old = ft_image_carry_from(tmptr, &tmpch, parms[0], parms[1], parms[2]);
 	}
 	*old->data = container->image(container, POS(0, 0), old);
-	mlx_put_image_to_window(mlx_ptr, window->ptr, old->img_ptr, 0, 0);
+	mlx_put_image_to_window(window->mlx, window->ptr, old->img_ptr, 0, 0);
 	container->render_txt(container, POS(0, 0), win);
 	return (old);
 }

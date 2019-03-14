@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 20:37:55 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/01/29 16:22:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/14 02:57:02 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ typedef struct		s_mlx_state
 	void			*cwin;
 	void			(*curr_test)(struct s_mlx_state *);
 }					t_mlx_state;
-
-void	mlx_tests();
-
-void	ft_mlx_test1(t_mlx_state *p_state);
-
-void	ft_vec_tests();
 
 /*
 ** Printf

@@ -46,7 +46,6 @@ $(OUTDIR)%.o: $(SRCDIR)%.c
 
 test: $(NAME) $(TEST_OBJS)
 	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME) -lm
-	@./$(TEST_NAME)
 
 $(TEST_OUTDIR)%.o: $(TEST_SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi

@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:34 by pguthaus          #+#    #+#              #
-#    Updated: 2019/03/14 02:32:33 by pierre           ###   ########.fr        #
+#    Updated: 2019/03/14 03:05:53 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS			=			-g -flto
 OUTDIR			=			./objs/dev/
 
 # Test paths
-TEST_OUTDIR		=			$(addprefix $(TEST_DIR), objs/dev)
+TEST_OUTDIR		=			$(addprefix $(TEST_DIR), objs/dev/)
 
 # OBJS
 OBJS			=			$(addprefix $(OUTDIR),$(SRCS:.c=.o))
@@ -45,12 +45,11 @@ $(OUTDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
 
 test: $(NAME) $(TEST_OBJS)
-	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME) -lm
-	@./$(TEST_NAME)
+	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME) -lm
 
-$(TEST_OUTDIR)/%.o: $(TEST_SRCDIR)%.c
+$(TEST_OUTDIR)%.o: $(TEST_SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
-	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(TEST_INCDIR) -o $@ -c $<
+	@$(CC) $(CFLAGS) -I $(INCDIR) $(MLX_INC) -I $(TEST_INCDIR) -o $@ -c $<
 
 clean:
 	@rm -rf $(OUTDIR) $(TEST_OUTDIR)
