@@ -6,13 +6,14 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:37 by pguthaus          #+#    #+#              #
-#    Updated: 2019/02/21 18:14:46 by pierre           ###   ########.fr        #
+#    Updated: 2019/03/14 02:33:03 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Sources sets
 include make/srcs.mk
 include make/test_srcs.mk
+include make/config.mk
 
 # Output name
 NAME			=			libft.a
@@ -20,21 +21,12 @@ NAME			=			libft.a
 TEST_NAME		=			tests_bin
 
 # Compilation
-CC				=			gcc
-CFLAGS			=			-Wall -Werror -Wextra
+CFLAGS			=			-Wall -Werror -Wextra -flto
 
 # Paths
-SRCDIR			=			./src/
-INCDIR			=			./includes/
 OUTDIR			=			./objs/prod/
 
-# MLX
-MLX_INC			=			/usr/local/include
-
 # Test paths
-TEST_DIR		=			./tests/
-TEST_SRCDIR		=			$(addprefix $(TEST_DIR), src/)
-TEST_INCDIR		=			$(addprefix $(TEST_DIR), includes/)
 TEST_OUTDIR		=			$(addprefix $(TEST_DIR), objs/prod)
 
 # OBJS

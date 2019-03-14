@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:36:58 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/10 01:06:00 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/14 02:47:24 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static ssize_t		ft_a_p(t_buff **st_bf, char *line, ssize_t current)
 	s = (char *)(*st_bf)->content;
 	t = ((*st_bf)->ptr_newl ? ((*st_bf)->ptr_newl
 		- (char *)(*st_bf)->content) : -1);
-	ft_memmove(line + current, s, (t != -1 ? t : (*st_bf)->content_size));
+	ft_memmove(line + current, s, (t != -1 ? (size_t)t
+				: (*st_bf)->content_size));
 	if ((*st_bf)->ptr_newl)
 	{
 		(*st_bf)->content_size = (*st_bf)->content_size - t - 1;
@@ -96,6 +97,7 @@ int					get_next_line(const int fd, char **line)
 
 	if (read(fd, buff, 0) < 0 || !line || (!s_bf[fd] && !(s_bf[fd] = i_buf())))
 		return (GNL_RET_ERR);
+	res[1] = 0;
 	node = s_bf[fd];
 	while (node && !(node->ptr_newl) && node->next)
 		node = node->next;
