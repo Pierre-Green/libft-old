@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:34 by pguthaus          #+#    #+#              #
-#    Updated: 2019/03/14 03:05:53 by pierre           ###   ########.fr        #
+#    Updated: 2019/03/14 17:41:51 by pierre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME			=			libft_dev.a
 TEST_NAME		=			tests_dev
 
 # Compilation
-CFLAGS			=			-g -flto
+CFLAGS			=			-g
 
 # Paths
 OUTDIR			=			./objs/dev/
