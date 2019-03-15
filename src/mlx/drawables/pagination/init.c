@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:41:28 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/14 18:31:48 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/15 11:06:23 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void				onclick_action(int mouse, int action, void *s)
 
 	pagination = s;
 	(void)mouse;
-	ft_printf("Action : %d\n", action);
 	if (action == MLX_PAGINATION_ACTION_PREV && pagination->page > 0)
 		pagination->page--;
 	if (action == MLX_PAGINATION_ACTION_NEXT
