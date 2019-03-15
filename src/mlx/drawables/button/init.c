@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:33:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:35:03 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/15 13:40:31 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_button				*mlx_init_button(t_point2d pos, t_dim2d dim,
 	button->text = ft_init_text(POS(0, 0), text, 0xFFFFFF);
 	button->text->align = CENTER;
 	button->onclick = NULL;
+	button->enabled = TRUE;
+	button->disabled_background_color = 0xA0A0A0;
 	button->uuid = 0;
 	return (button);
 }
