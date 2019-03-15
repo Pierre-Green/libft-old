@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/14 18:27:01 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/15 10:53:48 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,18 @@ static void				onclick(int mouse, int target, void *s)
 
 static t_container		*body()
 {
-	t_container			*body;
+	t_container			*page;
 	t_container			*header;
+	t_container			*body;
 	t_pagination		*pagination;
 	t_button			*button;
 	char				c;
 	char				*str;
 
-	body = ft_init_container(POS(0, 0), DIM(WIN_WIDTH, WIN_HEIGHT), 0xF2F4F8);
+	page = ft_init_container(POS(0, 0), DIM(WIN_WIDTH, WIN_HEIGHT), 0xF2F4F8);
 	header = ft_init_container(POS(0, 0), DIM(WIN_WIDTH, WIN_HEIGHT / 3), 0x000000);
-	pagination = mlx_init_pagination(ft_zone2d_from_pdim(POS(0, WIN_HEIGHT / 3),
+	body = ft_init_container(POS(0, WIN_HEIGHT / 3), DIM(WIN_WIDTH, WIN_HEIGHT - WIN_HEIGHT / 3), 0x0000FF);
+	pagination = mlx_init_pagination(ft_zone2d_from_pdim(POS(0, 0),
 			DIM(WIN_WIDTH, WIN_HEIGHT - WIN_HEIGHT / 3)), DIM(100, 50),
 			(t_margin){10, 10, 10, 10});
 	c = 'A';
@@ -46,9 +48,10 @@ static t_container		*body()
 		pagination->add_child(pagination, ft_init_drawable(BUTTON, button));
 		c++;
 	}
-	body->add_child(body, ft_init_drawable(CONTAINER, header));
+	page->add_child(page, ft_init_drawable(CONTAINER, header));
+	page->add_child(page, ft_init_drawable(CONTAINER, body));
 	body->add_child(body, ft_init_drawable(PAGINATION, pagination));
-	return (body);
+	return (page);
 }
 
 void					ft_mlx_tests()

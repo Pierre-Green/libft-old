@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:45:24 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:45:56 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/15 10:58:39 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ static void				pagination_render_txt_bot(t_pagination *self,
 
 	offset.y = p_offset.y + self->zone.dim.height - MLX_PAGINATION_BOT_SIZE;
 	offset.x = p_offset.x;
-	self->prev->render_txt(self->prev, offset, window);
-	self->next->render_txt(self->next, offset, window);
+	if (self->page != 0)
+		self->prev->render_txt(self->prev, offset, window);
+	if (self->page < self->items_count / (self->gride.width * self->gride.height))
+		self->next->render_txt(self->next, offset, window);
 }
 
 void					mlx_pagination_render_txt(t_pagination *pagination,

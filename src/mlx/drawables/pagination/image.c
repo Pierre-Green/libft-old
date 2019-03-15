@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/14 18:43:46 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/15 11:00:23 by pierre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static t_image_carry	*pagination_bottom_image(t_pagination *self,
 
 	offset.y = p_offset.y + self->zone.dim.height - MLX_PAGINATION_BOT_SIZE;
 	offset.x = p_offset.x;
-	self->prev->image(self->prev, offset, carry);
-	self->next->image(self->next, offset, carry);
+	if(self->page != 0)
+		self->prev->image(self->prev, offset, carry);
+	if (self->page < self->items_count / (self->gride.width * self->gride.height))
+		self->next->image(self->next, offset, carry);
 	return (carry);
 }
 
@@ -49,6 +51,7 @@ char					*mlx_pagination_image(t_pagination *self,
 						(gride.pos.y * gride.dim.width) + gride.pos.x),
 					next_offset, carry);
 			gride.pos.x++;
+			node = node->next;
 		}
 		gride.pos.y++;
 	}
