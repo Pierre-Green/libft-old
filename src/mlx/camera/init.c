@@ -5,46 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 19:15:31 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/18 17:01:38 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/18 15:49:46 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/18 17:12:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math/matrix.h"
-#include "ft_mem.h"
+#include "ft_mlx/camera.h"
 
-static void					fill_with(t_matrix44_d *matrix, double a)
+t_camera				*mlx_init_camera(t_vec3_d pos)
 {
-	uint8_t					x;
-	uint8_t					y;
+	t_camera			*camera;
 
-	y = 0;
-	while (y <= 4)
-	{
-		x = 0;
-		while (++x <= 4)
-			matrix->matrix[y][x - 1] = a;
-		y++;
-	}
-}
-
-t_matrix44_d				ft_init0_matrix44_d(void)
-{
-	t_matrix44_d			matrix;
-
-	fill_with(&matrix, 0.0);
-	return (matrix);
-}
-
-t_matrix44_d				ft_init1_matrix44_d(double a)
-{
-	t_matrix44_d			matrix;
-
-	fill_with(&matrix, a);
-	return (matrix);
-}
-
-t_matrix44_d				ft_init44_matrix44_d(t_mat44_d_data data)
-{
-	return ((t_matrix44_d)data);
+	if (!(camera = malloc(sizeof(t_camera))))
+		return (NULL);
+	camera->position = pos;
+	camera->vec_front = ft_vec3_d_normalize(ft_vec3_d_minus(pos, ft_init0_vec3_d()));
+	camera->vec_right = ft_vec3_d_normalize(ft_vec3_d_cross(ft_init3_vec3_d(0.0, 1.0, 0.0), camera->vec_front));
+	camera->vec_up = ft_vec3_d_cross(camera->vec_front, camera->vec_right);
+	camera->velocity = 0.05;
+	return (camera);
 }
