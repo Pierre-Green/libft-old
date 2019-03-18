@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:44:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:36:00 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/18 21:49:29 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_image_carry			*mlx_canvas_image_intern(t_canvas *canvas,
 
 	next_offset = DDSUM(offset, canvas->zone.pos);
 	if (canvas->image)
-		canvas->img = canvas->image(canvas, canvas->s);
+		canvas->img = canvas->image(canvas, canvas->s, canvas->img);
 	else
 		return (carry);
 	y = 0;
