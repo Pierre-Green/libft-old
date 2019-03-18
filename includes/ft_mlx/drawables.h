@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/15 13:39:28 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/18 18:34:02 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_MLX_DRAWABLE_H
 # include "ft_math/zone.h"
 # include "ft_mlx/color.h"
+# include "ft_mlx/image.h"
+# include "ft_mlx/canvas.h"
 # define OFFSET_NULL ({ 0, 0 })
 # define MLX_CHAR_WIDTH 10
 # define MLX_CHAR_HEIGHT 20
@@ -33,22 +35,11 @@ typedef enum			e_drawable_types
 						NONE
 }						t_drawable_types;
 
-typedef struct			s_image_carry
-{
-	void				*img_ptr;
-	char				**data;
-	int					bits_per_pixels;
-	int					size_line;
-	int					endian;
-}						t_image_carry;
-
-t_image_carry			*ft_image_carry_from(void *img_ptr, char **addr, int bpp, int sizel, int endian);
-
 typedef enum			e_alignement
 {
-	LEFT,
-	CENTER,
-	RIGHT
+						LEFT,
+						CENTER,
+						RIGHT
 }						t_alignement;
 
 typedef struct			s_text
@@ -75,19 +66,6 @@ typedef struct			s_button
 	t_point2d			pos;
 }						t_button;
 
-typedef struct			s_canvas
-{
-	t_zone2d			zone;
-	void				*s;
-	t_image_carry		*img;
-	t_image_carry		*(*image_intern)(struct s_canvas *, t_point2d offset, t_image_carry *);
-	t_image_carry		*(*image)(struct s_canvas *, void *);
-	t_bool				has_focus;
-}						t_canvas;
-
-t_canvas				*mlx_init_canvas(t_point2d pos, t_dim2d dim, t_image_carry *(*image)(t_canvas *, void *), void *mlx_ptr);
-
-t_image_carry			*mlx_canvas_image_intern(t_canvas *, t_point2d offset, t_image_carry *);
 
 typedef struct s_drawables	t_drawables;
 typedef struct s_drawable	t_drawable;

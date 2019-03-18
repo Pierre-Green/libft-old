@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cross.c                                            :+:      :+:    :+:   */
+/*   ft_degrees_to_radian.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 16:36:07 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/18 18:36:43 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/18 18:03:31 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/18 18:04:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math/vec.h"
+#include "ft_utils.h"
 
-t_vec3_f				ft_vec3_f_cross(t_vec3_f self, t_vec3_f vec)
+double				ft_degrees_to_radian(double a)
 {
-	return ((t_vec3_f){ self.y * vec.z - self.z * vec.y,
-						self.z * vec.x - self.x * vec.z,
-						self.x * vec.y - self.y * vec.x });
+	return ((a) * M_PI / 180.0);
 }
