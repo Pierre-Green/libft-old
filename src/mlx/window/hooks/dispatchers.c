@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/14 18:23:43 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/19 18:04:43 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_mem.h"
 
 static int					keyboard(int key, t_list *node,
-		const t_hook_carry *carry)
+		t_hook_carry *carry)
 {
 	int						ret;
 	int						(*f)(int, void *);
@@ -24,9 +24,12 @@ static int					keyboard(int key, t_list *node,
 	while (node)
 	{
 		f = node->content;
-		ret = f(key, carry->state);
+		ret = f(key, carry);
 		node = node->next;
 	}
+	carry->window->lkeyboard_hooks = NULL;
+	carry->window->keyboard_hooks = NULL;
+	carry->window->render(carry->window);
 	return (ret);
 }
 
@@ -34,14 +37,14 @@ int							keyboard_hooks_dispatcher(int keycode, void *p)
 {
 	const t_hook_carry		*carry = p;
 
-	return (keyboard(keycode, carry->window->keyboard_hooks, carry));
+	return (keyboard(keycode, carry->window->keyboard_hooks, (t_hook_carry *)carry));
 }
 
 int							lkeyboard_hooks_dispatcher(int keycode, void *p)
 {
 	const t_hook_carry		*carry = p;
 
-	return (keyboard(keycode, carry->window->lkeyboard_hooks, carry));
+	return (keyboard(keycode, carry->window->lkeyboard_hooks, (t_hook_carry *)carry));
 }
 
 int							mouse_hooks_dispatcher(int mouse, int x, int y,

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:32:40 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 18:05:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct				s_window
 	size_t					width;
 	size_t					height;
 	t_bool					should_render_every_frame;
+	t_bool					close_on_esc;
 	int						(*render)(struct s_window *);
 	t_image_carry			*img;
 	t_container				*body;
