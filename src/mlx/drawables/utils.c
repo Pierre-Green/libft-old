@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:49:25 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:49:50 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:18:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_drawable					*ft_init_drawable(t_drawable_types type,
 	return (drawable);
 }
 
-t_image_carry				*ft_image_carry_from(void *img_ptr, char **addr,
+t_image_carry				*ft_image_carry_from(void *img_ptr, char *addr,
 		int bpp, int sizel, int endian)
 {
 	t_image_carry			*carry;

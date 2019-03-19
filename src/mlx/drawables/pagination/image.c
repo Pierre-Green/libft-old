@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/15 14:05:01 by pierre           ###   ########.fr       */
+/*   Updated: 2019/03/19 17:20:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ char					*mlx_pagination_image(t_pagination *self,
 		gride.pos.y++;
 	}
 	carry = pagination_bottom_image(self, offset, carry);
-	return (*carry->data);
+	return (carry->data);
 }

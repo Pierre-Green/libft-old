@@ -100,6 +100,7 @@ SRCS+=/mlx/drawables/button/background.c
 SRCS+=/mlx/drawables/button/image.c
 SRCS+=/mlx/drawables/button/init.c
 SRCS+=/mlx/drawables/button/render.c
+SRCS+=/mlx/drawables/canvas/background.c
 SRCS+=/mlx/drawables/canvas/image.c
 SRCS+=/mlx/drawables/canvas/init.c
 SRCS+=/mlx/drawables/container/background.c

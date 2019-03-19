@@ -45,11 +45,11 @@ $(OUTDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
 
 test: $(NAME) $(TEST_OBJS)
-	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME) -lm
+	@$(CC) $(CFLAGS) $(TEST_OBJS) $(OBJS) -o $(TEST_NAME) -lm
 
 $(TEST_OUTDIR)%.o: $(TEST_SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
-	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(TEST_INCDIR) -o $@ -c $<
+	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -I $(TEST_INCDIR) -o $@ -c $<
 
 clean:
 	@rm -rf $(OUTDIR) $(TEST_OUTDIR)

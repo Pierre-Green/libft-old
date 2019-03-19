@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:47:09 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/13 21:49:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:19:15 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,30 @@ t_image_carry			*ft_image_merge(t_drawable *drawable, t_point2d offset,
 	return (carry);
 }
 
+size_t					mlx_image_offset(t_image_carry *img, size_t x, size_t y)
+{
+	return (((y * img->size_line) + (x * (img->bits_per_pixels / 8))));
+}
+
+void					ft_copy_pixel_to_image(t_image_carry *des, t_image_carry *src, t_point2d dest_pos, t_point2d src_pos)
+{
+	size_t				dest_offset;
+	size_t				src_offset;
+
+	dest_offset = mlx_image_offset(des, dest_pos.x, dest_pos.y);
+	src_offset = mlx_image_offset(src, src_pos.x, src_pos.y);
+	des->data[dest_offset] = src->data[src_offset]; 
+	des->data[dest_offset + 1] = src->data[src_offset + 1]; 
+	des->data[dest_offset + 2] = src->data[src_offset + 2];
+}
+
 void					ft_put_pixel_to_image(t_image_carry *carry, size_t x,
 		size_t y, unsigned int color)
 {
 	size_t				offset;
 
-	offset = ((y * carry->size_line) + (x * (carry->bits_per_pixels / 8)));
-	(*carry->data)[offset] = (color & 0xFF);
-	(*carry->data)[offset + 1] = (color & 0xFF00) >> 8;
-	(*carry->data)[offset + 2] = (color & 0xFF0000) >> 16;
+	offset = mlx_image_offset(carry, x, y);
+	carry->data[offset] = (color & 0xFF);
+	carry->data[offset + 1] = (color & 0xFF00) >> 8;
+	carry->data[offset + 2] = (color & 0xFF0000) >> 16;
 }

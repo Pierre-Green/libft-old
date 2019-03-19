@@ -38,18 +38,18 @@ dev: $(NAME)
 re: fclean $(NAME)
 
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 $(OUTDIR)%.o: $(SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
-	@$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -o $@ -c $<
 
 test: $(NAME) $(TEST_OBJS)
-	@$(CC) $(CFLAGS) $(TEST_OBJS) $(NAME) $(MLX_ARGS) -o $(TEST_NAME) -lm
+	$(CC) $(CFLAGS) $(TEST_OBJS) $(OBJS) $(MLX_ARGS) -o $(TEST_NAME) -lm
 
 $(TEST_OUTDIR)%.o: $(TEST_SRCDIR)%.c
 	@if [ ! -d $(dir $@) ]; then mkdir -p $(dir $@); fi
-	@$(CC) $(CFLAGS) -I $(INCDIR) $(MLX_INC) -I $(TEST_INCDIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCDIR) -I $(MLX_INC) -I $(TEST_INCDIR) -o $@ -c $<
 
 clean:
 	@rm -rf $(OUTDIR) $(TEST_OUTDIR)

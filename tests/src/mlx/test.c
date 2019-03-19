@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/18 22:12:52 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:10:11 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ static t_container		*body()
 	return (page);
 }
 
-t_image_carry			*imagecanva(t_canvas *self, void *s, t_image_carry *img)
+static t_image_carry	*canvas_img(t_canvas *canvas, void *s, t_image_carry *img)
 {
-	size_t				y;
 	size_t				x;
+	size_t				y;
 
-	y = 10;
-	while (y < 100)
+	y = 0;
+	while (y < 50)
 	{
-		x = 0;
-		while (x < 100)
+		x = 5;
+		while (x < 78)
 		{
-			ft_put_pixel_to_image(img, x, y, 0x000000);
+			ft_put_pixel_to_image(img, x, y, 0xF4369D);
 			x++;
 		}
 		y++;
@@ -73,31 +73,30 @@ t_image_carry			*imagecanva(t_canvas *self, void *s, t_image_carry *img)
 	return (img);
 }
 
-static t_container		*body2(void *mlx)
+static t_container		*body2()
 {
 	t_container			*page;
 	t_canvas			*canvas;
 
 	page = ft_init_container(POS(0, 0), DIM(WIN_WIDTH, WIN_HEIGHT), 0xFF12FF);
-	canvas = mlx_init_canvas(POS(0, 0), DIM(WIN_WIDTH, WIN_HEIGHT), mlx);
-	// canvas->image = imagecanva;
+	canvas = mlx_init_canvas(POS(100, 100), DIM(100, 200));
+	canvas->image = canvas_img;
 
 	page->add_child(page, ft_init_drawable(CANVAS, canvas));
 	return (page);
 }
-
 void					ft_mlx_tests()
 {
 	void				*mlx_ptr;
-	// t_window			*window;
+	t_window			*window;
 	t_window			*window2;
 
 	mlx_ptr = mlx_init();
-	// window = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX tests", (void *)0);
-	// window->body = body();
-	// window->render(window);
-	window2 = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX canvas tests", (void *)0);
-	window2->body = body2(mlx_ptr);
+	window = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX tests", (void *)0);
+	window->body = body();
+	window->render(window);
+	window2 = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX canvas tests", NULL);
+	window2->body = body2();
 	window2->render(window2);
 	mlx_loop(mlx_ptr);
 }

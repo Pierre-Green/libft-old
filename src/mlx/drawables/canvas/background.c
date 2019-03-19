@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 18:50:00 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:20:24 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/19 16:15:51 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/19 17:23:26 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/drawables.h"
+#include "ft_mlx/canvas.h"
 
-char				*mlx_container_image(t_container *self, t_point2d offset,
-		t_image_carry *carry)
+void				mlx_canvas_background(t_canvas *canvas)
 {
-	t_drawables		*node;
-	const t_point2d	next_offset = DDSUM(offset, self->pos);
+	size_t			x;
+	size_t			y;
 
-	mlx_container_background(self, offset, carry);
-	node = self->childs;
-	while (node)
+	y = 0;
+	while (y < canvas->zone.dim.height)
 	{
-		ft_image_merge(node->drawable, next_offset, carry);
-		node = node->next;
+		x = 0;
+		while (x < canvas->zone.dim.width)
+		{
+			ft_put_pixel_to_image(canvas->img, x, y, canvas->background_color);
+			x++;
+		}
+		y++;
 	}
-	return (carry->data);
 }
