@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 18:18:27 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:42:51 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:46:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ t_image_carry			*mlx_canvas_image_intern(t_canvas *, t_point2d offset, t_image_c
 void					mlx_canvas_background(t_canvas *canvas);
 
 void					mlx_canvas_draw_line(t_canvas *canvas, t_point2d from, t_point2d to, t_color color);
+
+void					mlx_canvas_draw_rect(t_canvas *canvas, t_zone2d zone, t_color color);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/19 17:44:04 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:49:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,8 @@ static t_container		*body()
 
 static t_image_carry	*canvas_img(t_canvas *canvas, void *s, t_image_carry *img)
 {
-	size_t				x;
-	size_t				y;
-
-	y = 0;
-	while (y < 50)
-	{
-		x = 5;
-		while (x < 78)
-		{
-			ft_put_pixel_to_image(img, x, y, 0xF4369D);
-			x++;
-		}
-		y++;
-	}
+	(void)s;
+	mlx_canvas_draw_rect(canvas, ft_zone2d_from_pdim(POS(5, 5), DIM(55, 100)), 0x0000FF);
 	mlx_canvas_draw_line(canvas, POS(10, 10), POS(90, 190), 0xFF0000);
 	return (img);
 }
