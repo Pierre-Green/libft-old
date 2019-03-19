@@ -6,11 +6,11 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:44:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:22:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:32:23 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/drawables.h"
+#include "ft_mlx/canvas.h"
 
 static t_image_carry	*init_img(t_canvas *canvas, t_image_carry *parent)
 {
