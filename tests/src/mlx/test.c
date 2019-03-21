@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/21 17:02:12 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:12:40 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ static t_container		*body()
 	return (page);
 }
 
+static void 			onpress(int mouse, int id, void *s)
+{
+	(void)s;
+	(void)mouse;
+	printf("Heyy %d\n", id);
+}
+
 static t_image_carry	*canvas_img(t_canvas *canvas, void *s, t_image_carry *img)
 {
 	(void)s;
@@ -82,8 +89,8 @@ void					ft_mlx_tests()
 
 	mlx_ptr = mlx_init();
 	window = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX tests", (void *)0);
-	// window->body = body();
-	// window->render(window);
+	window->body = body();
+	window->render(window);
 	window2 = ft_init_window(mlx_ptr, DIM(WIN_WIDTH, WIN_HEIGHT), "MLX canvas tests", NULL);
 	window2->body = body2();
 	window2->render(window2);

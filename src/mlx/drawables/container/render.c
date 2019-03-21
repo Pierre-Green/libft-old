@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:38:53 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 16:47:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 20:49:12 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void					mlx_container_render_txt(t_container *container,
 		if (node->drawable->type == PAGINATION)
 			obj.pagination->render_txt(obj.pagination, next_offset, win);
 		if (node->drawable->type == CANVAS)
-			obj.canvas->register_events(obj.canvas);
+			obj.canvas->register_events(obj.canvas, next_offset, win);
 		node = node->next;
 	}
 }
