@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 19:49:12 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:26:28 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ typedef struct				s_window
 	struct s_container		*body;
 	t_keyboard_hooks		*keyboard_hooks;
 	t_mouse_hooks			*mouse_hooks;
+	void					(*kill)(struct s_window *);
 }							t_window;
 
 t_window					*ft_init_window(void *mlx_ptr,
 		t_dim2d dims, char *title, void *carry);
+
+void						mlx_kill_window(t_window *self);
 
 int							mlx_render_window(t_window *window);
 

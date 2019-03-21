@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 18:19:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:18:37 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:38:19 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y, unsigne
 void					ft_copy_pixel_to_image(t_image_carry *des, t_image_carry *src, t_point2d dest_pos, t_point2d src_pos);
 
 size_t					mlx_image_offset(t_image_carry *img, size_t x, size_t y);
+
+void					mlx_kill_image_carry(t_image_carry *self, void *mlx_ptr);
 
 #endif

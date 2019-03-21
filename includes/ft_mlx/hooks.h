@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:00:25 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:32:30 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,9 @@ void				mlx_copy_mousehooks(t_mouse_hooks *dest, t_mouse_hooks *src);
 
 void				mlx_copy_mousehooks_offset(t_mouse_hooks *dest,
 		t_mouse_hooks *src, t_point2d offset);
+
+void				mlx_kill_keyhooks(t_keyboard_hooks *hooks);
+
+void				mlx_kill_mousehooks(t_mouse_hooks *hooks);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 18:51:34 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 20:55:48 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:42:39 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 static void					close_on_esc_handler(void *s)
 {
-	const t_window			*win = s;
+	t_window				*win;
 
-	(void)win;
-	ft_printf("Quit...");
-	// mlx_destroy_window(win->mlx, win->ptr);
+	win = s;
+	win->kill(win);
 }
 
 int							mlx_render_window(t_window *window)

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 20:54:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:41:46 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int							keyboard_hooks_dispatcher(int keycode, void *p)
 		current++;
 	}
 	hooks->len = 0;
-	carry->window->render(carry->window);
+	if (carry->window)
+		carry->window->render(carry->window);
 	return (0);
 }
 
@@ -53,6 +54,7 @@ int							mouse_hooks_dispatcher(int mouse, int x, int y,
 		current++;
 	}
 	hooks->len = 0;
-	carry->window->render(carry->window);
+	if (carry->window)
+		carry->window->render(carry->window);
 	return (0);
 }

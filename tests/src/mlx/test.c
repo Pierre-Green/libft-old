@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/21 21:12:40 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:25:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static t_container		*body2()
 	page->add_child(page, ft_init_drawable(CANVAS, canvas));
 	return (page);
 }
+
 void					ft_mlx_tests()
 {
 	void				*mlx_ptr;

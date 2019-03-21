@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:47:09 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:19:15 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:36:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,19 @@ void					ft_put_pixel_to_image(t_image_carry *carry, size_t x,
 	carry->data[offset] = (color & 0xFF);
 	carry->data[offset + 1] = (color & 0xFF00) >> 8;
 	carry->data[offset + 2] = (color & 0xFF0000) >> 16;
+}
+
+t_image_carry				*ft_image_carry_from(void *img_ptr, char *addr,
+		int bpp, int sizel, int endian)
+{
+	t_image_carry			*carry;
+
+	if (!(carry = (t_image_carry *)malloc(sizeof(t_image_carry))))
+		return (NULL);
+	carry->img_ptr = img_ptr;
+	carry->data = addr;
+	carry->bits_per_pixels = bpp;
+	carry->size_line = sizel;
+	carry->endian = endian;
+	return (carry);
 }
