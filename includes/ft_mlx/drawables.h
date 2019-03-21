@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/18 18:34:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 16:55:53 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ typedef union			u_drwble
 	t_text				*text;
 	t_button			*button;
 	t_pagination		*pagination;
-	t_canvas			*canvas;
+	struct s_canvas		*canvas;
 }						t_drwble;
 
 typedef struct			s_drawable
@@ -173,4 +173,5 @@ char					*mlx_button_image(t_button *self, t_point2d offset, t_image_carry *carr
 void					mlx_container_add_child(t_container *self, t_drawable *drawable);
 
 void					mlx_pagination_add_item(t_pagination *self, t_drawable *drawable);
+
 #endif

@@ -5,27 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 16:41:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 17:17:45 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/03/21 18:10:39 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/03/21 18:14:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/canvas.h"
+#include "ft_mlx/hooks.h"
 
-t_canvas				*mlx_init_canvas(t_point2d pos, t_dim2d dim)
+t_keyboard_hooks		*mlx_init_keyhooks()
 {
-	t_canvas			*canvas;
+	t_keyboard_hooks	*hooks;
 
-	if (!(canvas = malloc(sizeof(t_canvas))))
+	if (!(hooks = malloc(sizeof(t_keyboard_hooks)
+					+ (sizeof(t_keyboard_hook) * MLX_HOOK_INITIAL_CAPACITY))))
 		return (NULL);
-	canvas->s = NULL;
-	canvas->zone = ft_zone2d_from_pdim(pos, dim);
-	canvas->image = NULL;
-	canvas->register_events = mlx_canvas_register_events;
-	canvas->img = NULL;
-	canvas->keyboard_hooks = NULL;
-	canvas->add_keyboard_hook = add_keyboard_hook;
-	canvas->image_intern = mlx_canvas_image_intern;
-	canvas->background_color = 0x000000;
-	return (canvas);
+	hooks->capacity = MLX_HOOK_INITIAL_CAPACITY;
+	hooks->len = 0;
+	return (hooks);
 }

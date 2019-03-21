@@ -6,32 +6,43 @@
 /*   By: pierre </var/spool/mail/pierre>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 16:17:11 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/13 21:30:27 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/21 16:11:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_mlx/window.h"
 
-void				add_keyboard_hook(t_window *window, int (*f)(int, void *))
+t_keyboard_hooks		*add_keyboard_hook(t_window *window, int keycode,
+		void (*f)(void *), void *s)
 {
-	if (window->keyboard_hooks)
-		ft_lstadd(&window->keyboard_hooks, ft_lstnew(f, sizeof(f)));
+	t_keyboard_hooks	*hooks;
+
+	if (!window->keyboard_hooks)
+	{
+		if (!(window->keyboard_hooks = malloc(sizeof(t_keyboard_hooks))))
+			return (NULL);
+		window->keyboard_hooks->next = NULL;
+		window->keyboard_hooks->carry = s;
+		window->keyboard_hooks->onpress = f;;
+		window->keyboard_hooks->keycode = keycode;
+	}
 	else
-		window->keyboard_hooks = ft_lstnew(f, sizeof(f));
+	{
+		hooks = window->keyboard_hooks;
+		while (hooks->next)
+			hooks = hooks->next;
+		hooks->next->next = NULL;
+		hooks->next->carry = s;
+		hooks->next->onpress = f;
+		hooks->next->keycode = keycode;
+	}
+	return (window->keyboard_hooks);
 }
 
-void				add_lkeyboard_hook(t_window *window, int (*f)(int, void *))
-{
-	if (window->lkeyboard_hooks)
-		ft_lstadd(&window->lkeyboard_hooks, ft_lstnew(f, sizeof(f)));
-	else
-		window->lkeyboard_hooks = ft_lstnew(f, sizeof(f));
-}
-
-t_mouse_hooks		*add_mouse_hook(t_window *window, int id, t_zone2d zone,
+t_mouse_hooks			*add_mouse_hook(t_window *window, int id, t_zone2d zone,
 		void (*f)(t_mouse, int, void *), void *s)
 {
-	t_mouse_hooks	*hooks;
+	t_mouse_hooks		*hooks;
 
 	if (!window->mouse_hooks)
 	{
