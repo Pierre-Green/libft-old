@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/22 20:09:14 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/22 20:28:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_MATH_VEC_H
 # include <stdint.h>
 # include "ft_math/matrix.h"
+# include "ft_bool.h"
 
 /*
 ** 3D vector types
@@ -82,6 +83,6 @@ t_vec3_d				ft_vec3_d_cross(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d				ft_vec3_d_normalize(t_vec3_d self);
 
-t_vec3_d				ft_vec3_d_matmut(t_vec3_d self, t_matrix44_d mat);
+t_vec3_d				ft_vec3_d_matmut(t_vec3_d self, t_matrix44_d mat, t_bool cartesian);
 
 #endif
