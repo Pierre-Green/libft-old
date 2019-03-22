@@ -70,6 +70,7 @@ SRCS+=/math/geometrics/point/utils.c
 SRCS+=/math/geometrics/vec/vec3/double/constructors.c
 SRCS+=/math/geometrics/vec/vec3/double/cross.c
 SRCS+=/math/geometrics/vec/vec3/double/length.c
+SRCS+=/math/geometrics/vec/vec3/double/matmut.c
 SRCS+=/math/geometrics/vec/vec3/double/minus.c
 SRCS+=/math/geometrics/vec/vec3/double/norm.c
 SRCS+=/math/geometrics/vec/vec3/double/normalize.c

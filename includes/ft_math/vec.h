@@ -6,13 +6,14 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/18 16:32:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/22 20:09:14 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MATH_VEC_H
 # define FT_MATH_VEC_H
 # include <stdint.h>
+# include "ft_math/matrix.h"
 
 /*
 ** 3D vector types
@@ -80,5 +81,7 @@ double					ft_vec3_d_length(t_vec3_d self);
 t_vec3_d				ft_vec3_d_cross(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d				ft_vec3_d_normalize(t_vec3_d self);
+
+t_vec3_d				ft_vec3_d_matmut(t_vec3_d self, t_matrix44_d mat);
 
 #endif
