@@ -6,11 +6,12 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:44:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:32:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/22 17:28:12 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/canvas.h"
+#include "ft_mem.h"
 
 static t_image_carry	*init_img(t_canvas *canvas, t_image_carry *parent)
 {
@@ -20,6 +21,7 @@ static t_image_carry	*init_img(t_canvas *canvas, t_image_carry *parent)
 	sl = (parent->bits_per_pixels / 8) * (canvas->zone.dim.width);
 	if (!(data = malloc(sizeof(char) * (sl * canvas->zone.dim.height))))
 		return (NULL);
+	ft_memset(data, 0, sl * canvas->zone.dim.height);
 	canvas->img = ft_image_carry_from(NULL, data,
 			parent->bits_per_pixels, sl, parent->endian);
 	return (canvas->img);

@@ -65,6 +65,7 @@ SRCS+=/math/floats/ft_sfrexp_ld.c
 SRCS+=/math/geometrics/dim/utils.c
 SRCS+=/math/geometrics/matrix/44/double/init.c
 SRCS+=/math/geometrics/matrix/44/double/multiply.c
+SRCS+=/math/geometrics/matrix/44/double/perspective.c
 SRCS+=/math/geometrics/point/utils.c
 SRCS+=/math/geometrics/vec/vec3/double/constructors.c
 SRCS+=/math/geometrics/vec/vec3/double/cross.c
