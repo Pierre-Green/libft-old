@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:52:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/25 17:16:46 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/25 17:18:51 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void					mlx_camera_update_vecs(t_camera *self)
 	self->vec_right = ft_vec3_d_normalize(ft_vec3_d_cross(self->vec_front, self->world_up));
 	self->vec_right.x = -(self->vec_right.x);
 	self->vec_up = ft_vec3_d_normalize(ft_vec3_d_cross(self->vec_right, self->vec_front));
+	self->vec_up.y = -(self->vec_up.y);
 }
