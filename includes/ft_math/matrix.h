@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:41:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/22 17:29:50 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/25 16:37:38 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 
 typedef struct			s_mat44_d_data
 {
+	double				v00;
+	double				v01;
+	double				v02;
+	double				v03;
+	double				v10;
 	double				v11;
 	double				v12;
 	double				v13;
-	double				v14;
+	double				v20;
 	double				v21;
 	double				v22;
 	double				v23;
-	double				v24;
+	double				v30;
 	double				v31;
 	double				v32;
 	double				v33;
-	double				v34;
-	double				v41;
-	double				v42;
-	double				v43;
-	double				v44;
 }						t_mat44_d_data;
 
 typedef union			s_matrix44_d
