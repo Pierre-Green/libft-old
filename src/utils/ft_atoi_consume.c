@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:19:13 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/22 19:01:05 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/25 16:27:58 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int				ft_atoi_consume(char **str)
 
 	if (!ft_isdigit(**str) && **str != '-')
 		return (0);
+	neg = FALSE;
 	if (**str == '-')
 	{
 		neg = TRUE;
