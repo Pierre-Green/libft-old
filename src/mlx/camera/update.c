@@ -6,11 +6,17 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:52:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/25 18:46:35 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/25 20:05:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/camera.h"
+
+void					mlx_camera_update(t_camera *self)
+{
+	mlx_camera_update_vecs(self);
+	mlx_camera_update_view_mat(self);
+}
 
 void					mlx_camera_update_view_mat(t_camera *self)
 {
