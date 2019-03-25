@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 15:01:06 by pguthaus          #+#    #+#              #
-#    Updated: 2019/03/13 16:42:01 by pguthaus         ###   ########.fr        #
+#    Updated: 2019/03/25 16:16:38 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,5 +55,5 @@ getsources:
 	@rm -f $(TESTSOURCEMAP)
 	@touch $(SOURCEMAP)
 	@touch $(TESTSOURCEMAP) 
-	@find src/ -name "*.c" | sed  "s/src\//SRCS+=/g" >> $(SOURCEMAP)
-	@find tests/src/ -name "*.c" | sed "s/tests\/src\//TEST_SRCS+=/g" >> $(TESTSOURCEMAP)
+	@find src/ -name "*.c" | sed  "s/src\//FT_SRCS+=/g" >> $(SOURCEMAP)
+	@find tests/src/ -name "*.c" | sed "s/tests\/src\//FT_TEST_SRCS+=/g" >> $(TESTSOURCEMAP)

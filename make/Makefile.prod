@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 19:17:37 by pguthaus          #+#    #+#              #
-#    Updated: 2019/03/14 17:42:02 by pierre           ###   ########.fr        #
+#    Updated: 2019/03/25 16:19:00 by pguthaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ OUTDIR			=			./objs/prod/
 TEST_OUTDIR		=			$(addprefix $(TEST_DIR), objs/prod)
 
 # OBJS
-OBJS			=			$(addprefix $(OUTDIR),$(SRCS:.c=.o))
-TEST_OBJS		=			$(addprefix $(TEST_OUTDIR),$(TEST_SRCS:.c=.o))
+OBJS			=			$(addprefix $(OUTDIR),$(FT_SRCS:.c=.o))
+TEST_OBJS		=			$(addprefix $(TEST_OUTDIR),$(FT_TEST_SRCS:.c=.o))
 
 prod: $(NAME)
 
