@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:41:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/25 16:37:38 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/25 20:17:28 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ t_matrix44_d			ft_init44_matrix44_d(t_mat44_d_data data);
 t_matrix44_d			ft_multiply_matrix44_d(t_matrix44_d m1,
 		t_matrix44_d m2);
 
-t_matrix44_d			ft_perspective_matrix44_d(double fov,
-		double aspect_ratio, double near, double far);
+t_matrix44_d			ft_perspective_matrix44_d(double fov, double near, double far);
 
 #endif
