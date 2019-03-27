@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 19:03:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 20:08:16 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@
 # define KEY_B 11
 # define KEY_N 45
 # define KEY_M 46
+# define KEY_ARROW_LEFT 123
+# define KEY_ARROW_UP 126
+# define KEY_ARROW_RIGHT 124
+# define KEY_ARROW_DOWN 125
 
 typedef int			t_mouse_btn;
 
