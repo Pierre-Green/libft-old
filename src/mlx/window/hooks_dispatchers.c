@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 18:36:15 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 19:48:58 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int							motion_hooks_dispatcher(int x, int y,
 						carry->state);
 			current++;
 		}
+		hooks->len = 0;
 	}
-	hooks->len = 0;
 	if (carry->window)
 		carry->window->render(carry->window);
 	return (0);
