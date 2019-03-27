@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:27:04 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:41:01 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void			window_events(t_window *win)
 {
 	mlx_hook(win->ptr, 2, 1l << 0, keyboard_hooks_dispatcher, win->carry);
+	mlx_hook(win->ptr, 6, 1L<<8, motion_hooks_dispatcher, win->carry);
 	mlx_mouse_hook(win->ptr, mouse_hooks_dispatcher, win->carry);
 }
 
@@ -41,6 +42,7 @@ t_window			*ft_init_window(void *mlx_ptr, t_dim2d dims, char *title,
 	win->carry = carry;
 	win->keyboard_hooks = mlx_init_keyhooks();
 	win->mouse_hooks = mlx_init_mousehooks();
+	win->motion_hooks = mlx_init_motionhooks();
 	win->kill = mlx_kill_window;
 	win->ptr = mlx_new_window(mlx_ptr, dims.width, dims.height, title);
 	window_events(win);

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:15:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:26:28 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:29:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct				s_window
 	struct s_container		*body;
 	t_keyboard_hooks		*keyboard_hooks;
 	t_mouse_hooks			*mouse_hooks;
+	t_motion_hooks			*motion_hooks;
 	void					(*kill)(struct s_window *);
 }							t_window;
 
@@ -61,5 +62,8 @@ int							keyboard_hooks_dispatcher(int keycode,
 
 int							mouse_hooks_dispatcher(int mouse, int x,
 		int y, void *p_carry);
+
+int							motion_hooks_dispatcher(int x, int y,
+		void *p_carry);
 
 #endif

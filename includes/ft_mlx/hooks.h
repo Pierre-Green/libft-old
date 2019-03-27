@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/22 19:42:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:20:41 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef void		(*t_onpress)(void *s);
 
 typedef void		(*t_onclick)(t_mouse_btn button, int id, void *s);
 
+typedef void		(*t_onmotion)(int x, int y, void *s);
+
 typedef struct		s_keyboard_hook
 {
 	int				key;
@@ -82,9 +84,27 @@ typedef struct		s_mouse_hooks
 	t_mouse_hook	hooks[];
 }					t_mouse_hooks;
 
+typedef struct		s_motion_hook
+{
+	t_zone2d		zone;
+	t_onmotion		onmotion;
+	void			*s;
+}					t_motion_hook;
+
+typedef struct		s_motion_hooks
+{
+	size_t			len;
+	size_t			capacity;
+	void			(*add)(struct s_motion_hooks *, t_zone2d,
+			t_onmotion, void *);
+	t_motion_hook	hooks[];
+}					t_motion_hooks;
+
 t_keyboard_hooks	*mlx_init_keyhooks();
 
 t_mouse_hooks		*mlx_init_mousehooks();
+
+t_motion_hooks		*mlx_init_motionhooks();
 
 void				mlx_add_keyhook(t_keyboard_hooks *hooks, int key,
 		t_onpress onpress, void *s);
@@ -92,15 +112,25 @@ void				mlx_add_keyhook(t_keyboard_hooks *hooks, int key,
 void				mlx_add_mousehook(t_mouse_hooks *hooks, int id,
 		t_zone2d zone, t_onclick onclick, void *s);
 
-void				mlx_copy_keyhooks(t_keyboard_hooks *dest, t_keyboard_hooks *src);
+void				mlx_add_motionhook(t_motion_hooks *hooks, t_zone2d zone,
+		t_onmotion onmotion, void *s);
 
-void				mlx_copy_mousehooks(t_mouse_hooks *dest, t_mouse_hooks *src);
+void				mlx_copy_keyhooks(t_keyboard_hooks *dest,
+		t_keyboard_hooks *src);
+
+void				mlx_copy_mousehooks(t_mouse_hooks *dest,
+		t_mouse_hooks *src);
 
 void				mlx_copy_mousehooks_offset(t_mouse_hooks *dest,
 		t_mouse_hooks *src, t_point2d offset);
 
+void				mlx_copy_motionhooks(t_motion_hooks *dest,
+		t_motion_hooks *src);
+
 void				mlx_kill_keyhooks(t_keyboard_hooks *hooks);
 
 void				mlx_kill_mousehooks(t_mouse_hooks *hooks);
+
+void				mlx_kill_motionhooks(t_motion_hooks *hooks);
 
 #endif

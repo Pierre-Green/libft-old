@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:28:57 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:32:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:23:58 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void				mlx_kill_keyhooks(t_keyboard_hooks *hooks)
 }
 
 void				mlx_kill_mousehooks(t_mouse_hooks *hooks)
+{
+	ft_memdel((void **)&hooks);
+}
+
+void				mlx_kill_motionhooks(t_motion_hooks *hooks)
 {
 	ft_memdel((void **)&hooks);
 }

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 18:18:27 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:00:39 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:24:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct			s_canvas
 	void				(*register_events)(struct s_canvas *, t_point2d offset, void *s);
 	t_keyboard_hooks	*keyboard_hooks;
 	t_mouse_hooks		*mouse_hooks;
+	t_motion_hooks		*motion_hooks;
 	t_color				background_color;
 }						t_canvas;
 

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 20:14:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:00:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:21:55 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,20 @@ void				mlx_copy_mousehooks_offset(t_mouse_hooks *dest,
 		dest->add(dest, hook.id,
 				ft_zone2d_from_pdim(DDSUM(hook.zone.pos, offset),
 					hook.zone.dim), hook.onclick, hook.s);
+		current++;
+	}
+}
+
+void				mlx_copy_motionhooks(t_motion_hooks *dest, t_motion_hooks *src)
+{
+	size_t			current;
+	t_motion_hook	hook;
+
+	current = 0;
+	while (current < src->len)
+	{
+		hook = src->hooks[current];
+		dest->add(dest, hook.zone, hook.onmotion, hook.s);
 		current++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/21 21:25:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:39:44 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,10 @@ static t_container		*body()
 	return (page);
 }
 
-static void 			onpress(int mouse, int id, void *s)
+static void 			onmotion(int x, int y, void *s)
 {
 	(void)s;
-	(void)mouse;
-	printf("Heyy %d\n", id);
+	printf("Heyy x: %d y: %d\n", x, y);
 }
 
 static t_image_carry	*canvas_img(t_canvas *canvas, void *s, t_image_carry *img)
@@ -66,6 +65,7 @@ static t_image_carry	*canvas_img(t_canvas *canvas, void *s, t_image_carry *img)
 	(void)s;
 	mlx_canvas_draw_rect(canvas, ft_zone2d_from_pdim(POS(5, 5), DIM(55, 100)), 0x0000FF);
 	mlx_canvas_draw_line(canvas, POS(10, 10), POS(90, 190), 0xFF0000);
+	canvas->motion_hooks->add(canvas->motion_hooks, ft_zone2d_from_pdim(POS(0, 0), DIM(100, 100)), onmotion, s);
 	return (img);
 }
 
