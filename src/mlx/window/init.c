@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 23:39:18 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 18:41:01 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 21:08:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void			window_events(t_window *win)
 {
 	mlx_hook(win->ptr, 2, 1l << 0, keyboard_hooks_dispatcher, win->carry);
-	mlx_hook(win->ptr, 6, 1L<<8, motion_hooks_dispatcher, win->carry);
+	// mlx_hook(win->ptr, 6, 1L<<8, motion_hooks_dispatcher, win->carry);
 	mlx_mouse_hook(win->ptr, mouse_hooks_dispatcher, win->carry);
 }
 
