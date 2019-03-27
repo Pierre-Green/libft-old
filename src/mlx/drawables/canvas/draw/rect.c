@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 17:45:48 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:49:02 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/03/27 20:26:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void					mlx_canvas_draw_rect(t_canvas *canvas, t_zone2d zone, t_color color)
 	size_t				x;
 	size_t				y;
 
+	if (zone.pos.x + zone.dim.width > canvas->zone.dim.width
+			|| zone.pos.y + zone.dim.height > canvas->zone.dim.height)
+		return ;
 	y = zone.pos.y;
 	while ((y - zone.pos.y) < zone.dim.height)
 	{
