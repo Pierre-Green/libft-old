@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/01 19:26:18 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/01 19:28:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct		s_keyboard_hooks
 {
 	size_t			len;
 	size_t			capacity;
-	void			(*add)(struct s_keyboard_hooks *, int, t_onpress,
+	struct s_keyboard_hooks		*(*add)(struct s_keyboard_hooks *, int, t_onpress,
 			void *);
 	t_keyboard_hook	hooks[];
 }					t_keyboard_hooks;
@@ -83,7 +83,7 @@ typedef struct		s_mouse_hooks
 {
 	size_t			len;
 	size_t			capacity;
-	void			(*add)(struct s_mouse_hooks *, int, t_zone2d,
+	struct s_mouse_hooks	*(*add)(struct s_mouse_hooks *, int, t_zone2d,
 			t_onclick, void *);
 	t_mouse_hook	hooks[];
 }					t_mouse_hooks;
@@ -99,7 +99,7 @@ typedef struct		s_motion_hooks
 {
 	size_t			len;
 	size_t			capacity;
-	void			(*add)(struct s_motion_hooks *, t_zone2d,
+	t_motion_hooks		*(*add)(struct s_motion_hooks *, t_zone2d,
 			t_onmotion, void *);
 	t_motion_hook	hooks[];
 }					t_motion_hooks;
