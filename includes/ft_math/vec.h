@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 21:21:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:27:41 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_vec3_d				ft_vec3_d_cross(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d				ft_vec3_d_normalize(t_vec3_d self);
 
-t_vec3_d				ft_vec3_d_matmut(t_vec3_d self, t_matrix44_d mat, t_bool cartesian);
+t_vec3_d				ft_vec3_d_matmut(t_vec3_d self, t_matrix44_d mat);
 
 void					ft_vec3_d_debug(t_vec3_d self, const char *title);
 
