@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 20:08:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/01 19:26:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ t_mouse_hooks		*mlx_init_mousehooks();
 
 t_motion_hooks		*mlx_init_motionhooks();
 
-void				mlx_add_keyhook(t_keyboard_hooks *hooks, int key,
+t_keyboard_hooks		*mlx_add_keyhook(t_keyboard_hooks *hooks, int key,
 		t_onpress onpress, void *s);
 
-void				mlx_add_mousehook(t_mouse_hooks *hooks, int id,
+t_mouse_hooks			*mlx_add_mousehook(t_mouse_hooks *hooks, int id,
 		t_zone2d zone, t_onclick onclick, void *s);
 
-void				mlx_add_motionhook(t_motion_hooks *hooks, t_zone2d zone,
+t_motion_hooks			*mlx_add_motionhook(t_motion_hooks *hooks, t_zone2d zone,
 		t_onmotion onmotion, void *s);
 
 void				mlx_copy_keyhooks(t_keyboard_hooks *dest,
