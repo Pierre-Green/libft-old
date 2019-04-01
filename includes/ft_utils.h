@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:52:45 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/18 18:03:21 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/01 21:20:57 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ int					ft_isprint(int c);
 int					ft_decimal2octal(int i);
 
 double				ft_degrees_to_radian(double a);
+
+uintmax_t			ft_int_from_hexstr(char *str);
 
 #endif

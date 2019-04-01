@@ -167,6 +167,7 @@ FT_SRCS+=/utils/ft_count_digits_uint.c
 FT_SRCS+=/utils/ft_decimal2octal.c
 FT_SRCS+=/utils/ft_degrees_to_radian.c
 FT_SRCS+=/utils/ft_divmod.c
+FT_SRCS+=/utils/ft_int_from_hexstr.c
 FT_SRCS+=/utils/ft_int_to_hex.c
 FT_SRCS+=/utils/ft_isalnum.c
 FT_SRCS+=/utils/ft_isalpha.c
