@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 18:07:26 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/01 19:28:13 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/01 19:28:56 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ typedef struct		s_motion_hooks
 {
 	size_t			len;
 	size_t			capacity;
-	t_motion_hooks		*(*add)(struct s_motion_hooks *, t_zone2d,
+	struct s_motion_hooks		*(*add)(struct s_motion_hooks *, t_zone2d,
 			t_onmotion, void *);
 	t_motion_hook	hooks[];
 }					t_motion_hooks;
