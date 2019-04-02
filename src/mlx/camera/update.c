@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:52:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 20:17:53 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 20:19:59 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void					mlx_camera_update_rad(t_camera *self, double pitch, double yaw)
 		self->vec_right.x, self->vec_right.y, self->vec_right.z, 0,
 		self->vec_up.x, self->vec_up.y, self->vec_up.z, 0,
 		self->vec_front.x, self->vec_front.y, self->vec_front.z, 0,
-		ft_vec3_d_product3(self->position, self->vec_right),
-		ft_vec3_d_product3(self->position, self->vec_up),
-		ft_vec3_d_product3(self->position, self->vec_front), 1
+		ft_vec3_d_product2(self->position, self->vec_right),
+		ft_vec3_d_product2(self->position, self->vec_up),
+		ft_vec3_d_product2(self->position, self->vec_front), 1
 	};
 }
 
