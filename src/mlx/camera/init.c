@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:49:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/25 20:06:04 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:35:55 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_camera				*mlx_init_camera(t_vec3_d pos)
 	camera->vec_right = ft_vec3_d_normalize(ft_vec3_d_cross(camera->world_up, camera->vec_front));
 	camera->vec_front = ft_vec3_d_normalize(ft_vec3_d_minus(pos, ft_init0_vec3_d()));
 	camera->velocity = CAM_DEFAULT_VELOCITY;
-	camera->mouse_velocity = CAM_DEFAULT_MOUSE_VELOCITY;
+	camera->rotation_velocity = CAM_DEFAULT_ROTATION_VELOCITY;
 	camera->update = mlx_camera_update;
 	mlx_camera_update_vecs(camera);
 	mlx_camera_update_view_mat(camera);

@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:30:54 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/25 20:05:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:36:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define CAM_DEFAULT_YAW -90.0
 # define CAM_DEFAULT_PITCH 0.0
 # define CAM_DEFAULT_VELOCITY 2
-# define CAM_DEFAULT_MOUSE_VELOCITY 0.1
+# define CAM_DEFAULT_ROTATION_VELOCITY 0.1
 
 typedef enum			e_camera_movement
 {
@@ -30,6 +30,14 @@ typedef enum			e_camera_movement
 	LEFTWARD,
 	RIGHTWARD
 }						t_camera_movement;
+
+typedef enum			e_camera_rotations
+{
+	PITCH_UP,
+	PITCH_DOWN,
+	YAW_LEFT,
+	YAW_RIGHT
+}						t_camera_rotations;
 
 typedef struct			s_camera
 {
@@ -41,7 +49,7 @@ typedef struct			s_camera
 	t_vec3_d			vec_right;
 	t_vec3_d			vec_front;
 	double				velocity;
-	double				mouse_velocity;
+	double				rotation_velocity;
 	t_matrix44_d		view_mat;
 	void				(*update)(struct s_camera *);
 }						t_camera;
@@ -55,6 +63,8 @@ void					mlx_camera_update_vecs(t_camera *self);
 void					mlx_camera_update_view_mat(t_camera *self);
 
 void					mlx_camera_move(t_camera *self, t_camera_movement movement);
+
+void					mlx_camera_rotate(t_camera *self, t_camera_rotations rotation);
 
 void					mlx_camera_mouse(t_camera *self, double xoffset, double yoffset);
 
