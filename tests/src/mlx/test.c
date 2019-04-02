@@ -6,7 +6,7 @@
 /*   By: pierre <pguthaus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 02:54:16 by pierre            #+#    #+#             */
-/*   Updated: 2019/03/27 18:39:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:08:52 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ void					ft_mlx_tests()
 	window2->body = body2();
 	window2->render(window2);
 	mlx_loop(mlx_ptr);
+	ft_matrixes_test();
 }
