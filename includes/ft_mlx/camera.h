@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:30:54 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 17:36:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 20:05:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@ typedef struct			s_camera
 }						t_camera;
 
 t_camera				*mlx_init_camera(t_vec3_d pos);
-
-void					mlx_camera_update(t_camera *self);
-
-void					mlx_camera_update_vecs(t_camera *self);
 
 void					mlx_camera_update_view_mat(t_camera *self);
 
