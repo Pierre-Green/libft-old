@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:08:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 17:38:26 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:57:19 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void					mlx_camera_rotate(t_camera *self, t_camera_rotations rotation)
 		self->yaw += self->rotation_velocity;
 	if (self->pitch > 89)
 		self->pitch = 89;
-	else if (self->pitch < 1)
-		self->pitch = 1;
+	else if (self->pitch < -89)
+		self->pitch = -89;
 	mlx_camera_update_vecs(self);
 }
 
