@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 17:32:04 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 16:33:39 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:48:33 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void				canva_line1(t_canvas *canvas, t_point2d from,
 	x = from.x;
 	while ((x < to.x && x <= (int)dims.width) && (calculated = (from.y + ((to.y - from.y) * (x - from.x)) / (to.x - from.x))) <= (int)dims.height)
 	{
-				ft_put_pixel_to_image(canvas->img, x, calculated, color);
+		if (calculated >= 0)
+			ft_put_pixel_to_image(canvas->img, x, calculated, color);
 		x++;
 	}
 }
@@ -37,7 +38,8 @@ static void				canva_line2(t_canvas *canvas, t_point2d from,
 			&& (calculated = from.x + ((to.x - from.x) * (y - from.y))
 				/ (to.y - from.y)) <= (int)dims.width)
 	{
-		ft_put_pixel_to_image(canvas->img, calculated, y, color);
+		if (calculated >= 0)
+			ft_put_pixel_to_image(canvas->img, calculated, y, color);
 		y++;
 	}
 }
