@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:13:16 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/01 17:27:41 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/02 20:19:13 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_vec3_d				ft_vec3_d_minus(t_vec3_d self, t_vec3_d vec);
 
 t_vec3_d				ft_vec3_d_product1(t_vec3_d self, double a);
 
-double					ft_vec3_d_product3(t_vec3_d self, t_vec3_d vec);
+double					ft_vec3_d_product2(t_vec3_d self, t_vec3_d vec);
 
 double					ft_vec3_d_norm(t_vec3_d self);
 
