@@ -67,6 +67,7 @@ FT_SRCS+=/math/geometrics/matrix/44/double/debug.c
 FT_SRCS+=/math/geometrics/matrix/44/double/init.c
 FT_SRCS+=/math/geometrics/matrix/44/double/multiply.c
 FT_SRCS+=/math/geometrics/matrix/44/double/perspective.c
+FT_SRCS+=/math/geometrics/matrix/44/double/rotation.c
 FT_SRCS+=/math/geometrics/point/utils.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/constructors.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/cross.c
