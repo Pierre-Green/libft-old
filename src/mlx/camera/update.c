@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:52:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 20:19:59 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/03 18:45:44 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@ void					mlx_camera_update_view_mat(t_camera *self)
 	const double		rad_pitch = ft_degrees_to_radian(self->pitch);
 	const double		rad_yaw = ft_degrees_to_radian(self->yaw);
 	mlx_camera_update_rad(self, rad_pitch, rad_yaw);
+	if (self->mode == PERSPECTIVE)
+		ft_multiply_matrix44_d(self->view_mat, ft_perspective_matrix44_d(70, 0.1, 100));
 }
