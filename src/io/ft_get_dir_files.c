@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:23:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 19:13:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:38:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void			add_file(t_dfiles *node, struct dirent *dirent)
 		node->next = (t_dfiles *)malloc(sizeof(t_dfiles));
 		node->next->file = dirent;
 		node->next->next = NULL;
-		node = node->next;
 	}
 }
 
@@ -65,6 +64,8 @@ t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
 					&& !gdf_extension(dirent, ext)))
 			continue ;
 		add_file(node, dirent);
+		if (node->next->file)
+			node = node->next;
 		(*count)++;
 	}
 	return (files);
