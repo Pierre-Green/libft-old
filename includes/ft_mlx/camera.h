@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:30:54 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 18:30:18 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:04:17 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ t_camera				*mlx_init_camera(t_vec3_d pos);
 
 void					mlx_camera_update_view_mat(t_camera *self);
 
-void					mlx_camera_move(t_camera *self, t_camera_movement movement);
+void					mlx_camera_move(t_camera *self,
+		t_camera_movement movement);
 
-void					mlx_camera_rotate(t_camera *self, t_camera_rotations rotation);
+void					mlx_camera_rotate(t_camera *self,
+		t_camera_rotations rotation);
 
 #endif

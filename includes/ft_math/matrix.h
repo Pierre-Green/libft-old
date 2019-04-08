@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 16:41:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 17:17:51 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:04:02 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct			s_mat44_d_data
 	double				v33;
 }						t_mat44_d_data;
 
-typedef union			s_matrix44_d
+typedef union			u_matrix44_d
 {
 	t_mat44_d_data		raw;
 	double				matrix[4][4];
@@ -49,7 +49,8 @@ t_matrix44_d			ft_init44_matrix44_d(t_mat44_d_data data);
 t_matrix44_d			ft_multiply_matrix44_d(t_matrix44_d m1,
 		t_matrix44_d m2);
 
-t_matrix44_d			ft_perspective_matrix44_d(double fov, double near, double far);
+t_matrix44_d			ft_perspective_matrix44_d(double fov, double near,
+		double far);
 
 t_matrix44_d			ft_identity_matrix44_d();
 

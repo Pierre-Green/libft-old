@@ -6,14 +6,15 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 17:29:59 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/02 18:02:12 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:15:51 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/matrix.h"
 #include <math.h>
 
-t_matrix44_d			ft_perspective_matrix44_d(double fov, double near, double far)
+t_matrix44_d			ft_perspective_matrix44_d(double fov, double near,
+		double far)
 {
 	double				scale;
 	double				a;

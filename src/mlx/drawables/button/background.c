@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:33:01 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/15 14:01:07 by pierre           ###   ########.fr       */
+/*   Updated: 2019/04/08 19:17:01 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				mlx_button_background(t_button *button, t_point2d offset,
 		{
 			ft_put_pixel_to_image(carry, x, y,
 					(button->enabled ? button->background_color :
-					 button->disabled_background_color));
+					button->disabled_background_color));
 			x++;
 		}
 		y++;

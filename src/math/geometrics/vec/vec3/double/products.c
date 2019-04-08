@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:36:12 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/03 19:00:08 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:15:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math/vec.h"
 
-t_vec3_d				ft_vec3_d_product(t_vec3_d self, t_vec3_d vec)
+t_vec3_d		ft_vec3_d_product(t_vec3_d self, t_vec3_d vec)
 {
 	self.x *= vec.x;
 	self.y *= vec.y;
