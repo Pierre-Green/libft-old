@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:30:54 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 17:46:55 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 18:30:18 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define CAM_DEFAULT_YAW 0
 # define CAM_DEFAULT_PITCH 0.0
-# define CAM_DEFAULT_TRANSLATION_VELOCITY 2
+# define CAM_DEFAULT_TRANSLATION_VELOCITY 0.1
 # define CAM_DEFAULT_ROTATION_VELOCITY 0.1
 
 typedef enum			e_camera_movement
