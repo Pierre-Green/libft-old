@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:23:29 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 19:38:49 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 19:40:33 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_dfiles			*ft_get_dir_files(DIR *dir, const char *ext, size_t *count)
 					&& !gdf_extension(dirent, ext)))
 			continue ;
 		add_file(node, dirent);
-		if (node->next->file)
+		if (node->next)
 			node = node->next;
 		(*count)++;
 	}
