@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:49:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 17:41:07 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:46:36 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ t_camera				*mlx_init_camera(t_vec3_d pos)
 	camera->position = pos;
 	camera->rotation.y = CAM_DEFAULT_YAW;
 	camera->rotation.x = CAM_DEFAULT_PITCH;
-	camera->vec_right = ft_vec3_d_normalize(ft_vec3_d_cross((t_vec3_d){0, 1, 0}, camera->vec_front));
-	camera->vec_front = ft_vec3_d_normalize(ft_vec3_d_minus(pos, ft_init0_vec3_d()));
-	camera->vec_up = ft_vec3_d_cross(camera->vec_front, camera->vec_right);
 	camera->trans_velocity = CAM_DEFAULT_TRANSLATION_VELOCITY;
 	camera->mode = PERSPECTIVE;
 	camera->rotat_velocity = CAM_DEFAULT_ROTATION_VELOCITY;
