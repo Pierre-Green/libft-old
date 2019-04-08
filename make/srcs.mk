@@ -72,6 +72,7 @@ FT_SRCS+=/math/geometrics/point/utils.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/constructors.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/cross.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/debug.c
+FT_SRCS+=/math/geometrics/vec/vec3/double/div.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/length.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/matmut.c
 FT_SRCS+=/math/geometrics/vec/vec3/double/minus.c
