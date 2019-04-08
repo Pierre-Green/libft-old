@@ -6,13 +6,13 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:52:15 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/03 18:45:44 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:23:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/camera.h"
 
-void					mlx_camera_update_rad(t_camera *self, double pitch, double yaw)
+static void				mlx_camera_update_rad(t_camera *self, double pitch, double yaw)
 {
 	const double		cos_pitch = cos(pitch);
 	const double		sin_pitch = sin(pitch);
@@ -34,9 +34,8 @@ void					mlx_camera_update_rad(t_camera *self, double pitch, double yaw)
 
 void					mlx_camera_update_view_mat(t_camera *self)
 {
-	const double		rad_pitch = ft_degrees_to_radian(self->pitch);
-	const double		rad_yaw = ft_degrees_to_radian(self->yaw);
-	mlx_camera_update_rad(self, rad_pitch, rad_yaw);
-	if (self->mode == PERSPECTIVE)
-		ft_multiply_matrix44_d(self->view_mat, ft_perspective_matrix44_d(70, 0.1, 100));
+	self->view_mat = ft_multiply_matrix44_d(
+			ft_rotation_matrix44_d(self->rotation.x, self->rotation.y, self->rotation.z),
+			ft_translation_matrix44_d(self->position.x, self->position.y, self->position.z));
+	self->view_mat = ft_multiply_matrix44_d(self->view_mat, ft_perspective_matrix44_d(70, 1, 100));
 }

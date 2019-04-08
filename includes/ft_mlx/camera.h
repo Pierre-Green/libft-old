@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:30:54 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/03 18:43:40 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:31:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,14 @@ typedef enum			e_camera_modes
 typedef struct			s_camera
 {
 	t_vec3_d			position;
-	double				yaw;
-	double				pitch;
+	t_vec3_d			rotation;
 	double				trans_velocity;
 	double				rotat_velocity;
 	t_matrix44_d		view_mat;
 	t_camera_modes		mode;
-	t_vec3_d			vec_up;
-	t_vec3_d			vec_right;
 	t_vec3_d			vec_front;
+	t_vec3_d			vec_right;
+	t_vec3_d			vec_up;
 	void				(*update)(struct s_camera *);
 }						t_camera;
 
