@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 17:09:27 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 18:11:06 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct			s_pagination
 	t_drawables			*items;
 	t_dim2d				gride;
 	size_t				page;
-	size_t				items_count;
 	t_dim2d				items_dim;
 	t_margin			items_margin;
 }						t_pagination;

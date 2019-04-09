@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 17:19:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 18:10:45 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_image_carry	*pagination_bottom_image(t_pagination *self,
 		self->prev->enabled = FALSE;
 	else
 		self->prev->enabled = TRUE;
-	if (self->page == self->items_count / (self->gride.width * self->gride.height))
+	if (self->page == self->items->len / (self->gride.width * self->gride.height))
 		self->next->enabled = FALSE;
 	else
 		self->next->enabled = TRUE;
