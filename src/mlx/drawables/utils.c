@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:49:25 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 17:05:29 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:15:19 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,17 @@ static void					ft_copy_drawables(t_drawables *dest, t_drawables *src)
 t_drawables					*ft_add_drawable_to_drawables(t_drawables **dest, t_drawable drawable)
 {
 	t_drawables				*new;
+	size_t					capacity;
 
-	if ((*dest)->len == (*dest)->capacity)
+	if (*dest)
+		capacity = (*dest)->capacity << 1;
+	else
+		capacity = MLX_DRAWABLE_INITIAL_CAPACITY;
+	if (!*dest || (*dest)->len == (*dest)->capacity)
 	{
-		if (!(new = malloc(sizeof(t_drawables) + sizeof(t_drawable) * ((*dest)->capacity << 1))))
+		if (!(new = malloc(sizeof(t_drawables) + sizeof(t_drawable) * capacity)))
 			return (NULL);
-		new->capacity = (*dest)->capacity << 1;
+		new->capacity = capacity;
 		new->len = 0;
 		ft_copy_drawables(new, (*dest));
 		*dest = new;
