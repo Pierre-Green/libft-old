@@ -6,24 +6,24 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:47:09 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:36:42 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:39:12 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-t_image_carry			*ft_image_merge(t_drawable *drawable, t_point2d offset,
+t_image_carry			*ft_image_merge(t_drawable drawable, t_point2d offset,
 		t_image_carry *carry)
 {
-	const t_drwble		obj = drawable->drawable;
+	const t_drwble		obj = drawable.drawable;
 
-	if (drawable->type == CONTAINER)
+	if (drawable.type == CONTAINER)
 		obj.container->image(obj.container, offset, carry);
-	if (drawable->type == BUTTON)
+	if (drawable.type == BUTTON)
 		obj.button->image(obj.button, offset, carry);
-	if (drawable->type == PAGINATION)
+	if (drawable.type == PAGINATION)
 		obj.pagination->image(obj.pagination, offset, carry);
-	if (drawable->type == CANVAS)
+	if (drawable.type == CANVAS)
 		obj.canvas->image_intern(obj.canvas, offset, carry);
 	return (carry);
 }

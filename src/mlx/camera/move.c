@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:07:42 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 19:33:16 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:34:22 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void					mlx_camera_move(t_camera *self,
 		t_camera_movement movement)
 {
-	const double		cos_pitch = cos(ft_degrees_to_radian(self->rotation.x));
 	const double		sin_pitch = sin(ft_degrees_to_radian(self->rotation.x));
 	const double		cos_yaw = cos(ft_degrees_to_radian(self->rotation.y));
 	const double		sin_yaw = sin(ft_degrees_to_radian(self->rotation.y));

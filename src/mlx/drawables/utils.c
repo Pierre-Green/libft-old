@@ -6,54 +6,46 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:49:25 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:36:46 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:05:29 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
 
-void						ft_add_drawable_to_drawables(t_drawables *dest,
-		t_drawable *src)
+static void					ft_copy_drawables(t_drawables *dest, t_drawables *src)
 {
-	t_drawables				*node;
+	int						current;
 
-	node = dest;
-	while (node->next)
-		node = node->next;
-	if (node->drawable == NULL)
-		node->drawable = src;
-	else
-	{
-		node->next = (t_drawables *)malloc(sizeof(t_drawables));
-		node->next->drawable = src;
-		node->next->next = NULL;
-	}
+	current = -1;
+	while (++current < (int)src->len)
+		ft_add_drawable_to_drawables(&dest, src->drawables[current]);
 }
 
-t_drawable					*ft_drawable_at(t_drawables *lst, size_t i)
+t_drawables					*ft_add_drawable_to_drawables(t_drawables **dest, t_drawable drawable)
 {
-	const t_drawables		*node = lst;
-	size_t					curr;
+	t_drawables				*new;
 
-	curr = 0;
-	while (curr < i)
+	if ((*dest)->len == (*dest)->capacity)
 	{
-		if (!node->next)
+		if (!(new = malloc(sizeof(t_drawables) + sizeof(t_drawable) * ((*dest)->capacity << 1))))
 			return (NULL);
-		node = node->next;
-		curr++;
+		new->capacity = (*dest)->capacity << 1;
+		new->len = 0;
+		ft_copy_drawables(new, (*dest));
+		*dest = new;
+		ft_add_drawable_to_drawables(dest, drawable);
 	}
-	return ((t_drawable *)node->drawable);
+	(*dest)->drawables[(*dest)->len] = drawable;
+	(*dest)->len++;
+	return (*dest);
 }
 
-t_drawable					*ft_init_drawable(t_drawable_types type,
+t_drawable					ft_init_drawable(t_drawable_types type,
 		void *value)
 {
-	t_drawable				*drawable;
+	t_drawable				drawable;
 	t_drwble				drwble;
 
-	if (!(drawable = malloc(sizeof(t_drawable))))
-		return (NULL);
 	if (type == CONTAINER)
 		drwble.container = value;
 	if (type == TEXT)
@@ -64,8 +56,8 @@ t_drawable					*ft_init_drawable(t_drawable_types type,
 		drwble.pagination = value;
 	if (type == CANVAS)
 		drwble.canvas = value;
-	drawable->type = type;
-	drawable->drawable = drwble;
+	drawable.type = type;
+	drawable.drawable = drwble;
 	return (drawable);
 }
 

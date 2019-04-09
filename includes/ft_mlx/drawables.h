@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 16:55:53 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:09:27 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define MLX_PAGINATION_BOT_SIZE 70
 # define MLX_PAGINATION_ACTION_PREV 21
 # define MLX_PAGINATION_ACTION_NEXT 42
+# define MLX_DRAWABLE_INITIAL_CAPACITY 16
 
 typedef size_t			t_margin[4];
 
@@ -76,7 +77,7 @@ typedef struct			s_container
 	t_image_carry		*(*render)(struct s_container *, void *, t_image_carry *);
 	void				(*render_txt)(struct s_container *, t_point2d, void *);
 	char				*(*image)(struct s_container *, t_point2d, t_image_carry *);
-	void				(*add_child)(struct s_container *, t_drawable *);
+	void				(*add_child)(struct s_container *, t_drawable);
 	t_color				background_color;
 	t_dim2d				dim;
 	t_point2d			pos;
@@ -86,7 +87,7 @@ typedef struct			s_pagination
 {
 	char				*(*image)(struct s_pagination *, t_point2d, t_image_carry *);
 	void				(*render_txt)(struct s_pagination *, t_point2d, void *);
-	void				(*add_child)(struct s_pagination *, t_drawable *);
+	void				(*add_child)(struct s_pagination *, t_drawable);
 	t_button			*prev;
 	t_button			*next;
 	t_zone2d			zone;
@@ -117,12 +118,13 @@ typedef struct			s_drawable
 	t_drawable_types	type;
 }						t_drawable;
 
-t_drawable				*ft_init_drawable(t_drawable_types type, void *value);
+t_drawable				ft_init_drawable(t_drawable_types type, void *value);
 
 typedef struct			s_drawables
 {
-	t_drawable			*drawable;
-	struct s_drawables	*next;
+	size_t				len;
+	size_t				capacity;
+	t_drawable			drawables[];
 }						t_drawables;
 
 
@@ -148,17 +150,15 @@ t_drawable				*mlx_container_to_drawable(t_container *container);
 
 void					mlx_container_background(t_container *c, t_point2d o, t_image_carry *carry);
 
-void					ft_add_drawable_to_drawables(t_drawables *dest, t_drawable *src);
+t_drawables				*ft_add_drawable_to_drawables(t_drawables **dest, t_drawable drawable);
 
 int						ft_drawable_routerender(t_drawable drawable, t_point2d offset, void *);
 
-t_image_carry			*ft_image_merge(t_drawable *drawable, t_point2d offset, t_image_carry *carry);
+t_image_carry			*ft_image_merge(t_drawable drawable, t_point2d offset, t_image_carry *carry);
 
 t_image_carry			*ft_image_router(t_drawable *drawable, t_image_carry *dest);
 
 void					ft_put_pixel_to_image(t_image_carry *carry, size_t x, size_t y, unsigned int color);
-
-t_drawable				*ft_drawable_at(t_drawables *lst, size_t i);
 
 t_point2d				mlx_pagination_offset(t_pagination *pagination, t_point2d offset, t_zone2d gride, t_bool center);
 
@@ -170,8 +170,16 @@ size_t					mlx_text_width(char *str);
 
 char					*mlx_button_image(t_button *self, t_point2d offset, t_image_carry *carry);
 
-void					mlx_container_add_child(t_container *self, t_drawable *drawable);
+void					mlx_container_add_child(t_container *self, t_drawable drawable);
 
-void					mlx_pagination_add_item(t_pagination *self, t_drawable *drawable);
+void					mlx_pagination_add_item(t_pagination *self, t_drawable drawable);
+
+void					mlx_kill_container(t_container **container, void *mlx_ptr);
+
+void					mlx_kill_text(t_text **text);
+
+void					mlx_kill_button(t_button **button);
+
+void					mlx_kill_pagination(t_pagination **pagination);
 
 #endif

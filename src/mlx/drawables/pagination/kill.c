@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   kill.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 18:50:00 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 16:39:29 by pguthaus         ###   ########.fr       */
+/*   Created: 2019/04/09 16:27:13 by pguthaus          #+#    #+#             */
+/*   Updated: 2019/04/09 16:28:35 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/drawables.h"
+#include "ft_mem.h"
 
-char				*mlx_container_image(t_container *self, t_point2d offset,
-		t_image_carry *carry)
+void					mlx_kill_pagination(t_pagination **pagination)
 {
-	const t_point2d	next_offset = DDSUM(offset, self->pos);
-	size_t			current;
-
-	mlx_container_background(self, offset, carry);
-	current = 0;
-	while (current < self->childs->len)
-	{
-		ft_image_merge(self->childs->drawables[current], next_offset, carry);
-		current++;
-	}
-	return (carry->data);
+	mlx_kill_button(&(*pagination)->prev);
+	mlx_kill_button(&(*pagination)->next);
 }

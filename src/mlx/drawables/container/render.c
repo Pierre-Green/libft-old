@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:38:53 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 20:49:12 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:43:24 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,27 @@
 void					mlx_container_render_txt(t_container *container,
 		t_point2d offset, void *win)
 {
-	t_drawables			*node;
 	const t_point2d		next_offset = DDSUM(offset, container->pos);
+	size_t				current;
+	t_drawable			drawable;
 	t_drwble			obj;
 
-	node = container->childs;
-	while (node)
+	current = 0;
+	while (current < container->childs->len)
 	{
-		obj = node->drawable->drawable;
-		if (node->drawable->type == CONTAINER)
+		drawable = container->childs->drawables[current];
+		obj = drawable.drawable;
+		if (drawable.type == CONTAINER)
 			mlx_container_render_txt(obj.container, next_offset, win);
-		if (node->drawable->type == TEXT)
+		if (drawable.type == TEXT)
 			obj.text->render_txt(obj.text, next_offset, win);
-		if (node->drawable->type == BUTTON)
+		if (drawable.type == BUTTON)
 			obj.button->render_txt(obj.button, next_offset, win);
-		if (node->drawable->type == PAGINATION)
+		if (drawable.type == PAGINATION)
 			obj.pagination->render_txt(obj.pagination, next_offset, win);
-		if (node->drawable->type == CANVAS)
+		if (drawable.type == CANVAS)
 			obj.canvas->register_events(obj.canvas, next_offset, win);
-		node = node->next;
+		current++;
 	}
 }
 

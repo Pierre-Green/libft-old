@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:43:36 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/14 18:36:17 by pierre           ###   ########.fr       */
+/*   Updated: 2019/04/09 17:06:41 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,7 @@ t_point2d				mlx_pagination_offset(t_pagination *pagination,
 }
 
 void					mlx_pagination_add_item(t_pagination *self,
-		t_drawable *drawable)
+		t_drawable drawable)
 {
-	if (self->items == NULL)
-	{
-		self->items = (t_drawables *)malloc(sizeof(t_drawables));
-		self->items->drawable = NULL;
-		self->items->next = NULL;
-	}
-	ft_add_drawable_to_drawables(self->items, drawable);
-	self->items_count++;
+	ft_add_drawable_to_drawables(&self->items, drawable);
 }

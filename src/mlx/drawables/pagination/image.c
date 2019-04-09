@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/19 17:20:31 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:48:04 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,16 @@ char					*mlx_pagination_image(t_pagination *self,
 	offset = DDSUM(p_offset, self->zone.pos);
 	gride = ft_zone2d_from_pdim(POS(0, 0), mlx_pagination_gride_dims(self));
 	node = self->items;
-	current = 0;
-	while (current++ < self->page * (self->gride.width * self->gride.height))
-		node = node->next;
-	while (gride.pos.y < (int)gride.dim.height && node)
+	current = self->page * (self->gride.width * self->gride.height);
+	while (gride.pos.y < (int)gride.dim.height && current < self->items->len)
 	{
 		gride.pos.x = 0;
-		while (gride.pos.x < (int)gride.dim.width && node)
+		while (gride.pos.x < (int)gride.dim.width && current < self->items->len)
 		{
 			next_offset = mlx_pagination_offset(self, offset, gride, TRUE);
-			ft_image_merge(ft_drawable_at(self->items,
-						(gride.pos.y * gride.dim.width) + gride.pos.x),
-					next_offset, carry);
+			ft_image_merge(self->items->drawables[current] ,next_offset, carry);
 			gride.pos.x++;
-			node = node->next;
+			current++;
 		}
 		gride.pos.y++;
 	}

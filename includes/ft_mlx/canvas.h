@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 18:18:27 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/08 19:05:23 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:32:00 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void					mlx_canvas_draw_rect(t_canvas *canvas, t_zone2d zone,
 
 void					mlx_canvas_register_events(t_canvas *canvas,
 		t_point2d offset, void *s);
+
+void					mlx_kill_canvas(t_canvas **canvas, void *mlx_ptr);
 
 #endif
