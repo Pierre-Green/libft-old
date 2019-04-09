@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 18:35:49 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 18:39:08 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ typedef struct			s_button
 	t_bool				enabled;
 	t_dim2d				dim;
 	t_point2d			pos;
+	struct s_button		*(*set_s)(struct s_button *, void *);
+	struct s_button		*(*set_uuid)(struct s_button *, int);
+	struct s_button		*(*set_enabled)(struct s_button *, t_bool);
+	struct s_button		*(*set_onclick)(struct s_button *, void (*)(int, int, void *));
 }						t_button;
 
 
