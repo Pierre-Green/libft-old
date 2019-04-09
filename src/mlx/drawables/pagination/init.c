@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:41:28 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/15 11:06:23 by pierre           ###   ########.fr       */
+/*   Updated: 2019/04/09 18:12:31 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void				onclick_action(int mouse, int action, void *s)
 	if (action == MLX_PAGINATION_ACTION_PREV && pagination->page > 0)
 		pagination->page--;
 	if (action == MLX_PAGINATION_ACTION_NEXT
-			&& pagination->page < pagination->items_count
+			&& pagination->page < pagination->items->len
 			/ (pagination->gride.height * pagination->gride.width))
 		pagination->page++;
 }
@@ -72,7 +72,6 @@ t_pagination			*mlx_init_pagination(t_zone2d zone, t_dim2d item_dim,
 	curr = 0;
 	while (curr++ < 4)
 		pagination->items_margin[curr - 1] = item_margin[curr - 1];
-	pagination->items_count = 0;
 	pagination->items = NULL;
 	pagination->page = 0;
 	pagination->render_txt = mlx_pagination_render_txt;
