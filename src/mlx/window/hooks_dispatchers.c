@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 16:07:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 18:57:41 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int							keyboard_hooks_dispatcher(int keycode, void *p)
 	t_keyboard_hooks		*hooks;
 	size_t					current;
 
-	ft_printf("Key: %d\n", keycode);
 	hooks = carry->window->keyboard_hooks;
 	current = 0;
 	while (current < hooks->len)
