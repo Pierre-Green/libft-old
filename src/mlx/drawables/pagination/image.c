@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:40:11 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 16:48:04 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:19:11 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char					*mlx_pagination_image(t_pagination *self,
 	gride = ft_zone2d_from_pdim(POS(0, 0), mlx_pagination_gride_dims(self));
 	node = self->items;
 	current = self->page * (self->gride.width * self->gride.height);
-	while (gride.pos.y < (int)gride.dim.height && current < self->items->len)
+	while (self->items && gride.pos.y < (int)gride.dim.height && current < self->items->len)
 	{
 		gride.pos.x = 0;
 		while (gride.pos.x < (int)gride.dim.width && current < self->items->len)
