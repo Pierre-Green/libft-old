@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:34:02 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/21 21:40:11 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:11:50 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ void			mlx_kill_image_carry(t_image_carry *self, void *mlx_ptr)
 		mlx_destroy_image(mlx_ptr, self->img_ptr);
 	else
 		ft_memdel((void **)self->data);
-	ft_memdel((void **)self);
 }
