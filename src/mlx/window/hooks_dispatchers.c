@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:29:06 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/03/27 19:54:57 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:07:57 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int							keyboard_hooks_dispatcher(int keycode, void *p)
 	while (current < hooks->len)
 	{
 		if (keycode == hooks->hooks[current].key)
-			hooks->hooks[current].onpress(carry->state);
+			hooks->hooks[current].onpress(hooks->hooks[current].s);
 		current++;
 	}
 	hooks->len = 0;
