@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:14:46 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 18:11:06 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 18:35:49 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,4 +181,12 @@ void					mlx_kill_button(t_button **button);
 
 void					mlx_kill_pagination(t_pagination **pagination);
 
+t_button				*mlx_button_set_s(t_button *self, void *s);
+
+t_button				*mlx_button_set_uuid(t_button *self, int uuid);
+
+t_button				*mlx_button_set_enabled(t_button *self, t_bool enabled);
+
+t_button				*mlx_button_set_onclick(t_button *self,
+				void (*onclick)(int, int, void *));
 #endif

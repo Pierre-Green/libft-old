@@ -110,6 +110,7 @@ FT_SRCS+=/mlx/drawables/button/image.c
 FT_SRCS+=/mlx/drawables/button/init.c
 FT_SRCS+=/mlx/drawables/button/kill.c
 FT_SRCS+=/mlx/drawables/button/render.c
+FT_SRCS+=/mlx/drawables/button/setters.c
 FT_SRCS+=/mlx/drawables/canvas/background.c
 FT_SRCS+=/mlx/drawables/canvas/draw/line.c
 FT_SRCS+=/mlx/drawables/canvas/draw/rect.c
