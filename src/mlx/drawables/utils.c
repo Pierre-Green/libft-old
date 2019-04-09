@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:49:25 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 17:15:19 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:16:42 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ t_drawables					*ft_add_drawable_to_drawables(t_drawables **dest, t_drawable dra
 			return (NULL);
 		new->capacity = capacity;
 		new->len = 0;
-		ft_copy_drawables(new, (*dest));
+		if (*dest)
+			ft_copy_drawables(new, (*dest));
 		*dest = new;
 		ft_add_drawable_to_drawables(dest, drawable);
 	}
