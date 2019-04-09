@@ -6,7 +6,7 @@
 /*   By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 21:38:53 by pguthaus          #+#    #+#             */
-/*   Updated: 2019/04/09 16:43:24 by pguthaus         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:20:34 by pguthaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void					mlx_container_render_txt(t_container *container,
 	t_drwble			obj;
 
 	current = 0;
-	while (current < container->childs->len)
+	while (container->childs && current < container->childs->len)
 	{
 		drawable = container->childs->drawables[current];
 		obj = drawable.drawable;
